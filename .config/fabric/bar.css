@@ -1,0 +1,117 @@
+@define-color mainWhite #FFFFFF;
+@define-color activeText #233c2a;
+@define-color buttonBg #32de8a;
+
+* {
+  all: unset;
+  font-family: monospace;
+  font-size: 14px;
+  color: @mainWhite;
+}
+
+#main-window {
+  border: solid 1px @mainWhite;
+  background-color: black;
+}
+
+#workspaces {
+}
+
+#workspaces > button {
+  border: solid 1px @mainWhite;
+}
+
+#workspaces > button > label {
+  color: @mainWhite;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#workspaces > button.active {
+  background-color: @mainWhite;
+}
+
+#workspaces > button.active > label {
+  color: @activeText;
+  font-weight: 900;
+}
+
+#workspaces > button.empty {
+  border-color: alpha(@mainWhite, 0);
+}
+
+#workspaces > button.empty > label {
+  color: alpha(@mainWhite, 0);
+}
+
+#power-window {
+  border: solid 1px;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+#shut-down-button,
+#reboot-button,
+#logout-button {
+  padding: 7px 12px;
+  background-color: @buttonBg;
+}
+
+#shut-down-button {
+  background-color: @buttonBg;
+}
+
+#shut-down-button > label,
+#reboot-button > label,
+#logout-button > label {
+  color: @activeText;
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+#shut-down-button > label {
+  color: @mainWhite;
+}
+
+#time-container {
+  background-color: @buttonBg;
+  border: 1px solid alpha(@mainWhite, 0);
+  padding: 8px;
+}
+
+#time-separator {
+  font-size: 14px;
+}
+
+#time-separator.day {
+  margin: 0px 0px 0px -5px;
+}
+
+#time-separator.night {
+  margin: 0px 0px 0px -2px;
+}
+
+#module-separator {
+  margin: 14px 12px;
+  padding: 1px;
+  background-color: alpha(@mainWhite, 0);
+}
+
+#run-button {
+  transition: background-color 0.6s cubic-bezier(0.2, 0, 0, 1);
+  padding: 10px;
+  background-color: @buttonBg;
+}
+
+#run-button:hover {
+  background-color: @buttonBg;
+}
+
+#power-button {
+  transition: background-color 0.6s cubic-bezier(0.2, 0, 0, 1);
+  padding: 9px;
+  background-color: @buttonBg;
+}
+
+#power-button:hover {
+  background-color: @buttonBg;
+}
