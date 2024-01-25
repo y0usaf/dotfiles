@@ -1,0 +1,9 @@
+[Unit]
+Description=Update Arch Linux packages with paru
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/paru
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,109 @@
+#Text editor aliases
+alias aliases='vscodium $HOME/dotfiles/.config/zsh/aliases'
+alias agscfg='vscodium $HOME/dotfiles/.config/ags/config.js'
+alias swaycfg='vscodium $HOME/dotfiles/.config/sway/*'
+alias footcfg='vscodium $HOME/dotfiles/.config/foot/foot.ini'
+alias hyprcfg='vscodium $HOME/dotfiles/.config/hypr/hyprland.conf'
+alias hyprlandcfg='vscodium $HOME/dotfiles/.config/hypr/hyprland.conf'
+alias cavacfg='vscodium $HOME/dotfiles/.config/cava/config'
+alias zshrc='vscodium $HOME/dotfiles/.config/zsh/.zshrc'
+alias zshenv='vscodium $HOME/dotfiles/.config/zsh/.zshenv'
+alias zprofile='vscodium $HOME/dotfiles/.config/zsh/.zprofile'
+alias waybarcfg='vscodium $HOME/dotfiles/.config/waybar/config'
+alias waybarcss='vscodium $HOME/dotfiles/.config/waybar/style.css'
+alias scripts='vscodium $HOME/dotfiles/scripts/'
+
+# System maintenance aliases
+alias dotlink='$HOME/dotfiles/scripts/dotlink.sh'
+alias gitsync='$HOME/dotfiles/scripts/gitsync.sh'
+
+setopt NULL_GLOB
+
+alias sysup='{
+  sudo rm -rf $HOME/.local/share/Trash/* || return 1
+  sudo rm -rf $HOME/.cache/* || return 1
+  paru -Syu --noconfirm || return 1
+  paru -Scc --noconfirm || return 1
+  while paru -Qttdq >/dev/null; do
+    paru -R --noconfirm $(paru -Qttdq) || return 1
+  done
+  dotlink || return 1
+  paru -Qq > $HOME/dotfiles/pkglist-$(hostname).txt
+} && echo "All tasks completed successfully" || echo "An error occurred, please check the individual steps."'
+
+alias pkgs='paru -Qq | grep '
+alias orphans='pacman -Qttdq'
+alias pacfix='sudo rm /var/lib/pacman/db.lck'
+alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"'
+
+# Other aliases
+if [ "$(hostname)" = "y0usaf-desktop" ]; then
+    alias gpupower='sudo nvidia-smi -pl'
+elif [ "$(hostname)" = "y0usaf-laptop" ]; then
+    fanspeed() {
+        if [ -z "$1" ]; then
+            echo "Usage: fanspeed <percentage>"
+            return 1
+        fi
+
+        local speed="$1"
+
+        asusctl fan-curve -m quiet -D "30c:$speed,40c:$speed,50c:$speed,60c:$speed,70c:$speed,80c:$speed,90c:$speed,100c:$speed" -e true -f gpu
+        asusctl fan-curve -m quiet -D "30c:$speed,40c:$speed,50c:$speed,60c:$speed,70c:$speed,80c:$speed,90c:$speed,100c:$speed" -e true -f cpu
+    }
+fi
+
+alias lk='leagueoflegends kill'
+alias ytm4a='yt-dlp --extract-audio --audio-format m4a -o "/data/Music/%(title)s.%(ext)s"'
+
+spotm4a() {
+    output_folder="$1"
+    link="$2"
+
+    # Download using spotdl
+    spotdl --format m4a --output "$output_folder" "$link"
+
+    # Temporarily store album names and corresponding file counts
+    declare -A album_count
+
+    # Populate album_count with album names and file counts
+    find "$output_folder" -type f -name "*.m4a" | while read -r file; do
+        album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file")
+        ((album_count["$album"]++))
+    done
+
+    # Move files to album folders only if there's more than one file for that album
+    for file in "$output_folder"/*.m4a; do
+        if [[ -f "$file" ]]; then
+            album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file")
+            if [[ ${album_count["$album"]} -gt 1 ]]; then
+                mkdir -p "$output_folder/$album"
+                mv "$file" "$output_folder/$album/"
+            fi
+        fi
+    done
+}
+
+alias depcount='{
+    for pkg in $(pacman -Qq); do 
+        dep_count=$(pactree -u "$pkg" | wc -l); 
+        echo "$pkg $dep_count"; 
+    done | sort -nk2 -r
+} && echo "Dependency count completed successfully" || echo "An error occurred."'
+
+
+alias gitignore='vscodium $HOME/.gitignore'
+alias userctl='systemctl --user'
+alias ooba='/home/y0usaf/ML/text-generation-webui/start_linux.sh'
+alias nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings  
+
+# Directory listing aliases
+alias l.='exa -a | grep -E "^\."'
+alias la='exa -a --color=always --group-directories-first --icons'
+alias ll='exa -l --color=always --group-directories-first --icons'
+alias ls='exa -al --color=always --group-directories-first --icons'
+alias lt='exa -aT --color=always --group-directories-first --icons'
+alias grep='grep --color=auto'
+alias dir='dir --color=auto'
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'

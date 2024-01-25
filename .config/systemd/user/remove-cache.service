@@ -1,0 +1,9 @@
+[Unit]
+Description=Remove ~/.cache directory
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "rm -rf ~/.cache"
+
+[Install]
+WantedBy=multi-user.target

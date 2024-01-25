@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Syncthing on crash and startup
+
+[Service]
+ExecStart=/usr/bin/syncthing
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

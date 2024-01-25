@@ -1,0 +1,9 @@
+[Unit]
+Description=Run dotlink script
+
+[Service]
+Type=oneshot
+ExecStart=/home/y0usaf/dotfiles/scripts/dotlink.sh
+
+[Install]
+WantedBy=default.target
