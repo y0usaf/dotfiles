@@ -7101,10 +7101,5 @@ div[id^="popout_"] .container-2O1UgZ .item-1BCeuB {
 }
 
 * {
-<<<<<<< HEAD
-    all: unset;
-    font-family: "Go Mono" !important;
-=======
     font-family: monospace!important;
->>>>>>> 2a0162eae318f4df038f504cb32288d043efe039
 }
