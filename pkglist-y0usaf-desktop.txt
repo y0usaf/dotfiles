@@ -116,6 +116,7 @@ fcft
 ffmpeg-obs
 fftw
 figlet
+figma-linux
 file
 filesystem
 findutils
@@ -472,6 +473,7 @@ libldac
 libldap
 libliftoff
 liblqr
+libluv
 liblzf
 libmad
 libmanette
@@ -496,6 +498,8 @@ libnewt
 libnfnetlink
 libnftnl
 libnghttp2
+libnghttp3
+libngtcp2
 libnice
 libnl
 libnm
@@ -543,6 +547,7 @@ libsysprof-capture
 libtar
 libtasn1
 libteam
+libtermkey
 libthai
 libtheora
 libtiff
@@ -567,6 +572,7 @@ libverto
 libvorbis
 libvpl
 libvpx
+libvterm
 libwacom
 libwebp
 libwireplumber
@@ -642,6 +648,7 @@ mangohud
 mbedtls
 md4c
 mdadm
+mediamtx
 menu-cache
 mesa
 micro
@@ -654,22 +661,27 @@ mobile-broadband-provider-info
 mpfr
 mpg123
 mpv
+msgpack-c
 mtdev
 mujs
 mullvad-vpn
 mypaint-brushes1
 nano
 ncurses
+neovim
 netpbm
 nettle
 networkmanager
 nfancurve
 nftables
 nitch
+node-gyp
 nodejs
+nodejs-nopt
 noto-fonts
 noto-fonts-cjk
-noto-fonts-emoji-apple
+noto-fonts-emoji
+npm
 npth
 nspr
 nss
@@ -680,7 +692,7 @@ nvidia-535xx-settings
 nvidia-535xx-utils
 nvtop
 obs-backgroundremoval
-obs-studio-rc
+obs-studio-tytan652
 obsidian
 ocl-icd
 onetbb
@@ -789,6 +801,7 @@ python-dirty-equals
 python-distro
 python-docopt
 python-dotenv
+python-fabric-git
 python-fastapi
 python-fastavro
 python-fastjsonschema
@@ -830,6 +843,7 @@ python-keras-applications
 python-keras-preprocessing
 python-keyutils
 python-kiwisolver
+python-loguru
 python-lxml
 python-lz4
 python-mako
@@ -976,6 +990,7 @@ sdl2_mixer
 sdl2_ttf
 seatd
 sed
+semver
 serd
 serf
 shaderc
@@ -1025,6 +1040,8 @@ tinycompress
 tomlplusplus
 tpm2-tss
 tracker3
+tree
+tree-sitter
 tslib
 ttf-go-mono-git
 ttf-liberation
@@ -1036,7 +1053,7 @@ tzdata
 uchardet
 udiskie
 udisks2
-ungoogled-chromium-bin
+unibilium
 universal-android-debloater
 unixodbc
 unzip
@@ -1048,7 +1065,6 @@ util-linux-libs
 uvicorn
 v4l-utils
 vapoursynth
-varicad-view
 verdict
 vid.stab
 vim

@@ -1,3 +1,15 @@
+# Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Load SSH keys into SSH agent
+if [ -f /home/y0usaf/Tokens/id_rsa_y0usaf ]; then
+    ssh-add ~/Tokens/id_rsa_y0usaf
+fi
+
+if [ -f /home/y0usaf/Tokens/id_rsa_cohere_sami ]; then
+    ssh-add ~/Tokens/id_rsa_cohere_sami
+fi
+
 # Check if the hostname is y0usaf-desktop
 if [ "$(hostname)" = "y0usaf-desktop" ]; then
     # Set the power limit for NVIDIA GPU

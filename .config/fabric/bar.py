@@ -2,6 +2,8 @@ import os
 import fabric
 import time
 import psutil
+import subprocess
+import json
 from fabric.widgets.box import Box
 from fabric.widgets.image import Image
 from fabric.widgets.label import Label
@@ -18,6 +20,14 @@ from fabric.utils.helpers import (
     bulk_connect,
     exec_shell_command,
 )
+def get_monitor_ids():
+    try:
+        result = subprocess.check_output(["hyprctl", "monitors", "-j"])
+        monitors = json.loads(result)
+        return [monitor["id"] for monitor in monitors]
+    except Exception as e:
+        print(f"Error retrieving monitor IDs: {e}")
+        return []
 
 # Construct the paths to SVG image files relative to the script directory
 script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -90,12 +100,13 @@ class PowerMenu(Window):
         return self
 
 class VerticalBar(Window):
-    def __init__(self, position="left"):
+    def __init__(self, position="left", monitor_id=None):
         super().__init__(
             layer="top",
             anchor=f"{position} top bottom",
             margin="10px -2px 10px 10px" if position == "left" else "10px 10px 10px -2px",
             exclusive=True,
+            monitor_id=monitor_id
         )
         self.power_menu = PowerMenu()
         self.time_sep = Label(
@@ -283,7 +294,13 @@ class VerticalBar(Window):
         return self.change_cursor("default")
 
 if __name__ == "__main__":
-    left_bar = VerticalBar(position="left")
-    right_bar = VerticalBar(position="right")  # Add another bar on the right
+    monitor_ids = get_monitor_ids()
+    bars = []
+
+    for monitor_id in monitor_ids:
+        left_bar = VerticalBar(position="left", monitor_id=monitor_id)
+        right_bar = VerticalBar(position="right", monitor_id=monitor_id)
+        bars.extend([left_bar, right_bar])
+
     set_stylesheet_from_file(os.path.join(script_directory, "bar.css"))
     fabric.start()
