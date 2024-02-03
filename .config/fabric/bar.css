@@ -11,7 +11,7 @@
 
 #main-window {
   border: solid 1px @mainWhite;
-  background-color: black;
+  background-color: transparent;
 }
 
 #workspaces {
