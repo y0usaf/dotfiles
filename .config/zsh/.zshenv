@@ -50,13 +50,13 @@ export HISTFILE="$XDG_STATE_HOME"/zsh/history
 # Hostname Specific Directories
 if [ "$(hostname)" = "y0usaf-desktop" ]; then
     export XDG_MUSIC_DIR="/data/Music"
-    export WALLPAPER_DIR="/data/Wallpapers"
-    export WALLPAPER_VIDEO_DIR="/data/Wallpapers/Video"
 elif [ "$(hostname)" = "y0usaf-laptop" ]; then
     export XDG_MUSIC_DIR="$HOME/Music"
-    export WALLPAPER_DIR="$HOME/Wallpapers"
-    export WALLPAPER_VIDEO_DIR="$HOME/Wallpapers_Video"
+
 fi
+
+export WALLPAPER_DIR="$HOME/Wallpapers"
+export WALLPAPER_VIDEO_DIR="$HOME/Wallpapers_Video"
 
 # Additional Functions and Commands
 export_var_from_file() {

@@ -1,25 +1,28 @@
-import os
 import fabric
-import time
+import os
 import psutil
 import subprocess
 import json
+from loguru import logger
 from fabric.widgets.box import Box
-from fabric.widgets.image import Image
 from fabric.widgets.label import Label
-from fabric.widgets.button import Button
+from fabric.system_tray import SystemTray
 from fabric.widgets.wayland import Window
+from fabric.widgets.overlay import Overlay
+from fabric.widgets.eventbox import EventBox
 from fabric.widgets.date_time import DateTime
 from fabric.widgets.centerbox import CenterBox
-from fabric.utils.fabricator.fabricator import Fabricate
 from fabric.utils.string_formatter import FormattedString
-from fabric.hyprland.widgets import Language, WorkspaceButton, Workspaces
+from fabric.widgets.circular_progress_bar import CircularProgressBar
+from fabric.hyprland.widgets import WorkspaceButton, Workspaces, Language
 from fabric.utils.helpers import (
     set_stylesheet_from_file,
     bulk_replace,
-    bulk_connect,
-    exec_shell_command,
+    monitor_file,
+    invoke_repeater,
+    get_relative_path,
 )
+
 def get_monitor_ids():
     try:
         result = subprocess.check_output(["hyprctl", "monitors", "-j"])
@@ -29,278 +32,120 @@ def get_monitor_ids():
         print(f"Error retrieving monitor IDs: {e}")
         return []
 
-# Construct the paths to SVG image files relative to the script directory
-script_directory = os.path.dirname(os.path.abspath(__file__))
-applications_svg_path = os.path.join(script_directory, "applications.svg")
-power_svg_path = os.path.join(script_directory, "power.svg")
-language_svg_path = os.path.join(script_directory, "language.svg")
-battery_svg_path = os.path.join(script_directory, "battery.svg")
-ram_svg_path = os.path.join(script_directory, "ram.svg")
-cpu_svg_path = os.path.join(script_directory, "cpu.svg")
+PYWAL = False
+AUDIO_WIDGET = True
 
-class PowerMenu(Window):
-    def __init__(self):
+if AUDIO_WIDGET is True:
+    try:
+        from fabric.audio.service import Audio
+    except Exception as e:
+        logger.error(e)
+        AUDIO_WIDGET = False
+
+
+class StatusBar(Window):
+    def __init__(self, layer, anchor, monitor):
         super().__init__(
-            layer="overlay",
-            anchor="left bottom",
-            margin="10px 10px 10px 10px",
-            exclusive=False,
-        )
-        self.shut_down_button = Button(
-            label="",
-            name="shut-down-button",
-        )
-        self.reboot_button = Button(
-            label="",
-            name="reboot-button",
-        )
-        self.logout_button = Button(
-            label="",
-            name="logout-button",
-        )
-        self.add(
-            Box(
-                spacing=8,
-                orientation="v",
-                name="power-window",
-                children=[
-                    self.shut_down_button,
-                    self.reboot_button,
-                    self.logout_button,
-                ],
-            )
-        )
-        for btn in [self.shut_down_button, self.reboot_button, self.logout_button]:
-            bulk_connect(
-                btn,
-                {
-                    "enter-notify-event": lambda *args: self.change_cursor("pointer"),
-                    "leave-notify-event": lambda *args: self.change_cursor("default"),
-                    "button-press-event": self.on_button_press,
-                },
-            )
-        self.hide()
-
-    def on_button_press(self, button: Button, event):
-        if event.button == 1 and event.type == 5:
-            # this block will be executed on double click
-            if button.get_name() == "shut-down-button":
-                exec_shell_command("notify-send Shutting down")
-            elif button.get_name() == "reboot-button":
-                exec_shell_command("notify-send Rebooting")
-            elif button.get_name() == "logout-button":
-                exec_shell_command("notify-send Logging out")
-            self.toggle_window()
-
-    def toggle_window(self):
-        if not self.is_visible():
-            self.show_all()
-        else:
-            self.hide()
-        return self
-
-class VerticalBar(Window):
-    def __init__(self, position="left", monitor_id=None):
-        super().__init__(
-            layer="top",
-            anchor=f"{position} top bottom",
-            margin="10px -2px 10px 10px" if position == "left" else "10px 10px 10px -2px",
+            layer=layer,
+            anchor=anchor,
+            margin="2px 100px 2px 100px" if layer == "top" else "2px 100px 2px 100px",
             exclusive=True,
-            monitor_id=monitor_id
+            visible=True,
+            monitor=monitor
         )
-        self.power_menu = PowerMenu()
-        self.time_sep = Label(
-            label="",
-            name="time-separator",
+        self.center_box = CenterBox(name="main-window")
+        self.workspaces = Workspaces(
+            spacing=2,
+            name="workspaces",
+            buttons_list=[
+                WorkspaceButton(label=FormattedString("1")),
+                WorkspaceButton(label=FormattedString("2")),
+                WorkspaceButton(label=FormattedString("3")),
+                WorkspaceButton(label=FormattedString("4")),
+                WorkspaceButton(label=FormattedString("5")),
+                WorkspaceButton(label=FormattedString("6")),
+                WorkspaceButton(label=FormattedString("7")),
+            ],
         )
-        self.time_sep.set_style_classes(["day"])
-        self.time_sep_var = Fabricate(
-            value="",
-            poll_from=lambda _: "" if time.strftime("%p").lower() == "am" else "",
-            interval=4002,
-        )
-        self.time_sep_var.connect(
-            "changed",
-            lambda _, value: (
-                self.time_sep.set_label(value),
-                self.time_sep.set_style_classes(["night"])
-                if value == ""
-                else self.time_sep.set_style_classes(["day"]),
-            ),
-        )
-        self.center_box = CenterBox(name="main-window", orientation="v")
-        self.run_button = Button(
-            name="run-button",
-            tooltip_text="Show Applications Menu",
-            child=Image(
-                image_file=applications_svg_path,
-            ),
-        )
-        self.power_button = Button(
-            name="power-button",
-            tooltip_text="Show Power Menu",
-            child=Image(image_file=power_svg_path),
-        )
-        for btn in [self.run_button, self.power_button]:
-            bulk_connect(
-                btn,
-                {
-                    "button-press-event": self.on_button_press,  # run_button -> open wofi, power_button -> toggle the power menu
-                    "enter-notify-event": self.on_button_hover,  # to change the cursor to a pointer
-                    "leave-notify-event": self.on_button_unhover,  # resets the cursor
-                },
-            )
-        self.center_box.add_left(
-            Box(
-                orientation="v",
-                style="min-width: calc(44px - 8px); margin: 8px;",
-                children=[
-                    self.run_button,
-                    Box(
-                        name="module-separator",
-                    ),
-                    Box(
-                        spacing=4,
-                        orientation="v",
-                        children=[
-                            Image(
-                                image_file=language_svg_path,
-                            ),
-                            Language(
-                                formatter=FormattedString(
-                                    "{filter(language)}",
-                                    filter=lambda x: bulk_replace(
-                                        x,
-                                        [r".*Eng.*", r".*Ar.*"],
-                                        ["ENG", "ARA"],
-                                        regex=True,
-                                    ),
-                                ),
-                            ),
-                        ],
-                    ),
-                    Box(
-                        name="module-separator",
-                    ),
-                    Workspaces(
-                        spacing=6,
-                        orientation="v",
-                        name="workspaces",
-                        buttons_list=[
-                            WorkspaceButton(label=FormattedString("I")),
-                            WorkspaceButton(label=FormattedString("II")),
-                            WorkspaceButton(label=FormattedString("III")),
-                            WorkspaceButton(label=FormattedString("IV")),
-                            WorkspaceButton(label=FormattedString("V")),
-                            WorkspaceButton(label=FormattedString("VI")),
-                            WorkspaceButton(label=FormattedString("VII")),
-                        ],
-                    ),
-                ],
-            )
-        )
-        self.cpu_label = Label(label="0")
-        self.memory_label = Label(label="0")
-        self.battery_label = Label(label="0")
-        self.system_info_var = Fabricate(
-            value={"ram": 0, "cpu": 0},
-            poll_from=lambda _: {
-                "ram": str(int(psutil.virtual_memory().percent)),
-                "cpu": str(int(psutil.cpu_percent())),
-                "battery": str(
-                    int(
-                        psutil.sensors_battery().percent
-                        if psutil.sensors_battery() is not None
-                        else 42
-                    )
+        self.language = Language(
+            formatter=FormattedString(
+                "{replace_lang(language)}",
+                replace_lang=lambda x: bulk_replace(
+                    x,
+                    [r".*Eng.*", r".*Ar.*"],
+                    ["ENG", "ARA"],
+                    regex=True,
                 ),
-            },
-            interval=1000,
-        )
-        self.system_info_var.connect(
-            "changed",
-            lambda _, value: (
-                self.cpu_label.set_label(value["cpu"]),
-                self.memory_label.set_label(value["ram"]),
-                self.battery_label.set_label(value["battery"]),
             ),
+            name="hyprland-window",
         )
-        self.center_box.add_right(
-            Box(
-                orientation="v",
-                style="min-width: calc(44px - 8px); margin: 8px;",
-                children=[
-                    Box(
-                        spacing=4,
-                        orientation="v",
-                        children=[
-                            Image(
-                                image_file=battery_svg_path,
-                            ),
-                            self.battery_label,
-                        ],
-                    ),
-                    Box(name="module-separator"),
-                    Box(
-                        spacing=4,
-                        orientation="v",
-                        children=[
-                            Image(
-                                image_file=ram_svg_path,
-                            ),
-                            self.memory_label,
-                        ],
-                    ),
-                    Box(name="module-separator"),
-                    Box(
-                        spacing=4,
-                        orientation="v",
-                        children=[
-                            Image(
-                                image_file=cpu_svg_path,
-                            ),
-                            self.cpu_label,
-                        ],
-                    ),
-                    Box(name="module-separator"),
-                    Box(
-                        orientation="v",
-                        name="time-container",
-                        children=[
-                            DateTime(format_list=["%I"]),
-                            self.time_sep,
-                            DateTime(format_list=["%M"]),
-                        ],
-                    ),
-                    Box(name="module-separator"),
-                    self.power_button,
-                ],
-            )
+        self.date_time = DateTime(name="date-time")
+        self.system_tray = SystemTray(name="system-tray")
+        self.ram_circular_progress_bar = CircularProgressBar(
+            name="ram-circular-progress-bar",
+            background_color=False,
+            radius_color=False,
+            pie=True,
         )
+        self.cpu_circular_progress_bar = CircularProgressBar(
+            name="cpu-circular-progress-bar",
+            background_color=False,
+            radius_color=False,
+            pie=True,
+        )
+        self.circular_progress_bars_overlay = Overlay(
+            children=self.ram_circular_progress_bar,
+            overlays=[
+                self.cpu_circular_progress_bar,
+                Label("", style="margin: 0px 6px 0px 0px; font-size: 12px"),
+            ],
+        )
+        self.volume = VolumeWidget() if AUDIO_WIDGET is True else None
+        self.widgets_container = Box(
+            spacing=2,
+            orientation="h",
+            name="widgets-container",
+            children=[
+                self.circular_progress_bars_overlay,
+            ],
+        )
+        self.widgets_container.add(self.volume) if self.volume is not None else None
+
+        self.center_box.add_center(self.system_tray)
+        self.center_box.add_center(self.workspaces)
+        self.center_box.add_center(self.date_time)
         self.add(self.center_box)
+
+        invoke_repeater(1000, self.update_progress_bars)
+        self.update_progress_bars()  # initial call
+
         self.show_all()
 
-    def on_button_press(self, button: Button, event):
-        if event.button == 1 and event.type == 5:
-            if button == self.run_button:
-                return exec_shell_command("wofi -S drun --allow-images")
-        elif button == self.power_button:
-            return self.power_menu.toggle_window()
+    def update_progress_bars(self):
+        self.ram_circular_progress_bar.percentage = psutil.virtual_memory().percent
+        self.cpu_circular_progress_bar.percentage = psutil.cpu_percent()
+        return True
 
-    def on_button_hover(self, button: Button, event):
-        return self.change_cursor("pointer")
 
-    def on_button_unhover(self, button: Button, event):
-        return self.change_cursor("default")
+def apply_style(*args):
+    logger.info("[Bar] CSS applied")
+    return set_stylesheet_from_file(get_relative_path("bar.css"))
+
 
 if __name__ == "__main__":
     monitor_ids = get_monitor_ids()
-    bars = []
+    print(monitor_ids)
+    for display in monitor_ids:
+        top_bar = StatusBar(layer="top", anchor="center top center", monitor = display)
+        bottom_bar = StatusBar(layer="bottom", anchor="center bottom center", monitor = display)
 
-    for monitor_id in monitor_ids:
-        left_bar = VerticalBar(position="left", monitor_id=monitor_id)
-        right_bar = VerticalBar(position="right", monitor_id=monitor_id)
-        bars.extend([left_bar, right_bar])
+    if PYWAL is True:
+        monitor = monitor_file(
+            f"/home/{os.getlogin()}/.cache/wal/colors-widgets.css", "none"
+        )
+        monitor.connect("changed", apply_style)
 
-    set_stylesheet_from_file(os.path.join(script_directory, "bar.css"))
+    # initialize style
+    apply_style()
+
     fabric.start()

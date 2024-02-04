@@ -1,117 +1,166 @@
-@define-color mainWhite #FFFFFF;
-@define-color activeText #233c2a;
-@define-color buttonBg #32de8a;
+/* uncomment if you do have pywal configured */
+/* @import url("/home/USER/.cache/wal/colors-widgets.css"); */
+
+:vars {
+  --background: #150d16;
+  --foreground: #ffffff;
+  --color0: #150d16;
+  --color1: #72448d;
+  --color2: #9c5995;
+  --color3: #d5719f;
+  --color4: #9a62f3;
+  --color5: #e075df;
+  --color6: #f98f9f;
+  --color7: #f5dbc4;
+  --color8: #ab9989;
+  --color9: #72448d;
+  --color10: #9c5995;
+  --color11: #d5719f;
+  --color12: #9a62f3;
+  --color13: #e075df;
+  --color14: #f98f9f;
+  --color15: #f5dbc4;
+  --window-bg: alpha(var(--background), 0.6);
+  --module-bg: alpha(var(--background), 0.4);
+  --border-color: var(--color11);
+  --ws-active: var(--color9);
+  --ws-inactive: var(--color3);
+  --ws-empty: var(--color8);
+  --ws-hover: var(--color1);
+  --ws-urgent: var(--color11);
+}
 
 * {
+  /* unsets everything so we can style everything from scratch. */
   all: unset;
   font-family: monospace;
-  font-size: 14px;
-  color: @mainWhite;
+  font-weight: 500;
+  font-size: 1em;
+  color: var(--foreground);
+  /* we can use webcss variables, fabric compiles that to gtk css. */
 }
 
 #main-window {
-  border: solid 1px @mainWhite;
-  background-color: transparent;
+  border: solid 1px;
+  border-color: var(--border-color);
+  background-color: var(--window-bg);
+}
+
+button {
+  /* removed border-radius */
+  background-size: 400% 400%;
 }
 
 #workspaces {
+  margin: 3px;
+  padding: 6px;
+  background-color: var(--module-bg);
 }
 
 #workspaces > button {
-  border: solid 1px @mainWhite;
+  padding: 0px 9px;
+  /* transition: min-width 0.15s cubic-bezier(0.2, 0.0, 0, 1.0); */
+  transition: min-width 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: var(--ws-inactive);
 }
 
 #workspaces > button > label {
-  color: @mainWhite;
-  font-size: 12px;
-  font-weight: normal;
+  color: #30303e;
 }
 
 #workspaces > button.active {
-  background-color: @mainWhite;
+  min-width: 24px;
+  background-color: var(--ws-active);
 }
 
 #workspaces > button.active > label {
-  color: @activeText;
   font-weight: 900;
+  color: #bec0f8;
 }
 
 #workspaces > button.empty {
-  border-color: alpha(@mainWhite, 0);
+  background-color: var(--ws-empty);
 }
 
-#workspaces > button.empty > label {
-  color: alpha(@mainWhite, 0);
+#workspaces > button.urgent {
+  background-color: var(--ws-urgent);
 }
 
-#power-window {
-  border: solid 1px;
-  background-color: rgba(0, 0, 0, 0.24);
+#workspaces > button:hover {
+  background-color: var(--ws-hover);
 }
 
-#shut-down-button,
-#reboot-button,
-#logout-button {
-  padding: 7px 12px;
-  background-color: @buttonBg;
+#date-time,
+#hyprland-language,
+#hyprland-window {
+  background-color: var(--module-bg);
+  padding: 0px 8px;
+  margin: 3px;
 }
 
-#shut-down-button {
-  background-color: @buttonBg;
-}
-
-#shut-down-button > label,
-#reboot-button > label,
-#logout-button > label {
-  color: @activeText;
+#Mode > label,
+#date-time > label,
+menu > menuitem > label,
+#hyprland-language > label,
+#hyprland-window > label {
   font-weight: 900;
-  margin-right: 4px;
 }
 
-#shut-down-button > label {
-  color: @mainWhite;
+#center-box {
+  margin: 1px;
 }
 
-#time-container {
-  background-color: @buttonBg;
-  border: 1px solid alpha(@mainWhite, 0);
-  padding: 8px;
+/* system tray */
+
+#system-tray {
+  margin: 3px;
+  padding: 0px 2px;
+  background-color: var(--module-bg);
 }
 
-#time-separator {
-  font-size: 14px;
+#system-tray > button {
+  padding: 0px 2px;
+  margin: 3px;
 }
 
-#time-separator.day {
-  margin: 0px 0px 0px -5px;
+/* menu and menu items (written for the system tray) */
+
+menu {
+  border: solid 2px;
+  border-color: var(--border-color);
 }
 
-#time-separator.night {
-  margin: 0px 0px 0px -2px;
+menu > menuitem {
+  background-color: var(--module-bg);
+  padding: 6px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
-#module-separator {
-  margin: 14px 12px;
-  padding: 1px;
-  background-color: alpha(@mainWhite, 0);
+menu > menuitem:first-child {
+  margin-top: 1.5px;
 }
 
-#run-button {
-  transition: background-color 0.6s cubic-bezier(0.2, 0, 0, 1);
-  padding: 10px;
-  background-color: @buttonBg;
+menu > menuitem:last-child {
+  margin-bottom: 1.5px;
 }
 
-#run-button:hover {
-  background-color: @buttonBg;
+menu > menuitem:hover {
+  background-color: var(--border-color);
 }
 
-#power-button {
-  transition: background-color 0.6s cubic-bezier(0.2, 0, 0, 1);
-  padding: 9px;
-  background-color: @buttonBg;
+#volume-circular-progress-bar,
+#ram-circular-progress-bar {
+  border: solid 10px var(--border-color);
 }
 
-#power-button:hover {
-  background-color: @buttonBg;
+#cpu-circular-progress-bar {
+  border: solid 0px alpha(var(--color9), 0.8);
+}
+
+#widgets-container {
+  border-radius: 100px;
+  background-color: var(--module-bg);
+  padding: 3px;
+  margin: 3px;
 }
