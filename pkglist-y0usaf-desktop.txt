@@ -222,9 +222,9 @@ highway
 http-parser
 hwdata
 hwloc
-hy3-git
+hy3
 hyphen
-hyprland-git
+hyprland
 hyprlang
 hyprpicker
 iana-etc
@@ -1074,6 +1074,7 @@ shiboken6
 slack-desktop
 slang
 slurp
+smassh
 snappy
 sndio
 sord
@@ -1152,6 +1153,7 @@ vscodium-bin
 vtk
 vulkan-headers
 vulkan-icd-loader
+vulkan-validation-layers
 waybar
 waydroid
 wayland

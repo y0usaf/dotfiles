@@ -23,6 +23,7 @@ from fabric.utils.helpers import (
     get_relative_path,
 )
 
+
 def get_monitor_ids():
     try:
         result = subprocess.check_output(["hyprctl", "monitors", "-j"])
@@ -31,6 +32,7 @@ def get_monitor_ids():
     except Exception as e:
         print(f"Error retrieving monitor IDs: {e}")
         return []
+
 
 PYWAL = False
 AUDIO_WIDGET = True
@@ -48,10 +50,10 @@ class StatusBar(Window):
         super().__init__(
             layer=layer,
             anchor=anchor,
-            margin="2px 100px 2px 100px" if layer == "top" else "2px 100px 2px 100px",
+            margin="2px 20px 2px 20px" if layer == "top" else "2px 20px 2px 20px",
             exclusive=True,
             visible=True,
-            monitor=monitor
+            monitor=monitor,
         )
         self.center_box = CenterBox(name="main-window")
         self.workspaces = Workspaces(
@@ -69,7 +71,7 @@ class StatusBar(Window):
         )
         self.language = Language(
             formatter=FormattedString(
-                "{replace_lang(language)}",
+                "{en_US.UTF-8}",
                 replace_lang=lambda x: bulk_replace(
                     x,
                     [r".*Eng.*", r".*Ar.*"],
@@ -136,8 +138,10 @@ if __name__ == "__main__":
     monitor_ids = get_monitor_ids()
     print(monitor_ids)
     for display in monitor_ids:
-        top_bar = StatusBar(layer="top", anchor="center top center", monitor = display)
-        bottom_bar = StatusBar(layer="bottom", anchor="center bottom center", monitor = display)
+        top_bar = StatusBar(layer="top", anchor="center top center", monitor=display)
+        bottom_bar = StatusBar(
+            layer="bottom", anchor="center bottom center", monitor=display
+        )
 
     if PYWAL is True:
         monitor = monitor_file(
@@ -147,5 +151,4 @@ if __name__ == "__main__":
 
     # initialize style
     apply_style()
-
     fabric.start()
