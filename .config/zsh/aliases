@@ -95,7 +95,7 @@ alias depcount='{
 alias gitignore='vscodium $HOME/.gitignore'
 alias userctl='systemctl --user'
 alias ooba='/home/y0usaf/ML/text-generation-webui/start_linux.sh'
-alias nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings  
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 
 # Directory listing aliases
 alias l.='exa -a | grep -E "^\."'

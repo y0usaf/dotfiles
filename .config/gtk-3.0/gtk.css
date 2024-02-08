@@ -6,6 +6,8 @@
 
 /* Global settings */
 * {
+    all: unset;
+    padding: 0.15em;
     font-family: monospace;
     color: @primary;
     background: @secondary;
