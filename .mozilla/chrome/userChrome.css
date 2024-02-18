@@ -1,47 +1,17 @@
-/* User changable variables */
-* {
-    --tab-font-size: 1em;
-    /* Font size of the tab labels */
-    --tab-font-family: monospace;
-    /* The font used for the tab labels */
-    --max-tab-width: none;
-    /* The maximum width a tab in the tab bar can use. Set this to none for no limit */
-    --show-titlebar-buttons: none;
-    /* Hide the buttons (close/minimize/maximize) in the title bar. Required on some platforms (e.g macOS) to fully hide the title bar. `none` hides them, `block` shows them */
-    --tab-height: 1.25em;
-    /* Tab height */
-
-    /* Black theme colors */
-    --background-color: #111;
-    /* Background color */
-    --toolbar-bgcolor: #333;
-    /* Toolbar background color */
-    --toolbarbutton-hover-background: #555;
-    /* Toolbar button hover background color */
+:root {
+    --universal-size-value: 20px;
+    font-size: calc(var(--universal-size-value) - 4) !important;
+    /* Reduce the font size relative to the universal size value */
 }
-
-#navigator-toolbox {
-    padding-bottom: 2px;
-    /* Set this to 0px or remove the line */
-}
-
-#TabsToolbar {
-    border-top: 1px solid #fff;
-    /* Set this to 'none' or remove the line */
-}
-/* Minima Source Code. Here be dragons. */
-/* Only change this if you know what you're doing */
 
 .titlebar-buttonbox-container {
     display: var(--show-titlebar-buttons);
 }
 
 :root:not([customizing]) #TabsToolbar {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin: 0 1px !important;
     border-radius: 0 !important;
     padding: 0 !important;
-    padding-inline-start: 0 !important;
 }
 
 .tabbrowser-tab * {
@@ -51,10 +21,13 @@
 }
 
 .tabbrowser-tab {
-    height: var(--tab-height);
-    font-size: var(--tab-font-size) !important;
-    min-height: 0 !important;
-    align-items: center !important;
+    height: var(--universal-size-value);
+    min-height: var(--universal-size-value) !important;
+}
+
+.tabbrowser-tab[fadein]:not([pinned]) {
+    max-width: calc(var(--universal-size-value) * 10) !important;
+    /* Change max-width relative to universal-size-value */
 }
 
 #firefox-view-button,
@@ -65,8 +38,8 @@
 
 .tab-icon-image {
     height: auto !important;
-    width: calc(var(--tab-height) / 1.5) !important;
-    margin-right: 0.25em !important;
+    width: calc(var(--universal-size-value) / 1.5) !important;
+    margin-right: calc(var(--universal-size-value) / 6.25) !important;
 }
 
 #tabs-newtab-button,
@@ -74,24 +47,13 @@
     display: none !important;
 }
 
-:root:not([customizing]) #nav-bar {
-    min-height: var(--tab-height) !important;
-    /* Set min-height to match the tab height */
-    height: var(--tab-height) !important;
-    /* Set height to match the tab height */
-    margin: 0 !important;
-    z-index: 0 !important;
-    /* Ensure the navbar is always visible */
-    opacity: 1 !important;
-    /* Ensure the navbar is always visible */
-}
-
-:root:not([customizing]) #nav-bar:focus-within {
-    z-index: 1 !important;
-}
-
 #nav-bar {
-    border-inline: 0.125em solid var(--toolbar-bgcolor);
+    border-inline: calc(var(--universal-size-value) / 4) solid var(--toolbar-bgcolor);
+    /* Adjust border width relative to universal-size-value */
+    max-height: var(--universal-size-value) !important;
+    min-height: var(--universal-size-value) !important;
+    padding-right: var(--universal-size-value);
+    /* Set padding relative to universal-size-value */
 }
 
 #new-tab-button,
@@ -105,14 +67,8 @@
     overflow: none !important;
 }
 
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_with_one_tab.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* Makes tabs toolbar items zero-height initially and sets enlarge them to fill up space equal to tab-min-height set on tabs. Optionally use privatemode_indicator_as_menu_button.css to replace main menu icon with private browsing indicator while tabs are hidden. */
-/* Firefox 65+ only */
-
 :root[sizemode="normal"] #nav-bar {
-    --uc-window-drag-space-width: 0.125em;
+    --uc-window-drag-space-width: var(--universal-size-value);
 }
 
 #titlebar {
@@ -120,16 +76,13 @@ See the above repository for updates as well as full license text. */
 }
 
 #TabsToolbar {
-    min-height: 0em !important;
+    min-height: var(--universal-size-value) !important;
 }
 
 #tabbrowser-tabs,
 #tabbrowser-tabs>.tabbrowser-arrowscrollbox,
 #tabbrowser-arrowscrollbox {
-    min-height: var(--tab-height) !important;
-    /* Set min-height to match the tab height */
-    visibility: visible !important;
-    /* Ensure that the tab bar is always visible */
+    min-height: var(--universal-size-value) !important;
 }
 
 :root:not([customizing]) #tabbrowser-tabs .tabs-newtab-button,
@@ -137,9 +90,8 @@ See the above repository for updates as well as full license text. */
 :root:not([customizing]) #TabsToolbar-customization-target>.toolbarbutton-1,
 :root:not([customizing]) #TabsToolbar .titlebar-button {
     -moz-appearance: none !important;
-    height: 0em;
-    padding-top: 0em !important;
-    padding-bottom: 0em !important;
+    height: 0;
+    padding: 0 !important;
     -moz-box-align: stretch;
     margin: 0 !important;
 }
@@ -153,12 +105,6 @@ See the above repository for updates as well as full license text. */
     padding-block: 0 !important;
 }
 
-#tabbrowser-tabs tab:only-of-type {
-    visibility: visible !important;
-    /* Ensure that the tab is always visible */
-}
-
-/* Button re-styling */
 #tabs-newtab-button:hover,
 #tabbrowser-tabs .tabs-newtab-button:hover {
     background-color: var(--toolbarbutton-hover-background);
@@ -168,29 +114,29 @@ See the above repository for updates as well as full license text. */
 #tabbrowser-tabs .tabs-newtab-button>.toolbarbutton-icon {
     padding: 0 !important;
     transform: scale(0.6);
-    background-color: var(--background-color) !important;
+    background-color: black !important;
 }
 
 @media (-moz-os-version: windows-win10) {
     :root[sizemode="maximized"] #navigator-toolbox {
-        padding-top: calc(0.3333em) !important;
+        padding-top: calc(var(--universal-size-value) / 3) !important;
+        /* Change padding relative to universal-size-value */
     }
 }
 
 #navigator-toolbox {
-    background-color: var(--background-color) !important;
+    background-color: black !important;
 }
 
 #nav-bar {
-    background-color: var(--background-color) !important;
+    background-color: black !important;
 }
 
 .tabbrowser-tab:first-child {
     margin-left: -1px;
-    /* Ensures the first tab has no left margin */
 }
 
 .tab-close-button {
-    margin-right: 0.0625em;
-    margin-top: 0.0625em;
+    margin-right: -1px;
+    margin-top: -1px;
 }

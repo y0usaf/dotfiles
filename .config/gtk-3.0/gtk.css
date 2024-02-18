@@ -6,8 +6,8 @@
 
 /* Global settings */
 * {
-    all: unset;
-    padding: 0.15em;
+    /*all: unset;
+    padding: 0.2em;*/
     font-family: monospace;
     color: @primary;
     background: @secondary;
@@ -28,7 +28,6 @@
 /* Button settings */
 button {
     border-radius: 4px;
-    padding: 10px;
     transition: all 0.3s ease;
 }
 

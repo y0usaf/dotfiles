@@ -2,27 +2,23 @@
 /* @import url("/home/USER/.cache/wal/colors-widgets.css"); */
 
 :vars {
-  --background: #111111;
+  --background: transparent;
   --foreground: #ffffff;
-  --color1: #72448d;
-  --color3: #d5719f;
-  --color8: #ab9989;
 }
 
 * {
   /* unsets everything so we can style everything from scratch. */
   all: unset;
   font-family: monospace;
-  font-weight: 500;
   font-size: 1em;
-  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  margin: 0px; /* Set margin to 0 */
+  padding: 0px; /* Set padding to 0 */
   /* we can use webcss variables, fabric compiles that to gtk css. */
 }
 
 #main-window {
-  border: solid 1px;
-  border-color: var(--color3);
-  background-color: alpha(var(--background), 0.6);
+  color: var(--background);
 }
 
 button {
@@ -31,56 +27,43 @@ button {
 }
 
 #workspaces {
-  margin: 3px;
-  padding: 6px;
-  background-color: alpha(var(--background), 0.4);
+  margin: 0px; /* Set margin to 0 */
+  padding: 0px; /* Set padding to 0 */
+  color: var(--background);
 }
 
 #workspaces>button {
-  padding: 0px 9px;
+  padding: 0px 1px;
   /* transition: min-width 0.15s cubic-bezier(0.2, 0.0, 0, 1.0); */
   transition: min-width 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
-  background-color: var(--color3);
+  color: var(--foreground);
 }
 
-#workspaces>button>label {
-}
+
 
 #workspaces>button.active {
   min-width: 24px;
-  background-color: var(--color1);
-}
-
-#workspaces>button.active>label {
-  font-weight: 900;
+  color: var(--foreground);
 }
 
 #workspaces>button.empty {
-  background-color: var(--color8);
+  color: alpha(var(--foreground),0.6);
 }
 
 #workspaces>button.urgent {
-  background-color: var(--color3);
+  color: red;
 }
 
 #workspaces>button:hover {
-  background-color: var(--color1);
+  color: var(--foreground);
 }
 
 #date-time,
 #hyprland-language,
 #hyprland-window {
-  background-color: alpha(var(--background), 0.4);
-  padding: 0px 8px;
-  margin: 3px;
-}
-
-#Mode>label,
-#date-time>label,
-menu>menuitem>label,
-#hyprland-language>label,
-#hyprland-window>label {
-  font-weight: 900;
+  color: var(--foreground);
+  padding: 0px 1px;
+  margin: 0px; /* Set margin to 0 */
 }
 
 #center-box {
@@ -90,25 +73,25 @@ menu>menuitem>label,
 /* system tray */
 
 #system-tray {
-  margin: 3px;
-  padding: 0px 2px;
-  background-color: alpha(var(--background), 0.4);
+  margin: 0px; /* Set margin to 0 */
+  padding: 0px 4px;
+  color: var(--background);
 }
 
 #system-tray>button {
-  padding: 0px 2px;
-  margin: 3px;
+  padding: 0px 4px;
+  margin: 0px; /* Set margin to 0 */
 }
 
 /* menu and menu items (written for the system tray) */
 
 menu {
   border: solid 2px;
-  border-color: var(--color3);
+  border-color: var(--foreground);
 }
 
 menu>menuitem {
-  background-color: alpha(var(--background), 0.4);
+  color: alpha(var(--foreground),0.6);
   padding: 6px;
   margin-left: 2px;
   margin-right: 2px;
@@ -123,21 +106,12 @@ menu>menuitem:last-child {
 }
 
 menu>menuitem:hover {
-  background-color: var(--color3);
-}
-
-#volume-circular-progress-bar,
-#ram-circular-progress-bar {
-  border: solid 10px var(--color3);
-}
-
-#cpu-circular-progress-bar {
-  border: solid 0px alpha(var(--color1), 0.8);
+  color: var(--foreground);
 }
 
 #widgets-container {
   border-radius: 100px;
-  background-color: alpha(var(--background), 0.4);
-  padding: 3px;
-  margin: 3px;
+  color: var(--background);
+  padding: 0px; /* Set padding to 0 */
+  margin: 0px; /* Set margin to 0 */
 }

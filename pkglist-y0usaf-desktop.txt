@@ -2,6 +2,7 @@ a52dec
 aalib
 abseil-cpp
 acl
+acorn
 acpi
 adobe-source-code-pro-fonts
 adwaita-cursors
@@ -23,7 +24,6 @@ arch-install-scripts
 archlinux-keyring
 argon2
 aribb24
-artix-games-launcher
 at-spi2-core
 atkmm
 attr
@@ -67,6 +67,7 @@ cmake
 cmus
 compiler-rt
 coreutils
+cpio
 cppdap
 cpu-x
 cryptsetup
@@ -74,7 +75,6 @@ curl
 cursor-appimage
 czkawka-gui-bin
 dav1d
-db
 db5.3
 dbus
 dbus-broker
@@ -108,6 +108,7 @@ electron25
 electron28
 ell
 enchant
+eslint
 exfat-utils
 exiv2
 expat
@@ -425,6 +426,7 @@ libepoxy
 libevdev
 libevent
 libexif
+libfabric
 libfdk-aac
 libffi
 libfm
@@ -622,6 +624,7 @@ lsb-release
 lsof
 lua
 luajit
+lunarvim-git
 lv2
 lvm2
 lxc
@@ -639,6 +642,7 @@ mdadm
 mediamtx
 menu-cache
 mesa
+meson
 micro
 minizip
 mkinitcpio
@@ -657,11 +661,13 @@ mypaint-brushes1
 nano
 ncurses
 neovim
+neovim-remote
 netpbm
 nettle
 networkmanager
 nfancurve
 nftables
+ninja
 nitch
 node-gyp
 nodejs
@@ -711,6 +717,7 @@ pam
 pambase
 pango
 pangomm
+parallel
 parted
 paru-bin
 patch
@@ -817,6 +824,7 @@ python-google-cloud-storage
 python-google-crc32c
 python-google-resumable-media
 python-googleapis-common-protos
+python-greenlet
 python-grpcio
 python-gspread
 python-h11
@@ -895,6 +903,7 @@ python-pygame
 python-pygments
 python-pyjwt
 python-pykakasi
+python-pynvim
 python-pyparsing
 python-pypdf2
 python-pytorch
@@ -921,6 +930,7 @@ python-spotdl
 python-spotipy
 python-starlette
 python-steam
+python-strenum
 python-sympy
 python-syncedlyrics
 python-tensorboard_plugin_wit
@@ -978,6 +988,7 @@ r2modman-appimage
 rav1e
 re2
 readline
+realesrgan-ncnn-vulkan-bin
 refind
 rhash
 rnnoise
@@ -1052,7 +1063,6 @@ shiboken6
 slack-desktop
 slang
 slurp
-smassh
 snappy
 sndio
 sord
@@ -1106,6 +1116,7 @@ tzdata
 uchardet
 udiskie
 udisks2
+ungoogled-chromium-bin
 unibilium
 universal-android-debloater
 unixodbc
@@ -1122,6 +1133,7 @@ verdict
 vesktop-bin
 vid.stab
 vim
+vim-copilot-git
 vim-runtime
 vkd3d
 vlc-luajit
@@ -1148,7 +1160,7 @@ wireplumber
 wl-clipboard
 wlroots-git
 woff2
-wootility-lekker-appimage
+wootility-lekker-beta-appimage
 wootomation-appimage
 wpa_supplicant
 wpebackend-fdo
@@ -1190,6 +1202,7 @@ xorgproto
 xvidcore
 xxhash
 xz
+yarn
 yt-dlp
 zenity
 zeromq

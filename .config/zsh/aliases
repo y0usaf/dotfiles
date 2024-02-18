@@ -54,7 +54,11 @@ elif [ "$(hostname)" = "y0usaf-laptop" ]; then
 fi
 
 alias lk='leagueoflegends kill'
-alias ytm4a='yt-dlp --extract-audio --audio-format m4a -o "/data/Music/%(title)s.%(ext)s"'
+alias ytm4a='yt-dlp --extract-audio --audio-format m4a -o "~/Music/%(title)s.%(ext)s"'
+
+# Path/filename: updated_spotm4a.sh
+
+# Path/filename: improved_spotm4a.sh
 
 spotm4a() {
     output_folder="$1"
