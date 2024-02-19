@@ -22,8 +22,6 @@ export KERAS_HOME="${XDG_STATE_HOME}/keras"
 export MOZ_ENABLE_WAYLAND=1
 
 # Miscellaneous Settings
-export QT_QPA_PLATFORMTHEME=qt6ct
-export QT_QPA_PLATFORM=wayland
 export LIBSEAT_BACKEND=logind
 export BROWSER=firefox
 
