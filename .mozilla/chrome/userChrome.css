@@ -1,142 +1,95 @@
-:root {
-    --universal-size-value: 20px;
-    font-size: calc(var(--universal-size-value) - 4) !important;
-    /* Reduce the font size relative to the universal size value */
+/* User-configurable variables */
+* {
+    --tab-font-size: 1em !important;
+    --tab-font-family: monospace !important;
+    --max-tab-width: none !important;
+    --show-titlebar-buttons: none !important;
+    --tab-height: 1.25em !important;
+    --background-color: black !important;
 }
 
-.titlebar-buttonbox-container {
-    display: var(--show-titlebar-buttons);
-}
-
-:root:not([customizing]) #TabsToolbar {
-    margin: 0 1px !important;
-    border-radius: 0 !important;
+#TabsToolbar,
+#tabbrowser-tabs,
+#tabbrowser-tabs>.tabbrowser-arrowscrollbox,
+#tabbrowser-arrowscrollbox,
+#navigator-toolbox,
+#nav-bar {
+    margin: 0 !important;
     padding: 0 !important;
+    min-height: var(--tab-height) !important;
+    height: var(--tab-height) !important;
+    background-color: var(--background-color) !important;
+    border-radius: 0 !important;
+    visibility: visible !important;
 }
 
+/* Navigation Bar adjustments to prevent auto-hiding */
+#nav-bar,
+#navigator-toolbox {
+    min-height: var(--tab-height) !important;
+    height: var(--tab-height) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--background-color) !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+}
+
+/* Tab styling */
+.tabbrowser-tab,
 .tabbrowser-tab * {
     margin: 0 !important;
-    border-radius: 0 !important;
     font-family: var(--tab-font-family) !important;
-}
-
-.tabbrowser-tab {
-    height: var(--universal-size-value);
-    min-height: var(--universal-size-value) !important;
-}
-
-.tabbrowser-tab[fadein]:not([pinned]) {
-    max-width: calc(var(--universal-size-value) * 10) !important;
-    /* Change max-width relative to universal-size-value */
-}
-
-#firefox-view-button,
-#scrollbutton-up,
-.tab-secondary-label {
-    display: none !important;
+    font-size: var(--tab-font-size) !important;
+    height: var(--tab-height);
+    min-height: 0 !important;
+    align-items: center !important;
+    border-radius: 0 !important;
 }
 
 .tab-icon-image {
     height: auto !important;
-    width: calc(var(--universal-size-value) / 1.5) !important;
-    margin-right: calc(var(--universal-size-value) / 6.25) !important;
+    width: calc(var(--tab-height) / 1.5) !important;
+    margin-right: 0.25em !important;
 }
 
+/* Hide unused elements */
+#firefox-view-button,
+#scrollbutton-up,
+.tab-secondary-label,
 #tabs-newtab-button,
-#titlebar spacer {
-    display: none !important;
-}
-
-#nav-bar {
-    border-inline: calc(var(--universal-size-value) / 4) solid var(--toolbar-bgcolor);
-    /* Adjust border width relative to universal-size-value */
-    max-height: var(--universal-size-value) !important;
-    min-height: var(--universal-size-value) !important;
-    padding-right: var(--universal-size-value);
-    /* Set padding relative to universal-size-value */
-}
-
+#titlebar spacer,
 #new-tab-button,
 #alltabs-button,
 #scrollbutton-down,
 .tab-loading-burst {
-    display: none;
+    display: none !important;
 }
 
-#titlebar {
-    overflow: none !important;
-}
-
-:root[sizemode="normal"] #nav-bar {
-    --uc-window-drag-space-width: var(--universal-size-value);
-}
-
-#titlebar {
-    -moz-appearance: none !important;
-}
-
+/* Tab toolbar adjustments */
 #TabsToolbar {
-    min-height: var(--universal-size-value) !important;
+    min-height: 0 !important;
 }
 
-#tabbrowser-tabs,
-#tabbrowser-tabs>.tabbrowser-arrowscrollbox,
-#tabbrowser-arrowscrollbox {
-    min-height: var(--universal-size-value) !important;
-}
-
-:root:not([customizing]) #tabbrowser-tabs .tabs-newtab-button,
-:root:not([customizing]) #tabs-newtab-button,
-:root:not([customizing]) #TabsToolbar-customization-target>.toolbarbutton-1,
-:root:not([customizing]) #TabsToolbar .titlebar-button {
-    -moz-appearance: none !important;
-    height: 0;
-    padding: 0 !important;
-    -moz-box-align: stretch;
-    margin: 0 !important;
-}
-
-.accessibility-indicator,
-.private-browsing-indicator {
-    height: unset !important;
-}
-
-.accessibility-indicator>hbox {
-    padding-block: 0 !important;
-}
-
+/* Button and Icon styling */
 #tabs-newtab-button:hover,
 #tabbrowser-tabs .tabs-newtab-button:hover {
-    background-color: var(--toolbarbutton-hover-background);
+    background-color: alpha(var(--background-color), 0.3);
 }
 
 #tabs-newtab-button>.toolbarbutton-icon,
 #tabbrowser-tabs .tabs-newtab-button>.toolbarbutton-icon {
     padding: 0 !important;
     transform: scale(0.6);
-    background-color: black !important;
-}
-
-@media (-moz-os-version: windows-win10) {
-    :root[sizemode="maximized"] #navigator-toolbox {
-        padding-top: calc(var(--universal-size-value) / 3) !important;
-        /* Change padding relative to universal-size-value */
-    }
-}
-
-#navigator-toolbox {
-    background-color: black !important;
-}
-
-#nav-bar {
-    background-color: black !important;
+    background-color: var(--background-color) !important;
 }
 
 .tabbrowser-tab:first-child {
-    margin-left: -1px;
+    margin-left: -0.125em !important;
 }
 
 .tab-close-button {
-    margin-right: -1px;
-    margin-top: -1px;
+    margin-right: 0 !important;
+    margin-top: 0.0625em !important;
 }

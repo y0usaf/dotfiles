@@ -100,6 +100,7 @@ alias gitignore='vscodium $HOME/.gitignore'
 alias userctl='systemctl --user'
 alias ooba='/home/y0usaf/ML/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
+alias esrgan='realesrgan-ncnn-vulkan -i ~/Upscale/Input -o ~/Upscale/Output'
 
 # Directory listing aliases
 alias l.='exa -a | grep -E "^\."'
