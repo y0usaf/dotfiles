@@ -737,6 +737,7 @@ nvidia-settings
 nvidia-utils
 nvtop
 obs-studio
+obsidian
 ocl-icd
 onetbb
 oniguruma
