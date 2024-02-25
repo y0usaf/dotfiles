@@ -28,6 +28,7 @@ at-spi2-core
 atkmm
 attr
 audit
+authy
 autoconf
 automake
 avahi
@@ -64,14 +65,17 @@ chrono-date
 cifs-utils
 cjson
 clang
+cmake
 cmus
 compiler-rt
 coreutils
+cpio
+cppdap
 cryptsetup
 curl
+cursor-appimage
 czkawka-gui-bin
 dav1d
-db
 db5.3
 dbus
 dbus-broker
@@ -87,14 +91,12 @@ device-mapper
 devtools
 dialog
 diffutils
-discord
 dkms
 dnsmasq
 dnssec-anchors
 dosfstools
-dotnet-host-preview-bin
-dotnet-runtime-7.0
-dotnet-runtime-bin
+dotnet-host
+dotnet-runtime
 double-conversion
 duktape
 e2fsprogs
@@ -102,7 +104,8 @@ efibootmgr
 efivar
 egl-wayland
 eglexternalplatform
-electron25
+electron
+electron28
 ell
 enchant
 enet
@@ -141,6 +144,7 @@ fuse2fs
 fuse3
 fx
 fzf
+gallery-dl
 gamemode
 gawk
 gc
@@ -159,6 +163,7 @@ ghostscript
 giflib
 gimp
 git
+github-desktop-bin
 gjs
 glew
 glfw-wayland
@@ -192,6 +197,7 @@ groff
 gsettings-desktop-schemas
 gsfonts
 gsm
+gspell
 gssdp
 gst-libav
 gst-plugins-bad-libs
@@ -204,6 +210,7 @@ gtk2
 gtk3
 gtk4
 gtkmm3
+gtksourceview3
 gts
 guile
 gupnp
@@ -221,10 +228,8 @@ http-parser
 hunspell
 hwdata
 hwloc
-hy3-git
 hyphen
 hyprland
-hyprlang
 hyprpicker
 iana-etc
 icu
@@ -336,6 +341,8 @@ lib32-libidn2
 lib32-libjpeg-turbo
 lib32-libldap
 lib32-libltdl
+lib32-libnghttp2
+lib32-libnghttp3
 lib32-libnl
 lib32-libogg
 lib32-libpcap
@@ -363,6 +370,7 @@ lib32-libxdmcp
 lib32-libxext
 lib32-libxfixes
 lib32-libxi
+lib32-libxkbcommon
 lib32-libxml2
 lib32-libxrandr
 lib32-libxrender
@@ -400,6 +408,7 @@ lib32-zstd
 libadwaita
 libaec
 libaio
+libao
 libappindicator-gtk3
 libarchive
 libass
@@ -410,6 +419,14 @@ libavc1394
 libavif
 libb2
 libblockdev
+libblockdev-crypto
+libblockdev-fs
+libblockdev-loop
+libblockdev-mdraid
+libblockdev-nvme
+libblockdev-part
+libblockdev-swap
+libblockdev-utils
 libbluray
 libbpf
 libbs2b
@@ -427,6 +444,7 @@ libcolord
 libcpuid
 libcups
 libdaemon
+libdatachannel
 libdatrie
 libdbusmenu-glib
 libdbusmenu-gtk3
@@ -451,6 +469,7 @@ libepoxy
 libevdev
 libevent
 libexif
+libfabric
 libfdk-aac
 libffi
 libfm
@@ -481,6 +500,7 @@ libinih
 libinput
 libisl
 libjpeg-turbo
+libjuice
 libjxl
 libksba
 liblc3
@@ -488,6 +508,7 @@ libldac
 libldap
 libliftoff
 liblqr
+libluv
 liblzf
 libmad
 libmanette
@@ -560,6 +581,7 @@ libsoup
 libsoup3
 libsoxr
 libspiro
+libsrtp
 libssh
 libssh2
 libstemmer
@@ -567,6 +589,7 @@ libsysprof-capture
 libtar
 libtasn1
 libteam
+libtermkey
 libthai
 libtheora
 libtiff
@@ -591,6 +614,7 @@ libverto
 libvorbis
 libvpl
 libvpx
+libvterm
 libwacom
 libwbclient
 libwebp
@@ -672,6 +696,7 @@ menu-cache
 mercurial
 mesa
 mesa-utils
+meson
 micro
 minizip
 mkinitcpio
@@ -680,21 +705,28 @@ mobile-broadband-provider-info
 mpfr
 mpg123
 mpv
+mpvpaper
+msgpack-c
 mtdev
 mujs
 mypaint-brushes1
 nano
 ncurses
+neovim
 netpbm
 nettle
 networkmanager
 nftables
+ninja
 nitch
 nlohmann-json
+node-gyp
 nodejs
+nodejs-nopt
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+npm
 npth
 nspr
 nss
@@ -705,12 +737,10 @@ nvidia-settings
 nvidia-utils
 nvtop
 obs-studio
-obsidian
 ocl-icd
 onetbb
 oniguruma
 openal
-openasar-bin
 opencore-amr
 opencv
 openexr
@@ -721,6 +751,7 @@ openpmix
 openssh
 openssl
 openssl-1.1
+openucx
 opus
 opusfile
 orc
@@ -750,7 +781,7 @@ perl-error
 perl-mailtools
 perl-timedate
 pinentry
-pinta
+pinta-git
 pipewire
 pipewire-alsa
 pipewire-audio
@@ -777,6 +808,7 @@ prettier
 procps-ng
 protobuf
 protonup-qt
+prrte
 psmisc
 pugixml
 pybind11
@@ -823,6 +855,7 @@ python-distro
 python-docopt
 python-dotenv
 python-dulwich
+python-fabric-git
 python-fastapi
 python-fastavro
 python-fastbencode
@@ -864,6 +897,7 @@ python-keras-applications
 python-keras-preprocessing
 python-keyutils
 python-kiwisolver
+python-loguru
 python-lxml
 python-lz4
 python-mako
@@ -1010,6 +1044,7 @@ readline
 redact-bin
 refind
 refind-btrfs
+rhash
 rnnoise
 rog-control-center
 rsync
@@ -1019,6 +1054,7 @@ s-tui
 samba
 sassc
 sbc
+scp-bin
 sdbus-cpp
 sdl2
 sdl2_image
@@ -1026,6 +1062,7 @@ sdl2_mixer
 sdl2_ttf
 seatd
 sed
+semver
 serd
 serf
 shaderc
@@ -1041,6 +1078,7 @@ sndio
 sord
 sound-theme-freedesktop
 soundtouch
+spacecadetpinball
 spdlog
 speex
 speexdsp
@@ -1075,10 +1113,12 @@ testdisk
 tevent
 texinfo
 thin-provisioning-tools
+timidity++
 tinycompress
 tomlplusplus
 tpm2-tss
 tracker3
+tree-sitter
 tslib
 ttf-go-mono-git
 ttf-liberation
@@ -1086,11 +1126,11 @@ ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
 ttf-opensans
-typescript
 tzdata
 uchardet
 udiskie
 udisks2
+unibilium
 unixodbc
 unzip
 upower
@@ -1102,6 +1142,7 @@ uvicorn
 v4l-utils
 vapoursynth
 verdict
+vesktop
 vid.stab
 vim
 vim-runtime
@@ -1114,11 +1155,13 @@ vtk
 vulkan-headers
 vulkan-icd-loader
 vulkan-radeon
+vulkan-utility-libraries
 vulkan-validation-layers
 waybar
 wayland
 wayland-protocols
 webkit2gtk
+webkit2gtk-4.1
 webp-pixbuf-loader
 webrtc-audio-processing
 webrtc-audio-processing-1
@@ -1130,7 +1173,7 @@ winetricks
 wireless-regdb
 wireplumber
 wl-clipboard
-wlroots
+wlroots-git
 woff2
 wpa_supplicant
 wpebackend-fdo
@@ -1149,7 +1192,6 @@ xcb-util-wm
 xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
-xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xdg-ninja
 xdg-user-dirs
@@ -1172,11 +1214,13 @@ xorgproto
 xvidcore
 xxhash
 xz
+yad
 yt-dlp
 yuzu
 zenity
 zeromq
 zimg
+zip
 zix
 zlib
 zoom

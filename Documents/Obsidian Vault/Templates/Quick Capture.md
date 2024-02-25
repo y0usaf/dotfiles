@@ -13,7 +13,7 @@ let folderOverride = 'Personal/Journal';
 //Add a header for each day to nest the quick capture notes under (only works when firstOrLastLine = 'first')
 let bAddHeader = false;
 
-let curDateFormat = '#Daily/' + tp.date.now("YY/MM/DD");
+let curDateFormat = '#Personal/Daily/' + tp.date.now("YY/MM/DD");
 let finalTimestamp = curDateFormat;
 let curTimeFormat = tp.date.now("hh:mm A");
 if(curTimeFormat != ''){finalTimestamp = finalTimestamp + ' ' + curTimeFormat}
