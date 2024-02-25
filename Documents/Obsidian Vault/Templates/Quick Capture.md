@@ -8,12 +8,12 @@ let firstOrLastLine = 'first';
 let qcFileName = tp.date.now("YY-MM-DD - dddd");
 
 //Leave this blank if you want to use the default file path location (set to '/' to use root of vault)
-let folderOverride = 'Personal/Journal';
+let folderOverride = 'Personal/Daily';
 
 //Add a header for each day to nest the quick capture notes under (only works when firstOrLastLine = 'first')
 let bAddHeader = false;
 
-let curDateFormat = '#Personal/Daily/' + tp.date.now("YY/MM/DD");
+let curDateFormat = '#QuickCaptures/Date/' + tp.date.now("YY/MM/DD");
 let finalTimestamp = curDateFormat;
 let curTimeFormat = tp.date.now("hh:mm A");
 if(curTimeFormat != ''){finalTimestamp = finalTimestamp + ' ' + curTimeFormat}
