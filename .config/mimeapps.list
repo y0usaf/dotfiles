@@ -2,8 +2,8 @@
 video/webm=losslesscut-bin.desktop;
 
 [Default Applications]
-x-scheme-handler/wootwoot=wootility-lekker.desktop
-x-scheme-handler/web+wootwoot=wootility-lekker.desktop
+x-scheme-handler/wootwoot=wootility-lekker-beta.desktop
+x-scheme-handler/web+wootwoot=wootility-lekker-beta.desktop
 text/html=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop

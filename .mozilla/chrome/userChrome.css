@@ -1,95 +1,39 @@
-/* User-configurable variables */
-* {
-    --tab-font-size: 1em !important;
-    --tab-font-family: monospace !important;
-    --max-tab-width: none !important;
-    --show-titlebar-buttons: none !important;
-    --tab-height: 1.25em !important;
-    --background-color: black !important;
+:root {
+    --universal-size-value: 20px;
+    --universal-colour: black
+}
+
+.tabbrowser-tab * {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    font-family: monospace !important;
+    font-size: calc(var(--universal-size-value)*.8) !important
 }
 
 #TabsToolbar,
-#tabbrowser-tabs,
-#tabbrowser-tabs>.tabbrowser-arrowscrollbox,
-#tabbrowser-arrowscrollbox,
-#navigator-toolbox,
-#nav-bar {
-    margin: 0 !important;
-    padding: 0 !important;
-    min-height: var(--tab-height) !important;
-    height: var(--tab-height) !important;
-    background-color: var(--background-color) !important;
-    border-radius: 0 !important;
-    visibility: visible !important;
-}
-
-/* Navigation Bar adjustments to prevent auto-hiding */
 #nav-bar,
-#navigator-toolbox {
-    min-height: var(--tab-height) !important;
-    height: var(--tab-height) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background-color: var(--background-color) !important;
-    visibility: visible !important;
-    z-index: 1 !important;
-    opacity: 1 !important;
+.tabbrowser-tab {
+    height: var(--universal-size-value) !important
 }
 
-/* Tab styling */
-.tabbrowser-tab,
-.tabbrowser-tab * {
-    margin: 0 !important;
-    font-family: var(--tab-font-family) !important;
-    font-size: var(--tab-font-size) !important;
-    height: var(--tab-height);
+.tabbrowser-tab {
     min-height: 0 !important;
-    align-items: center !important;
-    border-radius: 0 !important;
+    align-items: center !important
 }
 
-.tab-icon-image {
-    height: auto !important;
-    width: calc(var(--tab-height) / 1.5) !important;
-    margin-right: 0.25em !important;
+#TabsToolbar,
+#nav-bar {
+    background: var(--universal-colour) !important
 }
 
-/* Hide unused elements */
-#firefox-view-button,
-#scrollbutton-up,
-.tab-secondary-label,
-#tabs-newtab-button,
-#titlebar spacer,
-#new-tab-button,
-#alltabs-button,
-#scrollbutton-down,
-.tab-loading-burst {
-    display: none !important;
-}
-
-/* Tab toolbar adjustments */
 #TabsToolbar {
-    min-height: 0 !important;
+    margin-left: calc(var(--universal-size-value)*30) !important;
+    border-radius: 0 !important;
+    padding: 0 !important
 }
 
-/* Button and Icon styling */
-#tabs-newtab-button:hover,
-#tabbrowser-tabs .tabs-newtab-button:hover {
-    background-color: alpha(var(--background-color), 0.3);
-}
-
-#tabs-newtab-button>.toolbarbutton-icon,
-#tabbrowser-tabs .tabs-newtab-button>.toolbarbutton-icon {
-    padding: 0 !important;
-    transform: scale(0.6);
-    background-color: var(--background-color) !important;
-}
-
-.tabbrowser-tab:first-child {
-    margin-left: -0.125em !important;
-}
-
-.tab-close-button {
-    margin-right: 0 !important;
-    margin-top: 0.0625em !important;
+#nav-bar {
+    margin-top: min(-30px, calc(-1*var(--universal-size-value))) !important;
+    max-width: calc(var(--universal-size-value)*30) !important;
+    font-size: calc(var(--universal-size-value)*.8) !important
 }

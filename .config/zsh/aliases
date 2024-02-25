@@ -15,7 +15,9 @@ alias scripts='vscodium $HOME/dotfiles/scripts/'
 
 # System maintenance aliases
 alias dotlink='$HOME/dotfiles/scripts/dotlink.sh'
-alias gitsync='$HOME/dotfiles/scripts/gitsync.sh'
+alias dotsync='$HOME/dotfiles/scripts/dotsync.sh'
+alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
+alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
 
 setopt NULL_GLOB
 
@@ -53,12 +55,14 @@ elif [ "$(hostname)" = "y0usaf-laptop" ]; then
     }
 fi
 
-alias lk='leagueoflegends kill'
-alias ytm4a='yt-dlp --extract-audio --audio-format m4a -o "~/Music/%(title)s.%(ext)s"'
+ytm4a() {
+    output_folder="$1"
+    link="$2"
 
-# Path/filename: updated_spotm4a.sh
+    # Download using yt-dlp, extract audio in m4a format, and save to the specified output folder
+    yt-dlp --extract-audio --audio-format m4a -o "${output_folder}/%(title)s.%(ext)s" "$link"
+}
 
-# Path/filename: improved_spotm4a.sh
 
 spotm4a() {
     output_folder="$1"

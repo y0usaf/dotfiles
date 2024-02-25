@@ -1,63 +1,52 @@
-/* Variables */
-@define-color primary #FFFFFF;
-@define-color secondary transparent;
-@define-color hover-color rgba(100, 149, 237, 0.1);
-@define-color selected-color rgba(100, 149, 237, 0.5);
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
 
-/* Global settings */
+    to {
+        opacity: 1
+    }
+}
+
+@define-color primary #fff;
+@define-color secondary transparent;
+@define-color hover-color rgba(100, 149, 237, .1);
+@define-color selected-color rgba(100, 149, 237, .5);
+
 * {
-    /*all: unset;
-    padding: 0.2em;*/
     font-family: monospace;
     color: @primary;
     background: @secondary;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    transition: background 0.2s ease, transform 0.2s ease;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+    transition: background .2s ease, transform .2s ease
 }
 
-/* Hover settings */
-*:hover {
-    background: @hover-color;
+:hover {
+    background: @hover-color
 }
 
-/* Selected settings */
-*:selected {
-    background: @selected-color;
+:selected {
+    background: @selected-color
 }
 
-/* Button settings */
 button {
     border-radius: 4px;
-    transition: all 0.3s ease;
+    transition: all .3s ease
 }
 
-/* Form Focus */
 input:focus,
-textarea:focus,
-select:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    border: 1px solid rgba(81, 203, 238, 1);
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 5px #51cbee;
+    border: 1px solid #51cbee
 }
 
-/* Menu settings */
 menu {
-    background: #333333;
-    /* Black background for menus */
+    background: #333
 }
 
-/* Fade-In Effect */
 .fade-in {
     opacity: 0;
     animation: fadeIn ease 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    animation-fill-mode: forwards
 }
