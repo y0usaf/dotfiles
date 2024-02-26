@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Sync non-symlink files from Obsidian Vault Templates to dotfiles
+SOURCE_DIR="/home/y0usaf/Documents/Obsidian Vault/Templates"
+TARGET_DIR="/home/y0usaf/dotfiles/Documents/Obsidian Vault/Templates"
+
+# Ensure target directory exists
+mkdir -p "$TARGET_DIR"
+
+# Copy non-symlink files
+find "$SOURCE_DIR" -type f ! -lname '*' -exec cp {} "$TARGET_DIR" \;
+
 # Git Sync Script for Default Branch Operations Only
 
 # Define the directory and remote repository
