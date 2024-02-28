@@ -32,29 +32,27 @@ button {
   color: var(--background);
 }
 
-#workspaces>button {
+#workspaces > button {
   padding: 0px 1px;
   /* transition: min-width 0.15s cubic-bezier(0.2, 0.0, 0, 1.0); */
   transition: min-width 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: var(--foreground);
 }
 
-
-
-#workspaces>button.active {
+#workspaces > button.active {
   min-width: 24px;
   color: var(--foreground);
 }
 
-#workspaces>button.empty {
-  color: alpha(var(--foreground),0.6);
+#workspaces > button.empty {
+  color: alpha(var(--foreground), 0.6);
 }
 
-#workspaces>button.urgent {
+#workspaces > button.urgent {
   color: red;
 }
 
-#workspaces>button:hover {
+#workspaces > button:hover {
   color: var(--foreground);
 }
 
@@ -78,7 +76,7 @@ button {
   color: var(--background);
 }
 
-#system-tray>button {
+#system-tray > button {
   padding: 0px 4px;
   margin: 0px; /* Set margin to 0 */
 }
@@ -90,22 +88,22 @@ menu {
   border-color: var(--foreground);
 }
 
-menu>menuitem {
-  color: alpha(var(--foreground),0.6);
+menu > menuitem {
+  color: alpha(var(--foreground), 0.6);
   padding: 6px;
   margin-left: 2px;
   margin-right: 2px;
 }
 
-menu>menuitem:first-child {
+menu > menuitem:first-child {
   margin-top: 1.5px;
 }
 
-menu>menuitem:last-child {
+menu > menuitem:last-child {
   margin-bottom: 1.5px;
 }
 
-menu>menuitem:hover {
+menu > menuitem:hover {
   color: var(--foreground);
 }
 

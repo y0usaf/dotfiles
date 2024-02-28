@@ -24,8 +24,8 @@ const workspaces = () =>
             class_name: Hyprland.active.workspace
               .bind("id")
               .transform((i) => (i === id ? "focused" : "")),
-          })
-        )
+          }),
+        ),
     ),
   });
 
@@ -41,8 +41,8 @@ const clock = () =>
     setup: (self) =>
       self.poll(1000, (self) =>
         execAsync(["date", "+%H:%M:%S %b %e."]).then(
-          (date) => (self.label = date)
-        )
+          (date) => (self.label = date),
+        ),
       ),
   });
 
@@ -72,7 +72,7 @@ const notification = () =>
       }),
       Widget.Label({
         label: Notifications.bind("popups").transform(
-          (p) => p[0]?.summary || ""
+          (p) => p[0]?.summary || "",
         ),
       }),
     ],
@@ -94,7 +94,7 @@ const media = () =>
           self.label = "Nothing is playing";
         }
       },
-      "player-changed"
+      "player-changed",
     ),
   });
 
@@ -119,11 +119,11 @@ const volume = () =>
             const icon = Audio.speaker.is_muted
               ? 0
               : [101, 67, 34, 1, 0].find(
-                  (threshold) => threshold <= Audio.speaker.volume * 100
+                  (threshold) => threshold <= Audio.speaker.volume * 100,
                 );
             self.icon = `audio-volume-${category[icon]}-symbolic`;
           },
-          "speaker-changed"
+          "speaker-changed",
         ),
         Widget.Label({
           class_name: "volume-label",
@@ -134,7 +134,7 @@ const volume = () =>
                 (self.label = ` Vol: ${
                   Math.round(Audio.speaker?.volume * 100) || 0
                 }%`),
-              "speaker-changed"
+              "speaker-changed",
             ),
         }),
       ],
@@ -151,13 +151,13 @@ const batteryLabel = () =>
       children: [
         Widget.Icon({
           icon: Battery.bind("percent").transform(
-            (p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`
+            (p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`,
           ),
         }),
         Widget.ProgressBar({
           vpack: "center",
           fraction: Battery.bind("percent").transform((p) =>
-            p > 0 ? p / 100 : 0
+            p > 0 ? p / 100 : 0,
           ),
         }),
       ],
@@ -173,8 +173,8 @@ const sysTray = () =>
           on_primary_click: (_, event) => item.activate(event),
           on_secondary_click: (_, event) => item.openMenu(event),
           binds: [["tooltip-markup", item, "tooltip-markup"]],
-        })
-      )
+        }),
+      ),
     ),
   });
 

@@ -53,8 +53,8 @@ elif [ "$(hostname)" = "y0usaf-laptop" ]; then
 
 fi
 
-export WALLPAPER_DIR="$HOME/Wallpapers"
-export WALLPAPER_VIDEO_DIR="$HOME/Wallpapers_Video"
+export WALLPAPER_DIR="$HOME/DCIM/Wallpapers"
+export WALLPAPER_VIDEO_DIR="$HOME/DCIM/Wallpapers_Video"
 
 # Additional Functions and Commands
 export_var_from_file() {

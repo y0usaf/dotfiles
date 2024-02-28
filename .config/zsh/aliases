@@ -22,6 +22,7 @@ alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
 setopt NULL_GLOB
 
 alias sysup='{
+  sudo cp -r "$HOME/Documents/Obsidian Vault" "$HOME/Documents/Obsidian Vault.bak"
   sudo rm -rf $HOME/.local/share/Trash/* || return 1
   sudo rm -rf $HOME/.cache/* || return 1
   paru -Syu --noconfirm || return 1

@@ -1,39 +1,39 @@
 :root {
-    --universal-size-value: 20px;
-    --universal-colour: black
+  --universal-size-value: 20px;
+  --universal-colour: black;
 }
 
 .tabbrowser-tab * {
-    margin: 0 !important;
-    border-radius: 0 !important;
-    font-family: monospace !important;
-    font-size: calc(var(--universal-size-value)*.8) !important
+  margin: 0 !important;
+  border-radius: 0 !important;
+  font-family: monospace !important;
+  font-size: calc(var(--universal-size-value) * 0.8) !important;
 }
 
 #TabsToolbar,
 #nav-bar,
 .tabbrowser-tab {
-    height: var(--universal-size-value) !important
+  height: var(--universal-size-value) !important;
 }
 
 .tabbrowser-tab {
-    min-height: 0 !important;
-    align-items: center !important
+  min-height: 0 !important;
+  align-items: center !important;
 }
 
 #TabsToolbar,
 #nav-bar {
-    background: var(--universal-colour) !important
+  background: var(--universal-colour) !important;
 }
 
 #TabsToolbar {
-    margin-left: calc(var(--universal-size-value)*30) !important;
-    border-radius: 0 !important;
-    padding: 0 !important
+  margin-left: calc(var(--universal-size-value) * 30) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
 
 #nav-bar {
-    margin-top: min(-30px, calc(-1*var(--universal-size-value))) !important;
-    max-width: calc(var(--universal-size-value)*30) !important;
-    font-size: calc(var(--universal-size-value)*.8) !important
+  margin-top: min(-30px, calc(-1 * var(--universal-size-value))) !important;
+  max-width: calc(var(--universal-size-value) * 30) !important;
+  font-size: calc(var(--universal-size-value) * 0.8) !important;
 }

@@ -51,6 +51,7 @@ cadmus-appimage
 cairo
 cairomm
 cantarell-fonts
+cava
 cblas
 cdparanoia
 chrono-date
@@ -194,6 +195,7 @@ hwloc
 hy3
 hyprland
 hyprlang
+hyprpicker
 iana-etc
 icu
 ijs
@@ -201,6 +203,7 @@ imagemagick
 imath
 imv
 inetutils
+iniparser
 intel-oneapi-common
 intel-oneapi-compiler-shared-runtime-libs
 intel-oneapi-openmp
@@ -1024,7 +1027,7 @@ uvicorn
 v4l-utils
 vapoursynth
 verdict
-vesktop
+vesktop-bin
 vid.stab
 vim
 vim-runtime
