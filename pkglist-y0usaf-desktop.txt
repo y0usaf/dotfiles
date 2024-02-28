@@ -192,7 +192,6 @@ highway
 http-parser
 hwdata
 hwloc
-hy3
 hyprland
 hyprlang
 hyprpicker
