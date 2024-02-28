@@ -18,21 +18,10 @@ alias dotlink='$HOME/dotfiles/scripts/dotlink.sh'
 alias dotsync='$HOME/dotfiles/scripts/dotsync.sh'
 alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
 alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
+alias sysup='$HOME/scripts/sysup.sh'
 
 setopt NULL_GLOB
 
-alias sysup='{
-  sudo cp -r "$HOME/Documents/Obsidian Vault" "$HOME/Documents/Obsidian Vault.bak"
-  sudo rm -rf $HOME/.local/share/Trash/* || return 1
-  sudo rm -rf $HOME/.cache/* || return 1
-  paru -Syu --noconfirm || return 1
-  paru -Scc --noconfirm || return 1
-  while paru -Qttdq >/dev/null; do
-    paru -R --noconfirm $(paru -Qttdq) || return 1
-  done
-  dotlink || return 1
-  paru -Qq > $HOME/dotfiles/pkglist-$(hostname).txt
-} && echo "All tasks completed successfully" || echo "An error occurred, please check the individual steps."'
 
 alias pkgs='paru -Qq | grep '
 alias orphans='pacman -Qttdq'
