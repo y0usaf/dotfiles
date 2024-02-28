@@ -1,1 +1,0 @@
-Date/<%tp.date.now("YY-MM-DD")%> <%tp.file.rename(tp.date.now("YY-MM-DD")) %>

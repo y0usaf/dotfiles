@@ -1,1 +1,0 @@
-#Cohere/Date/<%tp.date.now("YY-MM-DD")%> #Cohere <% tp.file.rename(tp.date.now("YY-MM-DD")) %>
