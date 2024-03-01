@@ -94,7 +94,6 @@ efibootmgr
 efivar
 egl-wayland
 eglexternalplatform
-electron
 electron28
 ell
 eslint
@@ -964,7 +963,7 @@ shaderc
 shadow
 shared-mime-info
 shiboken6
-slack-electron
+slack-desktop
 slang
 slurp
 smile
