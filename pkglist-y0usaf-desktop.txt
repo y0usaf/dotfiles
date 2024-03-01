@@ -194,6 +194,7 @@ hwdata
 hwloc
 hyprland
 hyprlang
+hyprlock
 hyprpicker
 iana-etc
 icu
