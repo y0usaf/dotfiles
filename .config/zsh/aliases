@@ -1,17 +1,17 @@
 #Text editor aliases
-alias aliases='vscodium $HOME/dotfiles/.config/zsh/aliases'
-alias agscfg='vscodium $HOME/dotfiles/.config/ags/config.js'
-alias swaycfg='vscodium $HOME/dotfiles/.config/sway/*'
-alias footcfg='vscodium $HOME/dotfiles/.config/foot/foot.ini'
-alias hyprcfg='vscodium $HOME/dotfiles/.config/hypr/hyprland.conf'
-alias hyprlandcfg='vscodium $HOME/dotfiles/.config/hypr/hyprland.conf'
-alias cavacfg='vscodium $HOME/dotfiles/.config/cava/config'
-alias zshrc='vscodium $HOME/dotfiles/.config/zsh/.zshrc'
-alias zshenv='vscodium $HOME/dotfiles/.config/zsh/.zshenv'
-alias zprofile='vscodium $HOME/dotfiles/.config/zsh/.zprofile'
-alias waybarcfg='vscodium $HOME/dotfiles/.config/waybar/config'
-alias waybarcss='vscodium $HOME/dotfiles/.config/waybar/style.css'
-alias scripts='vscodium $HOME/dotfiles/scripts/'
+alias aliases='nvim $HOME/dotfiles/.config/zsh/aliases'
+alias agscfg='nvim $HOME/dotfiles/.config/ags/config.js'
+alias swaycfg='nvim $HOME/dotfiles/.config/sway/*'
+alias footcfg='nvim $HOME/dotfiles/.config/foot/foot.ini'
+alias hyprcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf'
+alias hyprlandcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf'
+alias cavacfg='nvim $HOME/dotfiles/.config/cava/config'
+alias zshrc='nvim $HOME/dotfiles/.config/zsh/.zshrc'
+alias zshenv='nvim $HOME/dotfiles/.config/zsh/.zshenv'
+alias zprofile='nvim $HOME/dotfiles/.config/zsh/.zprofile'
+alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config'
+alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css'
+alias scripts='nvim $HOME/dotfiles/scripts/'
 
 # System maintenance aliases
 alias dotlink='$HOME/dotfiles/scripts/dotlink.sh'
@@ -22,6 +22,9 @@ alias sysup='$HOME/scripts/sysup.sh'
 
 setopt NULL_GLOB
 
+#Music Downloading Aliases
+alias ytm4a='$HOME/scripts/ytm4a.sh'
+alias spotm4a='$HOME/scripts/spotm4a.sh'
 
 alias pkgs='paru -Qq | grep '
 alias orphans='pacman -Qttdq'
@@ -45,17 +48,6 @@ elif [ "$(hostname)" = "y0usaf-laptop" ]; then
     }
 fi
 
-ytm4a() {
-    output_folder="$1"
-    link="$2"
-
-    # Download using yt-dlp, extract audio in m4a format, and save to the specified output folder
-    yt-dlp --extract-audio --audio-format m4a -o "${output_folder}/%(title)s.%(ext)s" "$link"
-}
-
-
-alias spotm4a = '$HOME/scripts/spotm4a.sh'
-
 alias depcount='{
     for pkg in $(pacman -Qq); do 
         dep_count=$(pactree -u "$pkg" | wc -l); 
@@ -64,7 +56,7 @@ alias depcount='{
 } && echo "Dependency count completed successfully" || echo "An error occurred."'
 
 
-alias gitignore='vscodium $HOME/.gitignore'
+alias gitignore='nvim $HOME/.gitignore'
 alias userctl='systemctl --user'
 alias ooba='/home/y0usaf/ML/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'

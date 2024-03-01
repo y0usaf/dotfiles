@@ -626,6 +626,7 @@ numactl
 nvidia-535xx-dkms
 nvidia-535xx-settings
 nvidia-535xx-utils
+nvim-lazy
 nvtop
 nwg-look
 obs-backgroundremoval
@@ -890,6 +891,7 @@ qt6-tools
 qt6-translations
 qt6-wayland
 r2modman-appimage
+ranger
 rav1e
 re2
 readline
@@ -1030,6 +1032,7 @@ verdict
 vesktop-bin
 vid.stab
 vim
+vim-copilot-git
 vim-runtime
 vkd3d
 vmaf
