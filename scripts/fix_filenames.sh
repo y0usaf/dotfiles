@@ -15,11 +15,11 @@ if [[ "$response" =~ ^([nN][oO]|[nN])$ ]]; then
     exit 0
 fi
 
-# Function to sanitize names
+# Function to sanitize names by removing non-FAT compliant characters, preserving extension
 sanitize_name() {
     local name="$1"
-    # Replace non-FAT compliant characters with "_", preserve extension
-    echo "${name}" | sed -E 's/[^a-zA-Z0-9._-]+/_/g'
+    # Remove non-FAT compliant characters, preserve extension
+    echo "${name}" | sed -E 's/[^a-zA-Z0-9._-]//g'
 }
 
 export -f sanitize_name
