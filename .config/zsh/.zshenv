@@ -15,8 +15,10 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
-export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
-export KERAS_HOME="${XDG_STATE_HOME}/keras"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export KERAS_HOME="$XDG_STATE_HOME/keras"
+export NIMBLE_DIR="$XDG_DATA_HOME/nimble"
+export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 
 # Desktop and Display Settings
 export MOZ_ENABLE_WAYLAND=1
