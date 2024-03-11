@@ -1,10 +1,10 @@
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+    opacity: 0
   }
 
   to {
-    opacity: 1;
+    opacity: 1
   }
 }
 
@@ -17,38 +17,38 @@
   font-family: monospace;
   color: @primary;
   background: @secondary;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5),
+
+    transition: background 0.2s ease,
+    transform 0.2s ease
 }
 
 :hover {
-  background: @hover-color;
+  background: @hover-color
 }
 
 :selected {
-  background: @selected-color;
+  background: @selected-color
 }
 
 button {
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all .3s ease
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   box-shadow: 0 0 5px #51cbee;
-  border: 1px solid #51cbee;
+  border: 1px solid #51cbee
 }
 
 menu {
-  background: #333;
+  background: #333
 }
 
 .fade-in {
   opacity: 0;
   animation: fadeIn ease 1s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards
 }

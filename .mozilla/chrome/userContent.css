@@ -1,9 +1,0 @@
-@-moz-document url-prefix() {
-  body,
-  button,
-  input,
-  textarea,
-  select {
-    font-family: monospace, "Noto Color Emoji" !important;
-  }
-}

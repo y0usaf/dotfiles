@@ -2,7 +2,7 @@
 
 # Backup Obsidian Vault
 echo "Backing up Obsidian Vault..."
-sudo cp -r "$HOME/Documents/Obsidian Vault" "$HOME/Documents/Obsidian Vault.bak" || { echo "Backup failed"; exit 1; }
+cp -rT "$HOME/ObsidianVault" "$HOME/ObsidianVaultBackup" || { echo "Backup failed"; exit 1; }
 
 # Empty the Trash directory
 echo "Emptying the Trash directory..."
