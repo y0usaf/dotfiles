@@ -2,24 +2,24 @@
 eval "$(ssh-agent -s)"
 
 # Load SSH keys into SSH agent
-if [ -f /home/y0usaf/Tokens/id_rsa_y0usaf ]; then
-    ssh-add ~/Tokens/id_rsa_y0usaf
+if [ -f /home/7ktx/Tokens/id_rsa_7ktx ]; then
+    ssh-add ~/Tokens/id_rsa_7ktx
 fi
 
-if [ -f /home/y0usaf/Tokens/id_rsa_cohere_sami ]; then
+if [ -f /home/7ktx/Tokens/id_rsa_cohere_sami ]; then
     ssh-add ~/Tokens/id_rsa_cohere_sami
 fi
 
-# Check if the hostname is y0usaf-desktop
-if [ "$(hostname)" = "y0usaf-desktop" ]; then
+# Check if the hostname is 7ktx-desktop
+if [ "$(hostname)" = "7ktx-desktop" ]; then
     # Set the power limit for NVIDIA GPU
     sudo nvidia-smi -pl 200 &
 
     # Launch Hyprland
     Hyprland
 
-# Check if the hostname is y0usaf-laptop
-elif [ "$(hostname)" = "y0usaf-laptop" ]; then
+# Check if the hostname is 7ktx-laptop
+elif [ "$(hostname)" = "7ktx-laptop" ]; then
     Sysup &
     Hyprland
 fi

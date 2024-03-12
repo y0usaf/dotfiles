@@ -48,9 +48,9 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
 # Hostname Specific Directories
-if [ "$(hostname)" = "y0usaf-desktop" ]; then
+if [ "$(hostname)" = "7ktx-desktop" ]; then
     export XDG_MUSIC_DIR="/data/Music"
-elif [ "$(hostname)" = "y0usaf-laptop" ]; then
+elif [ "$(hostname)" = "7ktx-laptop" ]; then
     export XDG_MUSIC_DIR="$HOME/Music"
 
 fi

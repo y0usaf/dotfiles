@@ -32,9 +32,9 @@ alias pacfix='sudo rm /var/lib/pacman/db.lck'
 alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"'
 
 # Other aliases
-if [ "$(hostname)" = "y0usaf-desktop" ]; then
+if [ "$(hostname)" = "7ktx-desktop" ]; then
     alias gpupower='sudo nvidia-smi -pl'
-elif [ "$(hostname)" = "y0usaf-laptop" ]; then
+elif [ "$(hostname)" = "7ktx-laptop" ]; then
     fanspeed() {
         if [ -z "$1" ]; then
             echo "Usage: fanspeed <percentage>"
@@ -58,7 +58,7 @@ alias depcount='{
 
 alias gitignore='nvim $HOME/.gitignore'
 alias userctl='systemctl --user'
-alias ooba='/home/y0usaf/ML/text-generation-webui/start_linux.sh'
+alias ooba='/home/7ktx/ML/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Upscale/Input -o ~/Upscale/Output'
 
