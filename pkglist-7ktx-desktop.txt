@@ -305,7 +305,6 @@ lib32-libx11
 lib32-libxau
 lib32-libxcb
 lib32-libxcrypt
-lib32-libxcrypt-compat
 lib32-libxcursor
 lib32-libxdamage
 lib32-libxdmcp
@@ -543,7 +542,6 @@ libxaw
 libxcb
 libxcomposite
 libxcrypt
-libxcrypt-compat
 libxcursor
 libxcvt
 libxdamage
@@ -628,6 +626,7 @@ neovim
 netpbm
 nettle
 networkmanager
+nim
 ninja
 nitch
 node-gyp
@@ -1035,7 +1034,6 @@ spirv-tools
 sqlite
 sratom
 srt
-steam
 strace
 stress
 subversion
@@ -1112,6 +1110,7 @@ winetricks
 wireless-regdb
 wireplumber
 wl-clipboard
+wl-clipboard-x11
 wlroots
 wlroots0.16
 wootility-lekker-beta-appimage
@@ -1156,7 +1155,6 @@ xvidcore
 xxhash
 xz
 yt-dlp
-zenity
 zeromq
 zimg
 zix
