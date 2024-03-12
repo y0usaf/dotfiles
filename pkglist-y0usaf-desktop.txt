@@ -1,3 +1,4 @@
+a52dec
 aalib
 abseil-cpp
 acl
@@ -22,6 +23,7 @@ apr-util
 arch-install-scripts
 archlinux-keyring
 argon2
+aribb24
 at-spi2-core
 atkmm
 attr
@@ -102,6 +104,7 @@ exfat-utils
 exiv2
 expat
 eza
+faad2
 fakeroot
 fcft
 ffmpeg-obs
@@ -114,6 +117,7 @@ findutils
 firefox-bin
 flac
 flex
+floorp-bin
 fmt
 fontconfig
 foot
@@ -344,7 +348,6 @@ lib32-zstd
 libadwaita
 libaec
 libaio
-libajantv2
 libappindicator-gtk3
 libarchive
 libass
@@ -378,19 +381,21 @@ libcloudproviders
 libcolord
 libcups
 libdaemon
-libdatachannel
 libdatrie
 libdbusmenu-glib
 libdbusmenu-gtk3
 libdc1394
+libdca
 libde265
 libdeflate
 libdiscid
 libdisplay-info
 libdovi
 libdrm
+libdvbpsi
 libdvdnav
 libdvdread
+libebml
 libedit
 libelf
 libepoxy
@@ -425,7 +430,6 @@ libinih
 libinput
 libisl
 libjpeg-turbo
-libjuice
 libjxl
 libksba
 liblc3
@@ -435,13 +439,17 @@ libliftoff
 liblqr
 libluv
 liblzf
+libmad
+libmatroska
 libmd
 libmm-glib
 libmng
 libmnl
 libmodplug
 libmpc
+libmpcdec
 libmpdclient
+libmpeg2
 libmspack
 libmtp
 libmypaint
@@ -494,11 +502,11 @@ libsodium
 libsoup3
 libsoxr
 libspiro
-libsrtp
 libssh
 libssh2
 libstemmer
 libsysprof-capture
+libtar
 libtasn1
 libteam
 libtermkey
@@ -510,6 +518,7 @@ libtool
 libunibreak
 libunistring
 libunwind
+libupnp
 liburcu
 liburing
 libusb
@@ -583,7 +592,6 @@ lsb-release
 lsof
 lua
 luajit
-lunarvim-git
 lv2
 lvm2
 lxmenu-data
@@ -594,7 +602,6 @@ mailcap
 make
 mako
 mbedtls
-mbedtls2
 md4c
 mdadm
 mediamtx
@@ -618,7 +625,6 @@ mypaint-brushes1
 nano
 ncurses
 neovim
-neovim-remote
 netpbm
 nettle
 networkmanager
@@ -643,7 +649,7 @@ nvim-lazy
 nvtop
 nwg-look
 obs-backgroundremoval-git
-obs-studio-git
+obs-studio-browser
 obsidian
 ocl-icd
 onetbb
@@ -778,7 +784,6 @@ python-google-cloud-storage
 python-google-crc32c
 python-google-resumable-media
 python-googleapis-common-protos
-python-greenlet
 python-grpcio
 python-gspread
 python-h11
@@ -816,7 +821,6 @@ python-loguru
 python-lxml
 python-lz4
 python-mako
-python-manimpango
 python-markdown
 python-markdown-it-py
 python-markupsafe
@@ -864,7 +868,6 @@ python-pydot
 python-pygments
 python-pyjwt
 python-pykakasi
-python-pynvim
 python-pyparsing
 python-pypdf2
 python-pyproject-hooks
@@ -934,6 +937,7 @@ qt5-declarative
 qt5-svg
 qt5-translations
 qt5-wayland
+qt5-x11extras
 qt5ct
 qt6-base
 qt6-declarative
@@ -1046,6 +1050,7 @@ sysfsutils
 systemd
 systemd-libs
 systemd-sysvcompat
+taglib
 tar
 tdb
 telegram-desktop-bin
@@ -1085,12 +1090,13 @@ verdict
 vesktop-bin
 vid.stab
 vim
-vim-copilot-git
 vim-runtime
 vkd3d
+vlc-luajit
 vmaf
 volume_key
 vscodium-bin
+vscodium-bin-marketplace
 vulkan-headers
 vulkan-icd-loader
 vulkan-validation-layers
@@ -1149,7 +1155,6 @@ xorgproto-explicit-sync-git
 xvidcore
 xxhash
 xz
-yarn
 yt-dlp
 zenity
 zeromq
