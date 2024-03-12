@@ -30,8 +30,14 @@ sync_existing_repo() {
     # Set pull to merge (not rebase)
     git config pull.rebase false
 
+    # Stash any local changes
+    git stash
+
     # Pull changes from the remote repository, merging them into your local branch
     git pull origin "$BRANCH"
+
+    # Pop the stashed changes (if any)
+    git stash pop
 
     # Sync files
     git add .
