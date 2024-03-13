@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Backup Obsidian Vault
-echo "Backing up Obsidian Vault..."
-cp -rT "$HOME/ObsidianVault" "$HOME/ObsidianVaultBackup" || { echo "Backup failed"; exit 1; }
+# echo "Backing up Obsidian Vault..."
+# cp -rT "$HOME/ObsidianVault" "$HOME/ObsidianVaultBackup" || { echo "Backup failed"; exit 1; }
 
 # Empty the Trash directory
 echo "Emptying the Trash directory..."

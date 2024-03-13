@@ -37,12 +37,14 @@ base-devel
 bash
 bash-pipes
 bc
+beets
 binutils
 bison
 blas
 bluez-libs
 brotli
 btrfs-progs
+bubblewrap
 bzip2
 c-ares
 ca-certificates
@@ -56,7 +58,9 @@ cantarell-fonts
 cava
 cblas
 cdparanoia
+chromaprint
 chrono-date
+cifs-utils
 cjson
 clang
 cmake
@@ -98,6 +102,7 @@ egl-wayland
 eglexternalplatform
 electron28
 ell
+enchant
 eslint
 espeak
 exfat-utils
@@ -119,6 +124,7 @@ flac
 flex
 floorp-bin
 fmt
+font-manager
 fontconfig
 foot
 freeglut
@@ -178,6 +184,7 @@ gssdp
 gst-plugins-bad-libs
 gst-plugins-base
 gst-plugins-base-libs
+gst-plugins-good
 gstreamer
 gtk-layer-shell
 gtk-update-icon-cache
@@ -191,6 +198,7 @@ gupnp
 gupnp-igd
 gzip
 harfbuzz
+harfbuzz-icu
 hdf5
 hicolor-icon-theme
 hidapi
@@ -198,6 +206,7 @@ highway
 http-parser
 hwdata
 hwloc
+hyphen
 hyprland
 hyprlang
 hyprlock
@@ -207,6 +216,7 @@ icu
 ijs
 imagemagick
 imath
+imlib2
 imv
 inetutils
 iniparser
@@ -234,8 +244,12 @@ json-glib
 jsoncpp
 jxrlib
 kbd
+kdsingleapplication
 kexec-tools
 keyutils
+kitty
+kitty-shell-integration
+kitty-terminfo
 kmod
 krb5
 l-smash
@@ -305,6 +319,7 @@ lib32-libx11
 lib32-libxau
 lib32-libxcb
 lib32-libxcrypt
+lib32-libxcrypt-compat
 lib32-libxcursor
 lib32-libxdamage
 lib32-libxdmcp
@@ -369,6 +384,7 @@ libbpf
 libbs2b
 libbsd
 libbytesize
+libcaca
 libcamera
 libcamera-ipa
 libcanberra
@@ -391,10 +407,12 @@ libdiscid
 libdisplay-info
 libdovi
 libdrm
+libdv
 libdvbpsi
 libdvdnav
 libdvdread
 libebml
+libebur128
 libedit
 libelf
 libepoxy
@@ -415,6 +433,7 @@ libgirepository
 libgit2
 libglvnd
 libgpg-error
+libgpod
 libgtop
 libgudev
 libhandy
@@ -439,6 +458,7 @@ liblqr
 libluv
 liblzf
 libmad
+libmanette
 libmatroska
 libmd
 libmm-glib
@@ -489,15 +509,18 @@ libraw
 libraw1394
 librist
 librsvg
+librsync
 libsamplerate
 libsasl
 libseccomp
 libsecret
+libshout
 libsigc++
 libsixel
 libsm
 libsndfile
 libsodium
+libsoup
 libsoup3
 libsoxr
 libspiro
@@ -533,15 +556,18 @@ libvpl
 libvpx
 libvterm
 libwacom
+libwbclient
 libwebp
 libwireplumber
 libwmf
+libwpe
 libx11
 libxau
 libxaw
 libxcb
 libxcomposite
 libxcrypt
+libxcrypt-compat
 libxcursor
 libxcvt
 libxdamage
@@ -692,6 +718,7 @@ perl
 perl-error
 perl-mailtools
 perl-timedate
+picard
 pinentry
 pinta
 pipes.sh
@@ -748,6 +775,7 @@ python-cleo
 python-click
 python-cohere-git
 python-colorama
+python-confuse
 python-cramjam
 python-crashtest
 python-cryptography
@@ -756,6 +784,7 @@ python-dateutil
 python-demjson3
 python-deprecated
 python-dirty-equals
+python-discid
 python-distlib
 python-distro
 python-docopt
@@ -764,6 +793,7 @@ python-dulwich
 python-fabric-git
 python-fastapi
 python-fastavro
+python-fasteners
 python-fastjsonschema
 python-feedparser
 python-filelock
@@ -807,6 +837,7 @@ python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
 python-jeepney
+python-jellyfish
 python-jsonschema
 python-jsonschema-specifications
 python-keras
@@ -824,10 +855,13 @@ python-markdown
 python-markdown-it-py
 python-markupsafe
 python-mdurl
+python-mediafile
 python-ml-dtypes
 python-more-itertools
 python-msgpack
 python-multidict
+python-munkres
+python-musicbrainzngs
 python-mutagen
 python-mypy_extensions
 python-numpy
@@ -870,6 +904,8 @@ python-pykakasi
 python-pyparsing
 python-pypdf2
 python-pyproject-hooks
+python-pyqt5
+python-pyqt5-sip
 python-pyrsistent
 python-pytube
 python-pytz
@@ -877,6 +913,7 @@ python-pyxdg
 python-rapidfuzz
 python-redis
 python-referencing
+python-reflink
 python-requests
 python-requests-oauthlib
 python-requests-toolbelt
@@ -912,6 +949,7 @@ python-tqdm
 python-trove-classifiers
 python-typing_extensions
 python-uc-micro-py
+python-unidecode
 python-uritemplate
 python-urllib3
 python-urwid
@@ -954,6 +992,8 @@ rebuild-detector
 refind
 rhash
 rnnoise
+roonbridge
+roonserver
 rtkit
 rubberband
 ruby
@@ -1014,6 +1054,7 @@ sed
 semver
 serd
 serf
+sg3_utils
 shaderc
 shadow
 shared-mime-info
@@ -1034,7 +1075,9 @@ spirv-tools
 sqlite
 sratom
 srt
+steam
 strace
+strawberry
 stress
 subversion
 sudo
@@ -1049,6 +1092,7 @@ systemd
 systemd-libs
 systemd-sysvcompat
 taglib
+talloc
 tar
 tdb
 telegram-desktop-bin
@@ -1068,6 +1112,7 @@ ttf-go-mono-git
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
+twolame
 tzdata
 uchardet
 udiskie
@@ -1098,9 +1143,11 @@ vscodium-bin-marketplace
 vulkan-headers
 vulkan-icd-loader
 vulkan-validation-layers
+wavpack
 waybar
 wayland
 wayland-protocols-explicit-sync-git
+webkit2gtk
 webp-pixbuf-loader
 webrtc-audio-processing-1
 wev
@@ -1113,9 +1160,11 @@ wl-clipboard
 wl-clipboard-x11
 wlroots
 wlroots0.16
+woff2
 wootility-lekker-beta-appimage
 wootomation-appimage
 wpa_supplicant
+wpebackend-fdo
 wxwidgets-common
 wxwidgets-gtk3
 x264
@@ -1129,6 +1178,7 @@ xcb-util-keysyms
 xcb-util-renderutil
 xcb-util-wm
 xcur2png
+xdg-dbus-proxy
 xdg-desktop-portal
 xdg-desktop-portal-hyprland
 xdg-ninja
@@ -1155,6 +1205,7 @@ xvidcore
 xxhash
 xz
 yt-dlp
+zenity
 zeromq
 zimg
 zix

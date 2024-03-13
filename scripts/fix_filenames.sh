@@ -18,8 +18,13 @@ fi
 # Function to sanitize names by removing non-FAT compliant characters, preserving extension
 sanitize_name() {
     local name="$1"
-    # Remove non-FAT compliant characters, preserve extension
-    echo "${name}" | sed -E 's/[^a-zA-Z0-9._-]//g'
+    # Replace spaces and colons with underscores
+    name=$(echo "${name}" | sed 's/[ :]/_/g')
+    
+    # Remove all other symbols except periods, underscores, and hyphens
+    name=$(echo "${name}" | sed -E 's/[^[:alnum:]._-]//g')
+    
+    echo "${name}"
 }
 
 export -f sanitize_name
