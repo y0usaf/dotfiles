@@ -19,7 +19,8 @@ declare -A album_count
 
 # Populate album_count with album names and file counts
 while IFS= read -r file; do
-    album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file")
+    album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
+    track=$(ffprobe -v error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
     # Skip processing if album name is empty
     if [ -z "$album" ]; then
         echo "Warning: Skipping a track without an album tag ($file)"
@@ -32,15 +33,15 @@ done < <(find "$output_folder" -type f -name "*.m4a")
 # Move files to album folders only if there's more than one file for that album
 while IFS= read -r file; do
     if [[ -f "$file" ]]; then
-        album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file")
+        album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
+        track=$(ffprobe -v error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
         # Check again for empty album to avoid errors in subshell
         if [ -z "$album" ]; then
             continue
         fi
         if [[ ${album_count["$album"]} -gt 1 ]]; then
             mkdir -p "$output_folder/$album"
-            mv "$file" "$output_folder/$album/"
+            mv "$file" "$output_folder/$album/$track.m4a"
         fi
     fi
 done < <(find "$output_folder" -type f -name "*.m4a")
-

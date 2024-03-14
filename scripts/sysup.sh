@@ -32,6 +32,6 @@ $HOME/dotfiles/scripts/dotlink.sh || { echo "Dotfiles linking failed"; exit 1; }
 
 # Save the list of installed packages
 echo "Saving the list of installed packages..."
-paru -Qq > "$HOME/dotfiles/pkglist-$(hostname).txt" || { echo "Failed to save the list of installed packages"; exit 1; }
+paru -Qq > "$HOME/dotfiles/.config/pkglist-$(hostname).txt" || { echo "Failed to save the list of installed packages"; exit 1; }
 
 echo "All tasks completed successfully"

@@ -20,6 +20,9 @@ alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
 alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
 alias sysup='$HOME/scripts/sysup.sh'
 
+# yarn 
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+
 setopt NULL_GLOB
 
 #Music Downloading Aliases

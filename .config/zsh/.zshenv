@@ -19,7 +19,11 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export KERAS_HOME="$XDG_STATE_HOME/keras"
 export NIMBLE_DIR="$XDG_DATA_HOME/nimble"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
+# Ren'Py
+export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME"
 # Desktop and Display Settings
 export MOZ_ENABLE_WAYLAND=1
 

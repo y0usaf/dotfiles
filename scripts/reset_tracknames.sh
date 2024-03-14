@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Function to sanitize track names by removing invalid characters
-sanitize_name() {
-    local name="$1"
-    # Replace invalid characters with underscores
-    name=$(echo "${name}" | sed 's/[^a-zA-Z0-9._-]/_/g')
-    echo "${name}"
-}
-
 # Validate input argument
 if [[ -z "$1" ]]; then
     echo "Usage: $0 <path>"
@@ -30,7 +22,7 @@ while IFS= read -r -d '' file; do
     
     if [ -n "$track_name" ]; then
         # Sanitize the track name
-        sanitized_name=$(sanitize_name "$track_name")
+        sanitized_name=$track_name
         
         # Get the file extension
         extension="${file##*.}"
