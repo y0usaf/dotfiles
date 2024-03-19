@@ -1,25 +1,31 @@
--- init.lua
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- HELLO, welcome to NormalNvim!
+-- ---------------------------------------
+-- This is the entry point of your config.
+-- ---------------------------------------
 
-vim.opt.backspace = '2'
-vim.opt.showcmd = true
-vim.opt.laststatus = 2
-vim.opt.autowrite = true
-vim.opt.cursorline = true
-vim.opt.autoread = true
+-- EVERY TIME NEOVIM OPENS:
+-- Compile lua to bytecode if the nvim version supports it.
+if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
-vim.opt.expandtab = true
-
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({'git', 'clone', '--filter=blob:none', 'https://github.com/folke/lazy.nvim.git', '--branch=stable',
-                   lazypath})
+-- THEN:
+-- Source config files by order.
+for _, source in ipairs {
+  "base.1-options",
+  "base.2-lazy",
+  "base.3-autocmds",
+  "base.4-mappings",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
-vim.opt.rtp:prepend(lazypath)
-vim.opt.clipboard = 'unnamedplus'
 
-require('lazy').setup('plugins')
+-- ONCE ALL SOURCE FILES HAVE LOADED:
+-- Load the color scheme defined in ./lua/1-options.lua
+if base.default_colorscheme then
+  if not pcall(vim.cmd.colorscheme, base.default_colorscheme) then
+    require("base.utils").notify(
+      "Error setting up colorscheme: " .. base.default_colorscheme,
+      vim.log.levels.ERROR
+    )
+  end
+end

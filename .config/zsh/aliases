@@ -11,6 +11,7 @@ alias zshenv='nvim $HOME/dotfiles/.config/zsh/.zshenv'
 alias zprofile='nvim $HOME/dotfiles/.config/zsh/.zprofile'
 alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config'
 alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css'
+alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf'
 alias scripts='nvim $HOME/dotfiles/scripts/'
 
 # System maintenance aliases
@@ -20,7 +21,7 @@ alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
 alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
 alias sysup='$HOME/scripts/sysup.sh'
 
-# yarn 
+# yarn
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 setopt NULL_GLOB
@@ -52,18 +53,19 @@ elif [ "$(hostname)" = "7ktx-laptop" ]; then
 fi
 
 alias depcount='{
-    for pkg in $(pacman -Qq); do 
-        dep_count=$(pactree -u "$pkg" | wc -l); 
-        echo "$pkg $dep_count"; 
+    for pkg in $(pacman -Qq); do
+        dep_count=$(pactree -u "$pkg" | wc -l);
+        echo "$pkg $dep_count";
     done | sort -nk2 -r
 } && echo "Dependency count completed successfully" || echo "An error occurred."'
 
 
 alias gitignore='nvim $HOME/.gitignore'
 alias userctl='systemctl --user'
-alias ooba='/home/7ktx/ML/text-generation-webui/start_linux.sh'
+alias ooba='/home/7ktx/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Upscale/Input -o ~/Upscale/Output'
+alias cursor="/opt/appimages/cursor.AppImage --ozone-platform=wayland --no-sandbox"
 
 # Directory listing aliases
 alias l.='exa -a | grep -E "^\."'

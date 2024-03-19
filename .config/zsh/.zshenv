@@ -29,7 +29,7 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Miscellaneous Settings
 export LIBSEAT_BACKEND=logind
-export BROWSER=firefox
+export BROWSER=floorp
 
 # User-provided Original Variables and Settings
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
