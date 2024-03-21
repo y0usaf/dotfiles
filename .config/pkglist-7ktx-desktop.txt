@@ -201,10 +201,9 @@ http-parser
 hwdata
 hwloc
 hyphen
+hyprcursor-git
 hyprland
 hyprlang
-hyprlock
-hyprpicker
 iana-etc
 icu
 ijs
@@ -566,6 +565,7 @@ libxv
 libxxf86vm
 libyaml
 libyuv
+libzip
 licenses
 lilv
 linux
@@ -632,6 +632,7 @@ nspr
 nss
 ntfs-3g
 numactl
+nvflash
 nvidia-beta-dkms
 nvidia-settings-beta
 nvidia-utils-beta
@@ -888,6 +889,7 @@ qt6-webchannel
 qt6-webengine
 qutebrowser
 r2modman-appimage
+ranger
 rav1e
 re2
 readline
@@ -982,6 +984,7 @@ subversion
 sudo
 suitesparse
 svt-av1
+sway
 sway-launcher-desktop-git
 swaybg
 syncthing
@@ -990,6 +993,7 @@ systemd
 systemd-libs
 systemd-sysvcompat
 taglib
+tailwindcss-language-server
 tar
 tdb
 telegram-desktop-bin
@@ -1032,12 +1036,13 @@ vim-runtime
 vkd3d
 vlc-luajit
 vmaf
+vscode-json-languageserver
 vulkan-headers
 vulkan-icd-loader
 vulkan-validation-layers
 waybar
 wayland
-wayland-protocols-explicit-sync-git
+wayland-protocols
 webkit2gtk
 webp-pixbuf-loader
 webrtc-audio-processing-1
@@ -1070,8 +1075,9 @@ xcb-util-wm
 xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
-xdg-desktop-portal-hyprland
-xdg-ninja
+xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-wlr
+xdg-ninja-git
 xdg-user-dirs
 xdg-utils
 xf86-input-libinput

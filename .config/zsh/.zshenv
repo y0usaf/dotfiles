@@ -3,9 +3,9 @@ source $ZDOTDIR/aliases
 
 # Path Settings
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH=$PATH:$(npm root -g)/.bin
 # Editor Settings
-export EDITOR="nano"
+export EDITOR="nvim"
 
 # XDG Base Directory and XDG Ninja Recommendations
 export XDG_DATA_HOME=$HOME/.local/share
