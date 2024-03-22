@@ -1,43 +1,39 @@
-#nav-bar {
-    display: flex;
-    justify-content: center
+:root {
+  --tab-height: 25px;
+  --navbar-bg-color: #111111;
+  --navbar-min-width: 1000px;
+  --navbar-max-width: 2000px;
 }
 
-#urlbar-container {
-    flex: 1;
-    max-width: 50vw;
-    min-width: 10vw;
-    margin: auto !important
+#TabsToolbar, #nav-bar, .tabbrowser-tab { height: var(--tab-height) !important; }
+#TabsToolbar, #nav-bar { background: var(--navbar-bg-color) !important; }
+#navigator-toolbox { background-color: var(--navbar-bg-color); }
+
+@media (min-width: 2000px) {
+  #TabsToolbar, #nav-bar { margin-left: calc((100vw - var(--navbar-min-width))/2); width: var(--navbar-min-width); }
 }
 
-#main-window #urlbar {
-    z-index: 9999 !important;
-    width: 100% !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important
+@media (min-width: 1000px) and (max-width: 1999px) {
+  #TabsToolbar, #nav-bar { margin-left: calc((100vw - var(--navbar-min-width))/2); width: calc(100vw - (100vw - var(--navbar-min-width))); }
+}
+
+@media (max-width: 999px) {
+  #TabsToolbar, #nav-bar { margin-left: 0; width: 100vw; }
+}
+
+scrollbox[smoothscroll=true] { display: flex !important; justify-content: center !important; }
+
+#main-window {
+  display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;
 }
 
 #main-window #urlbar[breakout][breakout-extend] {
-    width: 100% !important;
-    left: 0;
-    right: 0;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 30vh !important;
-    justify-content: center
+  box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+  width: 100% !important; left: 0; right: 0; margin: 30vh auto 0 !important; justify-content: center;
 }
 
-#urlbar-background,
-#urlbar-input-container {
-    --toolbarbutton-border-radius: 0px
-}
-
-#urlbar-input-container {
-    --urlbar-icon-border-radius: 0px
-}
+#urlbar-background, #urlbar-input-container { --toolbarbutton-border-radius: 0px; }
+#urlbar-input-container { --urlbar-icon-border-radius: 0px; }
 
 #urlbar:not([breakout][breakout-extend]) #urlbar-input,
-#urlbar:not([focused]) #urlbar-input {
-    text-align: center !important
-}
+#urlbar:not([focused]) #urlbar-input { text-align: center !important; }

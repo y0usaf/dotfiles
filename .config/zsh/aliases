@@ -65,7 +65,6 @@ alias userctl='systemctl --user'
 alias ooba='/home/7ktx/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output'
-alias cursor="/opt/appimages/cursor.AppImage --ozone-platform=wayland --no-sandbox"
 
 # Directory listing aliases
 alias l.='exa -a | grep -E "^\."'

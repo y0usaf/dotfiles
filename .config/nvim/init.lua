@@ -1,31 +1,100 @@
--- HELLO, welcome to NormalNvim!
--- ---------------------------------------
--- This is the entry point of your config.
--- ---------------------------------------
+-- Bootstrap vim-jetpack
+local jetpack = require('vim.jetpack')
+jetpack.startup(function(use)
+  -- Package manager
+  use 'tani/vim-jetpack'
 
--- EVERY TIME NEOVIM OPENS:
--- Compile lua to bytecode if the nvim version supports it.
-if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
+  -- Colorscheme
+  use 'sainnhe/gruvbox-material'
 
--- THEN:
--- Source config files by order.
-for _, source in ipairs {
-  "base.1-options",
-  "base.2-lazy",
-  "base.3-autocmds",
-  "base.4-mappings",
-} do
-  local status_ok, fault = pcall(require, source)
-  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+
+  -- Fuzzy finder
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Treesitter for better syntax highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  -- Auto completion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+end)
+
+-- Set colorscheme
+vim.cmd[[colorscheme gruvbox-material]]
+
+-- Nvim-tree setup
+require'nvim-tree'.setup {}
+
+-- Telescope setup
+require'telescope'.setup {}
+
+-- Treesitter setup
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",
+  highlight = {
+    enable = true,
+  },
+}
+
+-- Nvim-cmp setup
+local cmp = require'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require'luasnip'.lsp_expand(args.body)
+    end
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+}
+
+-- LSP setup
+local lspconfig = require'lspconfig'
+local servers = { 'pyright', 'tsserver', 'clangd' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
 end
 
--- ONCE ALL SOURCE FILES HAVE LOADED:
--- Load the color scheme defined in ./lua/1-options.lua
-if base.default_colorscheme then
-  if not pcall(vim.cmd.colorscheme, base.default_colorscheme) then
-    require("base.utils").notify(
-      "Error setting up colorscheme: " .. base.default_colorscheme,
-      vim.log.levels.ERROR
-    )
-  end
-end
+-- Lualine setup 
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'gruvbox-material',
+  }
+}
