@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+# /home/7ktx/.local/share/applications/NexusMods.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Nexus Mods
+Comment=Modding hub for various games
+Exec=/bin/bash -c "/home/7ktx/.local/share/Steam/steamapps/NexusMods.App.x86_64.AppImage %U"
+Icon=/path/to/your/icon.png  # Replace this with the path to your icon
+Terminal=false
+Categories=Game;Utility;
+

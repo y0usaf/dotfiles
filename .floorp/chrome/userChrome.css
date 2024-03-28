@@ -1,9 +1,14 @@
 :root {
-  --tab-height: 25px;
-  --navbar-bg-color: #111111;
+  --tab-height: 20px;
+  --navbar-bg-color: #1B1C22;
   --navbar-min-width: 1000px;
   --navbar-max-width: 2000px;
 }
+
+* {
+  border-radius: 0
+}
+
 
 #TabsToolbar, #nav-bar, .tabbrowser-tab { height: var(--tab-height) !important; }
 #TabsToolbar, #nav-bar { background: var(--navbar-bg-color) !important; }

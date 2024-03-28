@@ -76,3 +76,5 @@ image/bmp=imv.desktop
 image/x-portable-bitmap=imv.desktop
 image/x-portable-anymap=imv.desktop
 x-scheme-handler/figma=figma-linux.desktop
+x-scheme-handler/nxm=vortex-steamtinkerlaunch-dl.desktop
+x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
