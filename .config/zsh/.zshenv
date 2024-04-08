@@ -16,9 +16,11 @@ export XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export KERAS_HOME="$XDG_STATE_HOME/keras"
 export NIMBLE_DIR="$XDG_DATA_HOME/nimble"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
+
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 

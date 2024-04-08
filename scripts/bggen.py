@@ -3,13 +3,13 @@
 from PIL import Image
 
 # Define input image path
-image_path = "/home/7ktx/DCIM/Twitch/BG_6000x6000.png"
+image_path = "/home/7ktx/DCIM/Twitch/BG_5400x5400.png"
 output_path = "/home/7ktx/DCIM/Twitch/output.gif"
 # Define movement parameters
-movement = (2, 2)  # Pixels to move diagonally per frame
+movement = (5, 5)  # Pixels to move diagonally per frame
 
 # Define number of frames
-num_frames = 30 
+num_frames = 50 
 
 # Define target resolution for cropping
 target_resolution = (3840, 2160)  # Width, Height
