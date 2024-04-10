@@ -945,6 +945,7 @@ python-tomli
 python-tomlkit
 python-toolz
 python-tornado
+python-tqdm
 python-traitlets
 python-trove-classifiers
 python-typeguard
@@ -971,6 +972,7 @@ python-yarl
 python-ytmusicapi
 python-zipp
 python-zstandard
+python310
 qbittorrent
 qhull
 qrcodegencpp-cmake
@@ -1131,7 +1133,6 @@ unixodbc
 unrar
 unzip
 upower
-usbmuxd
 usbutils
 util-linux
 util-linux-libs
@@ -1211,7 +1212,7 @@ xorg-xmessage
 xorg-xprop
 xorg-xrandr
 xorg-xset
-xorg-xwayland-explicit-sync-git
+xorg-xwayland-git
 xorg-xwininfo
 xorgproto-git
 xvidcore
