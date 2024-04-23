@@ -1,0 +1,29 @@
+monitor=DP-1, highres@highrr,0x0,1
+monitor=DP-2, highres@highrr,0x1440,1
+## monitor=DP-5, highres@120,0x0,1
+bind = $mod2, 6, exec, hyprctl keyword monitor "DP-1, highres@highrr,0x0,1" && exec hyprctl keyword monitor "DP-2, highres@highrr,0x0,1"
+bind = $mod2, 7, exec, hyprctl keyword monitor "DP-1, disable" && exec hyprctl keyword monitor "DP-2, disable"
+bind = $mod SHIFT, C, exec, killall mpvpaper & exec swaybg -o DP-1 -i `find $WALLPAPER_DIR -type f | shuf -n 1` -m fill & exec swaybg -o DP-2 -i `find $WALLPAPER_DIR -type f | shuf -n 1` -m fill & exec hyprctl reload
+
+# Nvidia-specific Environment Variables for 7ktx-desktop
+# env = LIBVA_DRIVER_NAME,nvidia
+# env = GBM_BACKEND,nvidia-drm
+# env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+# env = WLR_NO_HARDWARE_CURSORS,1
+# env = __NV_PRIME_RENDER_OFFLOAD,1
+# env = __VK_LAYER_NV_optimus,NVIDIA_only
+# env = PROTON_ENABLE_NGX_UPDATER,1
+# env = NVD_BACKEND,direct
+# env = __GL_GSYNC_ALLOWED,1
+# env = __GL_VRR_ALLOWED,1
+# env = WLR_DRM_NO_ATOMIC,1
+# env = __GL_MaxFramesAllowed,1
+
+envd = LIBVA_DRIVER_NAME,nvidia
+envd = XDG_SESSION_TYPE,wayland
+envd = GBM_BACKEND,nvidia-drm
+envd = __GLX_VENDOR_LIBRARY_NAME,nvidia
+envd = WLR_NO_HARDWARE_CURSORS,1
+
+exec-once = swaybg -o DP-1 -i $(find $WALLPAPER_DIR -type f | shuf -n 1) -m fill
+exec-once = swaybg -o DP-2 -i $(find $WALLPAPER_DIR -type f | shuf -n 1) -m fill

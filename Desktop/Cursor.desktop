@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Cursor
+Exec=/opt/cursor-0.32.2-build-240417ab4wag7sx-x86_64.AppImage
+Icon=/opt/cursor.png
+comment=IDE
+Type=Application
+Terminal=false
+Encoding=UTF-8
+Categories=Utility;

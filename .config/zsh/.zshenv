@@ -4,7 +4,7 @@ source $ZDOTDIR/aliases
 # Path Settings
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:$(npm root -g)/.bin
-# Editor Settings
+export PATH="/usr/lib/google-cloud-sdk/bin:$PATH"
 export EDITOR="nvim"
 
 # XDG Base Directory and XDG Ninja Recommendations
