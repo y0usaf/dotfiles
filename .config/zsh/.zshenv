@@ -56,12 +56,13 @@ export HISTFILE="$XDG_STATE_HOME"/zsh/history
 # Hostname Specific Directories
 if [ "$(hostname)" = "7ktx-desktop" ]; then
     export XDG_MUSIC_DIR="/data/Music"
+    export WALLPAPER_DIR="$HOME/DCIM/Wallpapers/32_9"
 elif [ "$(hostname)" = "7ktx-laptop" ]; then
     export XDG_MUSIC_DIR="$HOME/Music"
+    export WALLPAPER_DIR="$HOME/DCIM/Wallpapers/16_9"
 
 fi
 
-export WALLPAPER_DIR="$HOME/DCIM/Wallpapers"
 export WALLPAPER_VIDEO_DIR="$HOME/DCIM/Wallpapers_Video"
 
 # Additional Functions and Commands
