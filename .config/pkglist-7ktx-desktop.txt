@@ -30,7 +30,6 @@ at-spi2-core
 atkmm
 attr
 audit
-authy-desktop-win32-bin
 autoconf
 automake
 avahi
@@ -43,6 +42,7 @@ bc
 beets
 binutils
 bison
+bitwarden
 blas
 bluez-libs
 boost-libs
@@ -109,10 +109,8 @@ efivar
 egl-wayland
 eglexternalplatform
 eigen
-electron
 electron28
 electron29
-electron30
 ell
 enchant
 eslint
@@ -128,7 +126,6 @@ fcft
 ffmpeg-obs
 fftw
 figlet
-figma-linux-bin
 file
 filesystem
 findutils
@@ -150,6 +147,7 @@ fuse2fs
 fuse3
 fx
 fzf
+gamemode
 gawk
 gc
 gcc
@@ -322,6 +320,7 @@ lib32-libltdl
 lib32-libnghttp2
 lib32-libnghttp3
 lib32-libnl
+lib32-libnsl
 lib32-libogg
 lib32-libpcap
 lib32-libpciaccess
@@ -500,6 +499,7 @@ libnm
 libnotify
 libnsgif
 libnsl
+libnss_nis
 libogg
 libomxil-bellagio
 libopenmpt
@@ -628,6 +628,7 @@ linux-zen-headers
 llvm
 llvm-libs
 lm_sensors
+love
 lsb-release
 lsof
 lua
@@ -641,6 +642,8 @@ m4
 mailcap
 make
 mako
+mangohud
+mari0
 mbedtls
 md4c
 mdadm
@@ -662,7 +665,6 @@ mpv
 msgpack-c
 mtdev
 mujs
-muso
 mypaint-brushes1
 nano
 ncurses
@@ -753,6 +755,7 @@ poppler-data
 poppler-glib
 popt
 portaudio
+postgresql-libs
 prettier
 procps-ng
 protobuf
@@ -842,6 +845,7 @@ python-googleapis-common-protos
 python-grpcio
 python-h11
 python-h5py
+python-html2text
 python-html5lib
 python-httpcore
 python-httplib2
@@ -919,6 +923,7 @@ python-pooch
 python-prompt_toolkit
 python-protobuf
 python-psutil
+python-psycopg2
 python-ptyprocess
 python-pure-eval
 python-py3nvml
@@ -1095,7 +1100,6 @@ ruby-uri
 rubygems
 runc
 s-tui
-sanic-cors
 sbc
 scx-scheds
 sdbus-cpp
@@ -1159,13 +1163,6 @@ tpm2-tss
 tracker3
 tree
 tree-sitter
-tree-sitter-bash
-tree-sitter-c
-tree-sitter-lua
-tree-sitter-markdown
-tree-sitter-python
-tree-sitter-query
-tree-sitter-vimdoc
 tslib
 ttf-go-mono-git
 ttf-liberation
@@ -1184,7 +1181,6 @@ util-linux
 util-linux-libs
 uvicorn
 v4l-utils
-v4l2loopback-dkms
 vapoursynth
 verdict
 vesktop-bin
@@ -1194,9 +1190,6 @@ vim-runtime
 vkd3d
 vlc-luajit
 vmaf
-vscodium-bin
-vscodium-bin-features
-vscodium-bin-marketplace
 vtk
 vulkan-headers
 vulkan-icd-loader
@@ -1236,7 +1229,7 @@ xcb-util-wm
 xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-hyprland-git
 xdg-ninja-git
 xdg-user-dirs
 xdg-utils

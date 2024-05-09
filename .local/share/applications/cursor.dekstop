@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Cursor
+Comment=Launch Cursor AppImage
+Exec=/opt/appimages/cursor.AppImage --ozone-platform=wayland --no-sandbox
+Icon=/path/to/icon/icon.png
+Terminal=false
+StartupWMClass=Cursor
