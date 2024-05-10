@@ -73,7 +73,7 @@ export_var_from_file() {
         export $var_name=$(cat $file_path)
     fi
 }
-export_var_from_file COHERE_API_KEY $HOME/Tokens/COHERE_API_KEY.tx
+export_var_from_file COHERE_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
 export_var_from_file GROQ_API_KEY $HOME/Tokens/GROQ_API_KEY.txt
 export_var_from_file COHERE_STAGING_API_KEY $HOME/Tokens/COHERE_STAGING_API_KEY.txt
 export_var_from_file OPENAI_API_KEY $HOME/Tokens/OPENAI_API_KEY.txt
