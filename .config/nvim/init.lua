@@ -1,3 +1,6 @@
+-- Install jetpack
+-- vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/anuvyklack/jetpack.nvim.git', '~/.local/share/nvim/site/pack/packer/start/jetpack.nvim'})
+vim.o.clipboard = 'unnamedplus'
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -22,8 +25,21 @@ require("lazy").setup({
     'kyazdani42/nvim-tree.lua',
     dependencies = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require'nvim-tree'.setup {}
-    end
+        require'nvim-tree'.setup {
+          -- Add some default settings for nvim-tree
+          view = {
+            adaptive_size = true,
+          },
+          renderer = {
+            highlight_git = true,
+          },
+          filters = {
+            dotfiles = true,
+          },
+          -- Add this line to open the file explorer by default
+          auto_open = true,
+        }
+      end
   },
 
   -- Fuzzy finder
@@ -31,7 +47,14 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
-      require'telescope'.setup {}
+      require'telescope'.setup {
+        -- Add some default settings for telescope
+        defaults = {
+          file_sorter = require'telescope.sorters'.get_fzy_sorter,
+          generic_sorter = require'telescope.sorters'.get_generic_fzy_sorter,
+          file_ignore_patterns = { 'node_modules' },
+        },
+      }
     end
   },
 
@@ -91,7 +114,7 @@ require("lazy").setup({
       local servers = { 'pyright', 'tsserver', 'clangd' }
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
-          capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+          capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
         }
       end
     end
@@ -115,67 +138,48 @@ require("lazy").setup({
   {
     'sudormrfbin/cheatsheet.nvim',
     config = function()
-    require'cheatsheet'.setup {
-    bundled_cheatsheets = {
-    enabled = { 'default' },
-    },
-    bundled_plugin_cheatsheets = {
-    enabled = {
-    'nvim-tree',
-    'telescope',
-    'lspconfig',
-    },
-    },
-    }
+      require'cheatsheet'.setup {
+        bundled_cheatsheets = {
+          enabled = { 'default' },
+        },
+        bundled_plugin_cheatsheets = {
+
+          enabled = {
+            'nvim-tree',
+            'telescope',
+            'lspconfig',
+          },
+        },
+      }
     end
-    },
-    -- Git signs
-    {
+  },
+
+  -- Git signs
+  {
     'lewis6991/gitsigns.nvim',
     config = function()
-    require'gitsigns'.setup()
+      require('gitsigns').setup {
+        signs = {
+          add = { hl = 'GitSignAdd' },
+          change = { hl = 'GitSignChange' },
+          delete = { hl = 'GitSignDelete' },
+          topdelete = { hl = 'GitSignDelete' },
+          changedelete = { hl = 'GitSignChange' },
+        },
+      }
     end
-    },
-    -- Indent guides
-    {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-    require'indent_blankline'.setup {
-    show_current_context = true,
-    show_current_context_start = true,
-    }
-    end
-    },
-    -- Commenting
-    {
-    'numToStr/Comment.nvim',
-    config = function()
-    require'Comment'.setup()
-    end
-    },
-    -- Surround
-    {
-    'kylechui/nvim-surround',
-    config = function()
-    require'nvim-surround'.setup()
-    end
-    },
-    -- Terminal
-    {
-    'akinsho/toggleterm.nvim',
-    config = function()
-    require'toggleterm'.setup()
-    end
-    },
-    })
-    -- Set colorscheme
-    vim.cmd('colorscheme gruvbox-material')
-    -- Set up keymaps
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<space>e', '<cmd>NvimTreeToggle<CR>', opts)
-    vim.keymap.set('n', '<space>f', '<cmd>Telescope find_files<CR>', opts)
-    vim.keymap.set('n', '<space>g', '<cmd>Telescope live_grep<CR>', opts)
-    vim.keymap.set('n', '<space>b', '<cmd>Telescope buffers<CR>', opts)
-    vim.keymap.set('n', '<space>h', '<cmd>Telescope help_tags<CR>', opts)
-    vim.keymap.set('n', '<space>c', '<cmd>Cheatsheet<CR>', opts)
-    vim.keymap.set('n', '<space>t', '<cmd>ToggleTerm<CR>', opts)
+  },
+})
+
+-- Set leader key
+vim.g.mapleader = ','
+
+-- Key mappings
+vim.api.nvim_set_keymap('n', '<leader>pv', ':lua require("nvim-tree.api").tree_toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tt', ':lua require("telescope.builtin").find_files()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tg', ':lua require("telescope.builtin").live_grep()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>td', ':lua require("telescope.builtin").diagnostics()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tb', ':lua require("telescope.builtin").buffers()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>th', ':lua require("telescope.builtin").help_tags()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ts', ':lua require("telescope.builtin").lsp_workspace_symbols()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>to', ':lua require("telescope.builtin").lsp_document_symbols()<CR>', { noremap = true, silent = true })

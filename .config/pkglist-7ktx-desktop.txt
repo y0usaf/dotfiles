@@ -227,10 +227,10 @@ hwdata
 hwloc
 hyphen
 hyprcursor
-hyprland-git
+hyprland
 hyprlang
+hyprlock
 hyprpicker
-hyprwayland-scanner-git
 iana-etc
 icu
 ijs
@@ -541,7 +541,6 @@ libsysprof-capture
 libtar
 libtasn1
 libteam
-libtermkey
 libthai
 libtheora
 libtiff
@@ -632,6 +631,7 @@ love
 lsb-release
 lsof
 lua
+lua51-lpeg
 luajit
 lv2
 lvm2
@@ -781,7 +781,6 @@ python-astunparse
 python-async-timeout
 python-attrs
 python-autocommand
-python-backoff
 python-bandcamp-api
 python-beautifulsoup4
 python-bleach
@@ -796,12 +795,10 @@ python-cffi
 python-charset-normalizer
 python-cleo
 python-click
-python-cohere-git
 python-colorama
 python-comm
 python-confuse
 python-contourpy
-python-cramjam
 python-crashtest
 python-cryptography
 python-cycler
@@ -819,7 +816,6 @@ python-dulwich
 python-executing
 python-fabric-git
 python-fastapi
-python-fastavro
 python-fastjsonschema
 python-filelock
 python-fire
@@ -875,13 +871,13 @@ python-jupyter-core
 python-keras
 python-keras-applications
 python-keras-preprocessing
+python-keyboard
 python-keyring
 python-kiwisolver
 python-lark-parser
 python-lockfile
 python-loguru
 python-lxml
-python-lz4
 python-mako
 python-markdown
 python-markdown-it-py
@@ -969,7 +965,6 @@ python-shellingham
 python-six
 python-slugify
 python-smmap
-python-snappy
 python-sniffio
 python-soundcloud-v2
 python-soupsieve
@@ -1026,9 +1021,14 @@ qhull
 qrcodegencpp-cmake
 qt5-base
 qt5-declarative
+qt5-location
+qt5-quickcontrols
+qt5-quickcontrols2
 qt5-svg
 qt5-translations
 qt5-wayland
+qt5-webchannel
+qt5-webengine
 qt5-x11extras
 qt5ct
 qt6-base
@@ -1131,6 +1131,7 @@ srt
 startup-notification
 steam
 strace
+stremio
 stress
 subversion
 sudo
@@ -1163,6 +1164,9 @@ tpm2-tss
 tracker3
 tree
 tree-sitter
+tree-sitter-lua
+tree-sitter-query
+tree-sitter-vimdoc
 tslib
 ttf-go-mono-git
 ttf-liberation
@@ -1193,6 +1197,7 @@ vmaf
 vtk
 vulkan-headers
 vulkan-icd-loader
+vulkan-validation-layers
 waybar-git
 wayland
 wayland-protocols

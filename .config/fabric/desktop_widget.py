@@ -1,4 +1,5 @@
 """dead simple desktop widget that shows the time and date."""
+
 import fabric
 import os
 from loguru import logger
@@ -17,7 +18,7 @@ PYWAL = False
 class ClockWidget(Window):
     def __init__(self, **kwargs):
         super().__init__(
-            layer="bottom",
+            layer="top",
             anchor="left top right",
             margin="240px 0px 0px 0px",
             children=Box(

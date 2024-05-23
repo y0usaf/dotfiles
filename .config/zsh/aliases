@@ -20,7 +20,6 @@ alias dotsync='$HOME/dotfiles/scripts/dotsync.sh'
 alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
 alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
 alias sysup='$HOME/scripts/sysup.sh'
-
 # yarn
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -65,7 +64,7 @@ alias userctl='systemctl --user'
 alias ooba='/home/7ktx/text-generation-webui/start_linux.sh'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output'
-
+alias dataconvert='python ~/Cohere/Scripts/dataconvert.py'
 # Directory listing aliases
 alias l.='exa -a | grep -E "^\."'
 alias la='exa -a --color=always --group-directories-first --icons'
