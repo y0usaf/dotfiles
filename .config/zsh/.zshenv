@@ -81,6 +81,7 @@ export_var_from_file OPENAI_API_KEY $HOME/Tokens/OPENAI_API_KEY.txt
 export_var_from_file SCALE_API_KEY $HOME/Tokens/SCALE_API_KEY.txt
 export_var_from_file HF_TOKEN $HOME/Tokens/HF_TOKEN.txt
 export_var_from_file GIT_TOKEN $HOME/Tokens/GITHUB_ACCESS_TOKEN.txt
+export_var_from_file WANDB_API_KEY $HOME/Tokens/WANDB_API_KEY.txt
 
 # Aliases
 alias wget="wget --hsts-file="$XDG_DATA_HOME"/wget-hsts"

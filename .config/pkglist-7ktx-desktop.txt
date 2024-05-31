@@ -7,6 +7,7 @@ acpi
 adobe-source-code-pro-fonts
 adwaita-cursors
 adwaita-icon-theme
+adwaita-icon-theme-legacy
 alsa-card-profiles
 alsa-lib
 alsa-plugins
@@ -167,6 +168,7 @@ giflib
 gimp
 git
 glew
+glfw
 glib
 glib-networking
 glib2
@@ -664,6 +666,7 @@ mpdecimal
 mpfr
 mpg123
 mpv
+mpvpaper
 msgpack-c
 mtdev
 mujs
@@ -1215,7 +1218,7 @@ wireless-regdb
 wireplumber
 wl-clipboard
 wl-clipboard-x11
-wlroots-git
+wlroots
 woff2
 wootility-lekker-beta-appimage
 wootomation-appimage
@@ -1236,7 +1239,7 @@ xcb-util-wm
 xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdg-ninja-git
 xdg-user-dirs
 xdg-utils
