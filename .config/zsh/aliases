@@ -1,44 +1,45 @@
-#Text editor aliases
-alias aliases='nvim $HOME/dotfiles/.config/zsh/aliases'
-alias agscfg='nvim $HOME/dotfiles/.config/ags/config.js'
-alias swaycfg='nvim $HOME/dotfiles/.config/sway/*'
-alias footcfg='nvim $HOME/dotfiles/.config/foot/foot.ini'
-alias hyprcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf'
-alias hyprlandcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf'
-alias cavacfg='nvim $HOME/dotfiles/.config/cava/config'
-alias zshrc='nvim $HOME/dotfiles/.config/zsh/.zshrc'
-alias zshenv='nvim $HOME/dotfiles/.config/zsh/.zshenv'
-alias zprofile='nvim $HOME/dotfiles/.config/zsh/.zprofile'
-alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config'
-alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css'
-alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf'
-alias scripts='nvim $HOME/dotfiles/scripts/'
-alias zshistory='codium $XDG_CONFIG_HOME/zsh/.zsh_history'
-# System maintenance aliases
-alias dotlink='$HOME/dotfiles/scripts/dotlink.sh'
-alias dotsync='$HOME/dotfiles/scripts/dotsync.sh'
-alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull'
-alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push'
-alias sysup='$HOME/scripts/sysup.sh'
-# yarn
-alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
-alias adb='HOME="$XDG_DATA_HOME"/android adb'
-setopt NULL_GLOB
+# Text Editor Aliases
+alias aliases='nvim $HOME/dotfiles/.config/zsh/aliases' # Edit aliases file
+alias agscfg='nvim $HOME/dotfiles/.config/ags/config.js' # Edit AGS config
+alias swaycfg='nvim $HOME/dotfiles/.config/sway/*' # Edit Sway config
+alias footcfg='nvim $HOME/dotfiles/.config/foot/foot.ini' # Edit Foot config
+alias hyprcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf' # Edit Hyprland config
+alias cavacfg='nvim $HOME/dotfiles/.config/cava/config' # Edit Cava config
+alias zshrc='nvim $HOME/dotfiles/.config/zsh/.zshrc' # Edit ZSH config
+alias zshenv='nvim $HOME/dotfiles/.config/zsh/.zshenv' # Edit ZSH environment
+alias zprofile='nvim $HOME/dotfiles/.config/zsh/.zprofile' # Edit ZSH profile
+alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config' # Edit Waybar config
+alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css' # Edit Waybar CSS
+alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf' # Edit Fontconfig
+alias scripts='nvim $HOME/dotfiles/scripts/' # Edit scripts directory
+alias zshistory='codium $XDG_CONFIG_HOME/zsh/.zsh_history' # Edit ZSH history
 
-#Music Downloading Aliases
-alias ytm4a='$HOME/scripts/ytm4a.sh'
-alias spotm4a='$HOME/scripts/spotm4a.sh'
+# System Maintenance Aliases
+alias dotlink='$HOME/dotfiles/scripts/dotlink.sh' # Run dotlink script
+alias dotsync='$HOME/dotfiles/scripts/dotsync.sh' # Run dotsync script
+alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull' # Run dotsync pull
+alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push' # Run dotsync push
+alias sysup='$HOME/scripts/sysup.sh' # Run sysup script
 
-alias pkgs='paru -Qq | grep '
-alias orphans='pacman -Qttdq'
-alias pacfix='sudo rm /var/lib/pacman/db.lck'
-alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"'
+# Yarn and ADB Aliases
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config" # Run yarn with custom config
+alias adb='HOME="$XDG_DATA_HOME"/android adb' # Run ADB with custom home
 
-# Other aliases
+# Music Downloading Aliases
+alias ytm4a='$HOME/scripts/ytm4a.sh' # Run ytm4a script
+alias spotm4a='$HOME/scripts/spotm4a.sh' # Run spotm4a script
+
+# Package Management Aliases
+alias pkgs='paru -Qq | grep ' # Search for packages
+alias orphans='pacman -Qttdq' # List orphan packages
+alias pacfix='sudo rm /var/lib/pacman/db.lck' # Fix pacman database
+alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"' # Check for altered files
+
+# Other Aliases
 if [ "$(hostname)" = "7ktx-desktop" ]; then
-    alias gpupower='sudo nvidia-smi -pl'
+    alias gpupower='sudo nvidia-smi -pl' # Get GPU power on desktop
 elif [ "$(hostname)" = "7ktx-laptop" ]; then
-    fanspeed() {
+    fanspeed() { # Set fan speed on laptop
         if [ -z "$1" ]; then
             echo "Usage: fanspeed <percentage>"
             return 1
@@ -58,22 +59,22 @@ alias depcount='{
     done | sort -nk2 -r
 } && echo "Dependency count completed successfully" || echo "An error occurred."'
 
+alias gitignore='nvim $HOME/.gitignore' # Edit Git ignore file
+alias userctl='systemctl --user' # Run systemctl with user flag
+alias ooba='/home/7ktx/text-generation-webui/start_linux.sh' # Run ooba script
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings' # Run NVIDIA settings
+alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output' # Run ESRGAN
+alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert script
 
-alias gitignore='nvim $HOME/.gitignore'
-alias userctl='systemctl --user'
-alias ooba='/home/7ktx/text-generation-webui/start_linux.sh'
-alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
-alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output'
-alias dataconvert='python ~/Cohere/Scripts/dataconvert.py'
-# Directory listing aliases
-alias l.='exa -a | grep -E "^\."'
-alias la='exa -a --color=always --group-directories-first --icons'
-alias ll='exa -l --color=always --group-directories-first --icons'
-alias ls='exa -al --color=always --group-directories-first --icons'
-alias lt='exa -aT --color=always --group-directories-first --icons'
-alias grep='grep --color=auto'
-alias dir='dir --color=auto'
-alias egrep='grep -E --color=auto'
-alias fgrep='grep -F --color=auto'
-alias tailup='sudo tailscale up'
-alias taildown='sudo tailscale down'
+# Directory Listing Aliases
+alias l.='exa -a | grep -E "^\."' # List hidden files
+alias la='exa -a --color=always --group-directories-first --icons' # List all files with icons
+alias ll='exa -l --color=always --group-directories-first --icons' # List files with details
+alias ls='exa -al --color=always --group-directories-first --icons' # List all files with details
+alias lt='exa -aT --color=always --group-directories-first --icons' # List files in tree view
+alias grep='grep --color=auto' # Run grep with color
+alias dir='dir --color=auto' # Run dir with color
+alias egrep='grep -E --color=auto' # Run egrep with color
+alias fgrep='grep -F --color=auto' # Run fgrep with color
+alias tailup='sudo tailscale up' # Start Tailscale
+alias taildown='sudo tailscale down' # Stop Tailscale
