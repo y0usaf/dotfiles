@@ -666,7 +666,6 @@ mpdecimal
 mpfr
 mpg123
 mpv
-mpvpaper
 msgpack-c
 mtdev
 mujs
@@ -680,6 +679,7 @@ networkmanager
 nim
 ninja
 nitch
+nnn
 node-gyp
 nodejs
 nodejs-nopt
@@ -875,7 +875,6 @@ python-jupyter-client
 python-jupyter-core
 python-keras
 python-keras-applications
-python-keras-preprocessing
 python-keyboard
 python-keyring
 python-kiwisolver
@@ -907,6 +906,7 @@ python-oauth2client
 python-oauthlib
 python-opencv
 python-opt_einsum
+python-optree
 python-ordered-set
 python-packaging
 python-pandas
@@ -964,6 +964,7 @@ python-rpds-py
 python-rsa
 python-scipy
 python-secretstorage
+python-send2trash
 python-setuptools
 python-setuptools-scm
 python-shellingham
@@ -999,6 +1000,7 @@ python-typeguard
 python-typing_extensions
 python-tzlocal
 python-uc-micro-py
+python-uni-curses
 python-unidecode
 python-urllib3
 python-urwid
@@ -1014,6 +1016,8 @@ python-websockets
 python-werkzeug
 python-wheel
 python-wrapt
+python-x256
+python-xlib
 python-xxhash
 python-yaml
 python-yarl
@@ -1177,6 +1181,7 @@ ttf-go-mono-git
 ttf-liberation
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
+tuifimanager
 tzdata
 uchardet
 unibilium
