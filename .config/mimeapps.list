@@ -78,3 +78,5 @@ image/x-portable-anymap=imv.desktop
 x-scheme-handler/figma=figma-linux.desktop
 x-scheme-handler/nxm=vortex-steamtinkerlaunch-dl.desktop
 x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
+x-scheme-handler/discord-460807638964371468=discord-460807638964371468.desktop
+x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop

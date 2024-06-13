@@ -1,4 +1,3 @@
-a52dec
 aalib
 abseil-cpp
 acl
@@ -25,7 +24,6 @@ apr-util
 arch-install-scripts
 archlinux-keyring
 argon2
-aribb24
 arrow
 at-spi2-core
 atkmm
@@ -121,7 +119,6 @@ exiv2
 exo
 expat
 eza
-faad2
 fakeroot
 fcft
 ffmpeg-obs
@@ -178,6 +175,8 @@ glibmm-2.68
 glslang
 glu
 gmp
+gnome-desktop
+gnome-desktop-common
 gnome-keyring
 gnome-system-monitor
 gnupg
@@ -237,6 +236,7 @@ hyprland
 hyprlang
 hyprlock
 hyprpicker
+hyprwayland-scanner
 iana-etc
 icu
 ijs
@@ -261,11 +261,16 @@ iw
 iwd
 jansson
 jasper
+java-environment-common
 java-runtime-common
 jbig2dec
 jbigkit
+jdk-temurin
+jdk11-temurin
+jdk17-temurin
+jdk21-temurin
+jdk8-temurin
 jq
-jre17-openjdk-headless
 jre8-openjdk
 jre8-openjdk-headless
 json-c
@@ -388,6 +393,7 @@ lib32-zstd
 libadwaita
 libaec
 libaio
+libajantv2
 libappindicator-gtk3
 libarchive
 libass
@@ -413,21 +419,20 @@ libcloudproviders
 libcolord
 libcups
 libdaemon
+libdatachannel
 libdatrie
 libdbusmenu-glib
 libdbusmenu-gtk3
 libdc1394
-libdca
 libde265
+libdecor
 libdeflate
 libdiscid
 libdisplay-info
 libdovi
 libdrm
-libdvbpsi
 libdvdnav
 libdvdread
-libebml
 libedit
 libei
 libelf
@@ -463,6 +468,7 @@ libinih
 libinput
 libisl
 libjpeg-turbo
+libjuice
 libjxl
 libksba
 liblc3
@@ -472,24 +478,19 @@ libliftoff
 liblqr
 libluv
 liblzf
-libmad
 libmanette
-libmatroska
 libmd
 libmm-glib
 libmng
 libmnl
 libmodplug
 libmpc
-libmpcdec
 libmpdclient
-libmpeg2
 libmspack
 libmtp
 libmypaint
 libmysofa
 libndp
-libnet
 libnetfilter_conntrack
 libnewt
 libnfnetlink
@@ -538,11 +539,11 @@ libsoup
 libsoup3
 libsoxr
 libspiro
+libsrtp
 libssh
 libssh2
 libstemmer
 libsysprof-capture
-libtar
 libtasn1
 libteam
 libthai
@@ -554,7 +555,6 @@ libtorrent-rasterbar
 libunibreak
 libunistring
 libunwind
-libupnp
 liburcu
 liburing
 libusb
@@ -618,8 +618,6 @@ lilv
 linux
 linux-api-headers
 linux-cachyos
-linux-cachyos-bore
-linux-cachyos-bore-headers
 linux-cachyos-headers
 linux-firmware
 linux-firmware-whence
@@ -637,6 +635,7 @@ lsof
 lua
 lua51-lpeg
 luajit
+lutris
 lv2
 lvm2
 lxmenu-data
@@ -654,6 +653,7 @@ mdadm
 mediamtx
 menu-cache
 mesa
+mesa-utils
 meson
 micro
 minizip
@@ -662,6 +662,7 @@ mkinitcpio-btrfs
 mkinitcpio-busybox
 mkinitcpio-wifi
 mobile-broadband-provider-info
+moonlight-qt-bin
 mpdecimal
 mpfr
 mpg123
@@ -699,7 +700,7 @@ nvim-lazy
 nvtop
 nwg-look
 obs-backgroundremoval-git
-obs-studio-browser
+obs-studio-liberty
 obsidian
 ocl-icd
 onetbb
@@ -718,6 +719,8 @@ openssl
 openucx
 opus
 orc
+osu-lazer-bin
+osu-mime
 p11-kit
 p7zip
 p7zip-gui
@@ -762,6 +765,7 @@ popt
 portaudio
 postgresql-libs
 prettier
+prismlauncher-qt5-bin
 procps-ng
 protobuf
 protonup-qt
@@ -810,14 +814,17 @@ python-cycler
 python-dacite
 python-datasets
 python-dateutil
+python-dbus
 python-decorator
 python-demjson3
 python-deprecated
 python-dill
 python-dirty-equals
 python-distlib
+python-distro
 python-dotenv
 python-dulwich
+python-evdev
 python-executing
 python-fabric-git
 python-fastapi
@@ -891,6 +898,7 @@ python-matplotlib-inline
 python-mdurl
 python-mediafile
 python-ml-dtypes
+python-moddb
 python-more-itertools
 python-mpmath
 python-msgpack
@@ -922,6 +930,7 @@ python-poetry-core
 python-poetry-plugin-export
 python-pooch
 python-prompt_toolkit
+python-proto-plus
 python-protobuf
 python-psutil
 python-psycopg2
@@ -981,6 +990,7 @@ python-steam
 python-streamlit
 python-sympy
 python-syncedlyrics
+python-tabulate
 python-tensorboard_plugin_wit
 python-tensorflow
 python-tensorflow-estimator
@@ -1030,6 +1040,7 @@ qhull
 qrcodegencpp-cmake
 qt5-base
 qt5-declarative
+qt5-imageformats
 qt5-location
 qt5-quickcontrols
 qt5-quickcontrols2
@@ -1038,7 +1049,6 @@ qt5-translations
 qt5-wayland
 qt5-webchannel
 qt5-webengine
-qt5-x11extras
 qt5ct
 qt6-base
 qt6-declarative
@@ -1113,6 +1123,8 @@ sbc
 scx-scheds
 sdbus-cpp
 sdl2
+sdl2_net
+sdl2_ttf
 seatd
 sed
 semver
@@ -1127,6 +1139,7 @@ slang
 slurp
 snappy
 sndio
+soh-bin
 sord
 sound-theme-freedesktop
 spdlog
@@ -1153,7 +1166,6 @@ sysfsutils
 systemd
 systemd-libs
 systemd-sysvcompat
-taglib
 tailscale
 tailwindcss-language-server
 tar
@@ -1164,6 +1176,7 @@ tensorflow
 testdisk
 texinfo
 thin-provisioning-tools
+thorium-browser-bin
 thrift
 thunar
 tinycompress
@@ -1173,11 +1186,16 @@ tpm2-tss
 tracker3
 tree
 tree-sitter
+tree-sitter-bash
+tree-sitter-c
 tree-sitter-lua
+tree-sitter-markdown
+tree-sitter-python
 tree-sitter-query
 tree-sitter-vimdoc
 tslib
 ttf-go-mono-git
+ttf-iosevkatermslab-nerd
 ttf-liberation
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
@@ -1202,7 +1220,6 @@ vid.stab
 vim
 vim-runtime
 vkd3d
-vlc-luajit
 vmaf
 vtk
 vulkan-headers

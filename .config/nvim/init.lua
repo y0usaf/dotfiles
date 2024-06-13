@@ -1,6 +1,5 @@
--- Install jetpack
--- vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/anuvyklack/jetpack.nvim.git', '~/.local/share/nvim/site/pack/packer/start/jetpack.nvim'})
 vim.o.clipboard = 'unnamedplus'
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -25,21 +24,19 @@ require("lazy").setup({
     'kyazdani42/nvim-tree.lua',
     dependencies = 'kyazdani42/nvim-web-devicons',
     config = function()
-        require'nvim-tree'.setup {
-          -- Add some default settings for nvim-tree
-          view = {
-            adaptive_size = true,
-          },
-          renderer = {
-            highlight_git = true,
-          },
-          filters = {
-            dotfiles = true,
-          },
-          -- Add this line to open the file explorer by default
-          auto_open = true,
+      require 'nvim-tree'.setup {
+        -- Add some default settings for nvim-tree
+        view = {
+          adaptive_size = true,
+        },
+        renderer = {
+          highlight_git = true,
+        },
+        filters = {
+          dotfiles = true,
         }
-      end
+      }
+    end
   },
 
   -- Fuzzy finder
@@ -47,11 +44,11 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
-      require'telescope'.setup {
+      require 'telescope'.setup {
         -- Add some default settings for telescope
         defaults = {
-          file_sorter = require'telescope.sorters'.get_fzy_sorter,
-          generic_sorter = require'telescope.sorters'.get_generic_fzy_sorter,
+          file_sorter = require 'telescope.sorters'.get_fzy_sorter,
+          generic_sorter = require 'telescope.sorters'.get_generic_fzy_sorter,
           file_ignore_patterns = { 'node_modules' },
         },
       }
@@ -63,7 +60,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup {
         ensure_installed = "all",
         highlight = {
           enable = true,
@@ -72,114 +69,118 @@ require("lazy").setup({
     end
   },
 
-  -- Auto completion
+  -- Supermaven plugin
   {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
-    },
+    'supermaven-inc/supermaven-nvim',
     config = function()
-      local cmp = require'cmp'
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            require'luasnip'.lsp_expand(args.body)
-          end
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<Tab>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
         },
-        mapping = {
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.close(),
-          ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
+        ignore_filetypes = { cpp = true },
+        color = {
+          suggestion_color = "#ff88dd"
         },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-        },
-      }
+      })
     end
   },
 
-  -- LSP
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      local lspconfig = require'lspconfig'
-      local servers = { 'pyright', 'tsserver', 'clangd' }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-          capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        }
-      end
-    end
-  },
-
-  -- Statusline
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require'lualine'.setup {
-        options = {
-          icons_enabled = true,
-          theme = 'gruvbox-material',
-        }
-      }
-    end
-  },
-
-  -- Cheatsheet
+  -- Cheatsheet Plugin
   {
     'sudormrfbin/cheatsheet.nvim',
     config = function()
-      require'cheatsheet'.setup {
-        bundled_cheatsheets = {
-          enabled = { 'default' },
-        },
-        bundled_plugin_cheatsheets = {
-
-          enabled = {
-            'nvim-tree',
-            'telescope',
-            'lspconfig',
-          },
-        },
-      }
+      require('cheatsheet').setup({
+        requires = {
+          { 'nvim-telescope/telescope.nvim' },
+          { 'nvim-lua/plenary.nvim' },
+          { 'nvim-lua/popup.nvim' },
+        }
+      })
     end
   },
 
-  -- Git signs
+  -- edgy.nvim
   {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup {
-        signs = {
-          add = { hl = 'GitSignAdd' },
-          change = { hl = 'GitSignChange' },
-          delete = { hl = 'GitSignDelete' },
-          topdelete = { hl = 'GitSignDelete' },
-          changedelete = { hl = 'GitSignChange' },
-        },
-      }
-    end
+    "folke/edgy.nvim",
+    event = "VeryLazy",
+    opts = {}
   },
+
+-- Linter
+{
+  'mhartington/formatter.nvim',
+  event = "VeryLazy",
+  config = function()
+    require('formatter').setup({
+      filetype = {
+        typescript = { function() return { exe = 'prettier', args = { '--write' } } end },
+        javascript = { function() return { exe = 'prettier', args = { '--write' } } end },
+        json = { function() return { exe = 'prettier', args = { '--write' } } end },
+        css = { function() return { exe = 'prettier', args = { '--write' } } end },
+        scss = { function() return { exe = 'prettier', args = { '--write' } } end },
+        html = { function() return { exe = 'prettier', args = { '--write' } } end },
+        markdown = { function() return { exe = 'prettier', args = { '--write' } } end },
+        lua = { function() return { exe = 'stylua', args = { '--config-path ~/.config/stylua/stylua.toml' } } end },
+        python = { function() return { exe = 'black', args = { '-' } } end },
+        sh = { function() return { exe = 'shfmt', args = { '-w' } } end },
+        vim = { function() return { exe = 'vint', args = {} } end },
+      },
+    })
+  end
+},
+
+  -- Trouble.nvim
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+  }
+  -- Close lazy.setup
 })
 
 -- Set leader key
 vim.g.mapleader = ','
 
 -- Key mappings
-vim.api.nvim_set_keymap('n', '<leader>pv', ':lua require("nvim-tree.api").tree_toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tt', ':lua require("telescope.builtin").find_files()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tg', ':lua require("telescope.builtin").live_grep()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>td', ':lua require("telescope.builtin").diagnostics()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tb', ':lua require("telescope.builtin").buffers()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>th', ':lua require("telescope.builtin").help_tags()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ts', ':lua require("telescope.builtin").lsp_workspace_symbols()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>to', ':lua require("telescope.builtin").lsp_document_symbols()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>pv', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true, silent = true })
+
+-- Set colorscheme
+vim.cmd('colorscheme gruvbox-material')

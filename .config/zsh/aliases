@@ -12,7 +12,7 @@ alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config' # Edit Waybar config
 alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css' # Edit Waybar CSS
 alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf' # Edit Fontconfig
 alias scripts='nvim $HOME/dotfiles/scripts/' # Edit scripts directory
-alias zshistory='codium $XDG_CONFIG_HOME/zsh/.zsh_history' # Edit ZSH history
+alias zshistory='nvim $XDG_CONFIG_HOME/zsh/.zsh_history' # Edit ZSH history
 
 # System Maintenance Aliases
 alias dotlink='$HOME/dotfiles/scripts/dotlink.sh' # Run dotlink script
