@@ -89,6 +89,10 @@ export_var_from_file HF_TOKEN $HOME/Tokens/HF_TOKEN.txt
 export_var_from_file GIT_TOKEN $HOME/Tokens/GITHUB_ACCESS_TOKEN.txt
 export_var_from_file WANDB_API_KEY $HOME/Tokens/WANDB_API_KEY.txt
 
+# Cohere
+export GCP_VM_NAME="sami-1"
+export GCP_ZONE=us-central1-b
+export GCP_PROJECT="valued-sight-253419"
 # Aliases
 alias wget="wget --hsts-file="$XDG_DATA_HOME"/wget-hsts"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"

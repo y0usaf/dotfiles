@@ -67,6 +67,7 @@ alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/U
 alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert script
 
 # Directory Listing Aliases
+alias startbee='poetry shell; poetry install; pip install keyrings.google-artifactregistry-auth; pip install bee --extra-index-url https://us-central1-python.pkg.dev/cohere-artifacts/cohere-py/simple/'
 alias l.='exa -a | grep -E "^\."' # List hidden files
 alias la='exa -a --color=always --group-directories-first --icons' # List all files with icons
 alias ll='exa -l --color=always --group-directories-first --icons' # List files with details
@@ -78,3 +79,12 @@ alias egrep='grep -E --color=auto' # Run egrep with color
 alias fgrep='grep -F --color=auto' # Run fgrep with color
 alias tailup='sudo tailscale up' # Start Tailscale
 alias taildown='sudo tailscale down' # Stop Tailscale
+
+# You can supply arguments to these functions, e.g. vm other_vm_name other_zone, but they'll otherwise use defaults above. 
+vm() { gcloud compute instances describe "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}" --format="value(status)"; }
+vmstart() { gcloud compute instances start "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
+vmstop() { gcloud compute instances stop "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
+vmssh() { gcloud compute ssh "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}" --project=${3:-$GCP_PROJECT} --tunnel-through-iap; }
+vmsuspend() { gcloud compute instances suspend "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
+vmresume() { gcloud compute instances resume "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
+vmreset() { gcloud compute instances reset "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
