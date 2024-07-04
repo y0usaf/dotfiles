@@ -68,11 +68,11 @@ alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert scr
 
 # Directory Listing Aliases
 alias startbee='poetry shell; poetry install; pip install keyrings.google-artifactregistry-auth; pip install bee --extra-index-url https://us-central1-python.pkg.dev/cohere-artifacts/cohere-py/simple/'
-alias l.='exa -a | grep -E "^\."' # List hidden files
-alias la='exa -a --color=always --group-directories-first --icons' # List all files with icons
-alias ll='exa -l --color=always --group-directories-first --icons' # List files with details
-alias ls='exa -al --color=always --group-directories-first --icons' # List all files with details
-alias lt='exa -aT --color=always --group-directories-first --icons' # List files in tree view
+alias l.='lsd -A | grep -E "^\."' # List hidden files
+alias la='lsd -A --color=always --group-dirs=first --icon=always' # List all files with icons
+alias ll='lsd -l --color=always --group-dirs=first --icon=always' # List files with details
+alias ls='lsd -lA --color=always --group-dirs=first --icon=always' # List all files with details
+alias lt='lsd -A --tree --color=always --group-dirs=first --icon=always' # List files in tree view
 alias grep='grep --color=auto' # Run grep with color
 alias dir='dir --color=auto' # Run dir with color
 alias egrep='grep -E --color=auto' # Run egrep with color
