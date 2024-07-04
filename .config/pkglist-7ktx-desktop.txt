@@ -88,6 +88,7 @@ dbus-glib
 dconf
 debugedit
 default-cursors
+depotdownloader-git
 desktop-file-utils
 device-mapper
 dialog
@@ -97,6 +98,7 @@ dmidecode
 docker
 dosfstools
 dotnet-host-preview-bin
+dotnet-runtime
 dotnet-runtime-6.0
 double-conversion
 downgrade
@@ -108,8 +110,8 @@ efivar
 egl-wayland
 eglexternalplatform
 eigen
-electron28
 electron29
+electron30
 ell
 enchant
 eslint
@@ -127,6 +129,7 @@ figlet
 file
 filesystem
 findutils
+firefox-bin
 flac
 flex
 floorp-bin
@@ -145,6 +148,7 @@ fuse2fs
 fuse3
 fx
 fzf
+gale-bin
 gamemode
 gawk
 gc
@@ -175,14 +179,11 @@ glibmm-2.68
 glslang
 glu
 gmp
-gnome-desktop
-gnome-desktop-common
 gnome-keyring
 gnome-system-monitor
 gnupg
 gnutls
 go
-gobject-introspection
 gobject-introspection-runtime
 google-cloud-cli
 google-glog
@@ -236,7 +237,7 @@ hyprland
 hyprlang
 hyprlock
 hyprpicker
-hyprwayland-scanner
+hyprutils
 iana-etc
 icu
 ijs
@@ -375,7 +376,7 @@ lib32-nss
 lib32-nvidia-utils-beta
 lib32-obs-vkcapture
 lib32-openal
-lib32-opencl-nvidia-beta
+lib32-opencl-nvidia
 lib32-openssl
 lib32-opus
 lib32-p11-kit
@@ -425,7 +426,6 @@ libdbusmenu-glib
 libdbusmenu-gtk3
 libdc1394
 libde265
-libdecor
 libdeflate
 libdiscid
 libdisplay-info
@@ -599,6 +599,7 @@ libxkbfile
 libxml2
 libxmlb
 libxmu
+libxnvctrl
 libxpm
 libxpresent
 libxrandr
@@ -635,7 +636,6 @@ lsof
 lua
 lua51-lpeg
 luajit
-lutris
 lv2
 lvm2
 lxmenu-data
@@ -653,7 +653,6 @@ mdadm
 mediamtx
 menu-cache
 mesa
-mesa-utils
 meson
 micro
 minizip
@@ -694,19 +693,18 @@ nss
 ntfs-3g
 numactl
 nvflash
-nvidia-beta-dkms
+nvidia-dkms
 nvidia-utils-beta
 nvim-lazy
 nvtop
 nwg-look
-obs-backgroundremoval-git
+obs-backgroundremoval
 obs-studio-liberty
 obsidian
 ocl-icd
 onetbb
 oniguruma
 openal
-opencl-nvidia-beta
 opencore-amr
 opencv
 openexr
@@ -716,6 +714,7 @@ openmpi
 openpmix
 openssh
 openssl
+openssl-1.1
 openucx
 opus
 orc
@@ -798,7 +797,6 @@ python-build
 python-cachecontrol
 python-cachetools
 python-cachy
-python-cairo
 python-certifi
 python-cffi
 python-charset-normalizer
@@ -814,19 +812,15 @@ python-cycler
 python-dacite
 python-datasets
 python-dateutil
-python-dbus
 python-decorator
 python-demjson3
 python-deprecated
 python-dill
 python-dirty-equals
 python-distlib
-python-distro
 python-dotenv
 python-dulwich
-python-evdev
 python-executing
-python-fabric-git
 python-fastapi
 python-fastjsonschema
 python-filelock
@@ -887,9 +881,7 @@ python-keyring
 python-kiwisolver
 python-lark-parser
 python-lockfile
-python-loguru
 python-lxml
-python-mako
 python-markdown
 python-markdown-it-py
 python-markupsafe
@@ -898,7 +890,6 @@ python-matplotlib-inline
 python-mdurl
 python-mediafile
 python-ml-dtypes
-python-moddb
 python-more-itertools
 python-mpmath
 python-msgpack
@@ -936,7 +927,6 @@ python-psutil
 python-psycopg2
 python-ptyprocess
 python-pure-eval
-python-py3nvml
 python-pyaml
 python-pyarrow
 python-pyasn1
@@ -952,7 +942,6 @@ python-pydot
 python-pygments
 python-pykakasi
 python-pympler
-python-pynvml
 python-pyparsing
 python-pyproject-hooks
 python-pyrsistent
@@ -964,7 +953,6 @@ python-pyzmq
 python-rapidfuzz
 python-redis
 python-referencing
-python-reflink
 python-requests
 python-requests-oauthlib
 python-requests-toolbelt
@@ -1130,6 +1118,7 @@ sed
 semver
 serd
 serf
+sgdboop-bin
 shaderc
 shadow
 shared-mime-info
@@ -1194,7 +1183,6 @@ tree-sitter-python
 tree-sitter-query
 tree-sitter-vimdoc
 tslib
-ttf-go-mono-git
 ttf-iosevkatermslab-nerd
 ttf-liberation
 ttf-nerd-fonts-symbols-common
@@ -1230,6 +1218,7 @@ wayland
 wayland-protocols
 webkit2gtk
 webkit2gtk-4.1
+webkitgtk-6.0
 webp-pixbuf-loader
 webrtc-audio-processing-1
 wev
@@ -1240,9 +1229,10 @@ wireless-regdb
 wireplumber
 wl-clipboard
 wl-clipboard-x11
+wlr-randr
 wlroots
 woff2
-wootility-lekker-beta-appimage
+wootility-appimage
 wootomation-appimage
 wpa_supplicant
 wpebackend-fdo
@@ -1271,7 +1261,6 @@ xfconf
 xfsprogs
 xkeyboard-config
 xorg-fonts-encodings
-xorg-mkfontscale
 xorg-server
 xorg-server-common
 xorg-setxkbmap
@@ -1282,7 +1271,7 @@ xorg-xmessage
 xorg-xprop
 xorg-xrandr
 xorg-xset
-xorg-xwayland-git
+xorg-xwayland
 xorg-xwininfo
 xorgproto-git
 xvidcore
