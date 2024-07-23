@@ -13,6 +13,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
+
+# Application-specific XDG configurations
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
@@ -25,13 +27,13 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export SPOTDL_CONFIG="$XDG_CONFIG_HOME/spotdl.yml"
 
-# npm
+# npm configurations
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export NPM_CONFIG_PREFIX="$XDG_DATA_HOME"/npm
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
 
-# Ren'Py
+# Ren'Py configuration
 export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME"
 
 # Desktop and Display Settings
@@ -66,10 +68,9 @@ elif [ "$(hostname)" = "7ktx-laptop" ]; then
     export XDG_MUSIC_DIR="$HOME/Music"
     export WALLPAPER_DIR="$HOME/DCIM/Wallpapers/16_9"
 fi
-
 export WALLPAPER_VIDEO_DIR="$HOME/DCIM/Wallpapers_Video"
 
-# Additional Functions and Commands
+# Function to export variables from files
 export_var_from_file() {
     local var_name=$1
     local file_path=$2
@@ -77,6 +78,8 @@ export_var_from_file() {
         export $var_name=$(cat $file_path)
     fi
 }
+
+# Export API keys and tokens from files
 export_var_from_file ANTHROPIC_API_KEY $HOME/Tokens/ANTHROPIC_API_KEY.txt
 export_var_from_file COHERE_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
 export_var_from_file CO_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
@@ -89,13 +92,19 @@ export_var_from_file HF_TOKEN $HOME/Tokens/HF_TOKEN.txt
 export_var_from_file GIT_TOKEN $HOME/Tokens/GITHUB_ACCESS_TOKEN.txt
 export_var_from_file WANDB_API_KEY $HOME/Tokens/WANDB_API_KEY.txt
 
-# Cohere
+# Cohere-specific configurations
 export GCP_VM_NAME="sami-1"
 export GCP_ZONE=us-central1-b
 export GCP_PROJECT="valued-sight-253419"
-# Aliases
+
+# Aliases for XDG compliance
 alias wget="wget --hsts-file="$XDG_DATA_HOME"/wget-hsts"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias mocp="mocp -M "$XDG_CONFIG_HOME"/moc"
 alias mocp="mocp -O MOCDir="$XDG_CONFIG_HOME"/moc"
+
+# Pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

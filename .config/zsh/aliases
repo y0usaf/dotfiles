@@ -13,6 +13,7 @@ alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css' # Edit Waybar CSS
 alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf' # Edit Fontconfig
 alias scripts='nvim $HOME/dotfiles/scripts/' # Edit scripts directory
 alias zshistory='nvim $XDG_CONFIG_HOME/zsh/.zsh_history' # Edit ZSH history
+alias gitignore='nvim $HOME/.gitignore' # Edit Git ignore file
 
 # System Maintenance Aliases
 alias dotlink='$HOME/dotfiles/scripts/dotlink.sh' # Run dotlink script
@@ -35,7 +36,7 @@ alias orphans='pacman -Qttdq' # List orphan packages
 alias pacfix='sudo rm /var/lib/pacman/db.lck' # Fix pacman database
 alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"' # Check for altered files
 
-# Other Aliases
+# Host-specific Aliases
 if [ "$(hostname)" = "7ktx-desktop" ]; then
     alias gpupower='sudo nvidia-smi -pl' # Get GPU power on desktop
 elif [ "$(hostname)" = "7ktx-laptop" ]; then
@@ -52,6 +53,7 @@ elif [ "$(hostname)" = "7ktx-laptop" ]; then
     }
 fi
 
+# Complex Aliases
 alias depcount='{
     for pkg in $(pacman -Qq); do
         dep_count=$(pactree -u "$pkg" | wc -l);
@@ -59,32 +61,64 @@ alias depcount='{
     done | sort -nk2 -r
 } && echo "Dependency count completed successfully" || echo "An error occurred."'
 
-alias gitignore='nvim $HOME/.gitignore' # Edit Git ignore file
+# Utility Aliases
 alias userctl='systemctl --user' # Run systemctl with user flag
 alias ooba='/home/7ktx/text-generation-webui/start_linux.sh' # Run ooba script
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings' # Run NVIDIA settings
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output' # Run ESRGAN
-alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert script
 
 # Directory Listing Aliases
-alias startbee='poetry shell; poetry install; pip install keyrings.google-artifactregistry-auth; pip install bee --extra-index-url https://us-central1-python.pkg.dev/cohere-artifacts/cohere-py/simple/'
 alias l.='lsd -A | grep -E "^\."' # List hidden files
 alias la='lsd -A --color=always --group-dirs=first --icon=always' # List all files with icons
 alias ll='lsd -l --color=always --group-dirs=first --icon=always' # List files with details
 alias ls='lsd -lA --color=always --group-dirs=first --icon=always' # List all files with details
 alias lt='lsd -A --tree --color=always --group-dirs=first --icon=always' # List files in tree view
+
+# Grep and Dir Aliases
 alias grep='grep --color=auto' # Run grep with color
 alias dir='dir --color=auto' # Run dir with color
 alias egrep='grep -E --color=auto' # Run egrep with color
 alias fgrep='grep -F --color=auto' # Run fgrep with color
+
+# Network Aliases
 alias tailup='sudo tailscale up' # Start Tailscale
 alias taildown='sudo tailscale down' # Stop Tailscale
 
-# You can supply arguments to these functions, e.g. vm other_vm_name other_zone, but they'll otherwise use defaults above. 
-vm() { gcloud compute instances describe "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}" --format="value(status)"; }
-vmstart() { gcloud compute instances start "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
-vmstop() { gcloud compute instances stop "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
-vmssh() { gcloud compute ssh "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}" --project=${3:-$GCP_PROJECT} --tunnel-through-iap; }
-vmsuspend() { gcloud compute instances suspend "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
-vmresume() { gcloud compute instances resume "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
-vmreset() { gcloud compute instances reset "${1:-$GCP_VM_NAME}" --zone="${2:-$GCP_ZONE}"; }
+# Cohere and Bee Aliases
+alias startbee='poetry shell; poetry install; pip install keyrings.google-artifactregistry-auth; pip install bee --extra-index-url https://us-central1-python.pkg.dev/cohere-artifacts/cohere-py/simple/'
+alias beecache='rm -rf /home/7ktx/Cohere/Bee/.cache'
+alias wandbee='wandb login --relogin --host=https://cohere.wandb.io'
+alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert script
+alias sshslurmlogin='gcloud compute ssh slurm-login --zone=us-central2-b --tunnel-through-iap'
+alias sshsami1='gcloud compute ssh sami-1 --project=valued-sight-253418 --zone=us-central2-b --tunnel-through-iap'
+alias startsami1='gcloud compute instances start sami-1 --project=valued-sight-253418 --zone=us-central2-b'
+
+mountbucket() {
+    local mount_point="$HOME/Cohere/buckets/cohere-dev-sami"
+    if mountpoint -q "$mount_point"; then
+        echo "The bucket is already mounted."
+    else
+        if gcsfuse --implicit-dirs --only-dir sami cohere-dev "$mount_point"; then
+            echo "Successfully mounted the GCS bucket."
+        else
+            echo "Failed to mount the GCS bucket."
+        fi
+    fi
+}
+
+unmountbucket() {
+    local mount_point="$HOME/Cohere/buckets/cohere-dev-sami"
+    if mountpoint -q "$mount_point"; then
+        if fusermount -u "$mount_point"; then
+            echo "Successfully unmounted the GCS bucket."
+        else
+            echo "Failed to unmount the GCS bucket."
+        fi
+    else
+        echo "The bucket is not mounted."
+    fi
+}
+
+
+# Miscellaneous Aliases
+alias compressvid='~/dotfiles/scripts/compressvid.sh'
