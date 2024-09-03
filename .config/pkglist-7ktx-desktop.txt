@@ -41,7 +41,6 @@ base
 base-devel
 bash
 bc
-beets-git
 binutils
 bison
 bitwarden
@@ -80,8 +79,11 @@ cpio
 cppdap
 cryptsetup
 csvlens
+cuda
+cudnn
 curl
 cursor-appimage
+cython
 czkawka-gui-bin
 dav1d
 db5.3
@@ -114,13 +116,13 @@ efivar
 egl-wayland
 eglexternalplatform
 eigen
-electron29
 electron30
 electron31
 ell
 enchant
 eslint
 espeak
+evtest
 exfat-utils
 exiv2
 expat
@@ -158,10 +160,11 @@ gawk
 gc
 gcc
 gcc-libs
+gcc13
+gcc13-libs
 gconf
 gcr
 gcr-4
-gcsfuse
 gd
 gdbm
 gdk-pixbuf2
@@ -652,6 +655,7 @@ lxmenu-data
 lz4
 lzo
 m4
+magma-cuda
 mailcap
 make
 mako
@@ -664,6 +668,7 @@ mediamtx
 menu-cache
 mesa
 meson
+miniupnpc
 minizip
 mkinitcpio
 mkinitcpio-btrfs
@@ -680,6 +685,7 @@ mtdev
 mujs
 mypaint-brushes1
 nano
+nccl
 ncurses
 neovim
 netflix
@@ -711,9 +717,11 @@ nwg-look
 obs-studio-liberty
 obsidian
 ocl-icd
+onednn
 onetbb
 oniguruma
 openal
+opencl-nvidia
 opencore-amr
 opencv
 openexr
@@ -743,6 +751,7 @@ pango
 pangomm
 pangomm-2.48
 parallel
+parsec-bin
 paru-bin
 patch
 pavucontrol
@@ -813,10 +822,10 @@ python-click
 python-cloudpickle
 python-colorama
 python-comm
-python-confuse
 python-contourpy
 python-crashtest
 python-cryptography
+python-cuda
 python-cycler
 python-dask
 python-datasets
@@ -879,7 +888,6 @@ python-jaraco.functools
 python-jaraco.text
 python-jedi
 python-jeepney
-python-jellyfish
 python-jinja
 python-jsonschema
 python-jsonschema-specifications
@@ -901,16 +909,12 @@ python-markupsafe
 python-matplotlib
 python-matplotlib-inline
 python-mdurl
-python-mediafile
 python-ml-dtypes
 python-more-itertools
 python-mpmath
 python-msgpack
 python-multidict
 python-multiprocess
-python-munkres
-python-musicbrainzngs
-python-mutagen
 python-narwhals
 python-nest-asyncio
 python-networkx
@@ -947,6 +951,7 @@ python-pyaml
 python-pyarrow
 python-pyasn1
 python-pyasn1-modules
+python-pyclibrary
 python-pycparser
 python-pycryptodomex
 python-pydantic
@@ -960,13 +965,13 @@ python-pympler
 python-pynput
 python-pyparsing
 python-pyproject-hooks
-python-pytorch
+python-pytorch-cuda
 python-pytz
 python-pyxdg
 python-pyzmq
 python-rapidfuzz
+python-ratelimit
 python-referencing
-python-reflink
 python-requests
 python-requests-oauthlib
 python-requests-toolbelt
@@ -992,6 +997,7 @@ python-sympy
 python-syncedlyrics
 python-tabulate
 python-tblib
+python-tenacity
 python-tensorboard_plugin_wit
 python-tensorflow
 python-tensorflow-estimator
@@ -1038,6 +1044,7 @@ qhull
 qrcodegencpp-cmake
 qt5-base
 qt5-declarative
+qt5-gamepad
 qt5-imageformats
 qt5-location
 qt5-quickcontrols
@@ -1110,6 +1117,7 @@ stress
 subversion
 sudo
 suitesparse
+sunshine-bin
 svt-av1
 sway
 sway-launcher-desktop-git
@@ -1213,6 +1221,7 @@ xcb-util-wm
 xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
+xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-ninja-git
 xdg-user-dirs

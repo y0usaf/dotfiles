@@ -82,11 +82,11 @@ export_var_from_file() {
 # Export API keys and tokens from files
 export_var_from_file ANTHROPIC_API_KEY $HOME/Tokens/ANTHROPIC_API_KEY.txt
 export_var_from_file COHERE_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
-export_var_from_file COHERE_TOKEN $HOME/Tokens/CO_API_KEY.txt
+export_var_from_file COHERE_TOKEN $HOME/Tokens/COHERE_API_KEY.txt
 export_var_from_file CO_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
 export_var_from_file GROQ_API_KEY $HOME/Tokens/GROQ_API_KEY.txt
 export_var_from_file COHERE_STAGING_API_KEY $HOME/Tokens/COHERE_STAGING_API_KEY.txt
-export_var_from_file COHERE_STG_TOKEN $HOME/Tokens/CO_API_KEY.txt
+export_var_from_file COHERE_STG_TOKEN $HOME/Tokens/COHERE_API_KEY.txt
 export_var_from_file CO_API_KEY_STAGING $HOME/Tokens/COHERE_STAGING_API_KEY.txt
 export_var_from_file OPENAI_API_KEY $HOME/Tokens/OPENAI_API_KEY.txt
 export_var_from_file SCALE_API_KEY $HOME/Tokens/SCALE_API_KEY.txt
