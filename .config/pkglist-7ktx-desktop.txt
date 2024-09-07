@@ -246,6 +246,7 @@ hyphen
 hyprcursor
 hyprland
 hyprlang
+hyprshade
 hyprutils
 hyprwayland-scanner
 iana-etc
@@ -878,6 +879,7 @@ python-httpx
 python-huggingface-hub
 python-idna
 python-importlib-metadata
+python-iniconfig
 python-inputs
 python-installer
 python-ipykernel
@@ -935,6 +937,7 @@ python-pillow
 python-pip
 python-pkginfo
 python-platformdirs
+python-pluggy
 python-poetry
 python-poetry-core
 python-poetry-plugin-export
@@ -965,6 +968,7 @@ python-pympler
 python-pynput
 python-pyparsing
 python-pyproject-hooks
+python-pytest
 python-pytorch-cuda
 python-pytz
 python-pyxdg

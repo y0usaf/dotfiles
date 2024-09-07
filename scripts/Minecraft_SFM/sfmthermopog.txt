@@ -1,0 +1,11 @@
+name "ThermoPog"
+
+every 20 ticks do
+    input fluid:: from sink
+    output fluid:: to thermo
+end
+
+every 1 ticks do
+    input fe:: from thermo
+    output fe:: to plug
+end

@@ -1,0 +1,19 @@
+name "phytoPOG"
+
+every 1 ticks do
+    input fe:: from cell
+    output fe:: to P
+    forget
+end
+
+every 200 ticks do
+    input fluid:: from sink
+    output fluid:: to P
+    forget
+end
+
+every 20 ticks do
+    input from P slots 2-5
+    output to interface
+    forget
+end
