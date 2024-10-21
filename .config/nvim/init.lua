@@ -77,6 +77,8 @@ require("lazy").setup({
         },
         ignore_filetypes = { cpp = true },
         color = { suggestion_color = "#ff88dd" },
+        use_default_keymaps = false,  -- Disable default keymaps
+        enable_cmp = true,  -- Enable cmp integration
       })
     end
   },
@@ -137,7 +139,89 @@ require("lazy").setup({
       { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
       { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
     },
-  }
+  },
+
+  -- nvim-cmp
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'supermaven-inc/supermaven-nvim',  -- Add Supermaven as a dependency
+    },
+    config = function()
+      local cmp = require('cmp')
+      cmp.setup({
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+          { name = 'path' },
+          { name = 'supermaven' },  -- Add Supermaven as a source
+        }),
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+      })
+    end
+  },
+
+  -- Obsidian.nvim
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = false,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      vim.opt.conceallevel = 1  -- Set conceallevel to 1 (or 2 if you prefer)
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "personal",
+            path = "~/Obsidian",
+          },
+        },
+        notes_subdir = "notes",
+        daily_notes = {
+          folder = "notes/dailies",
+          date_format = "%Y-%m-%d",
+        },
+        completion = {
+          nvim_cmp = pcall(require, 'cmp'),
+          min_chars = 2,
+        },
+        new_notes_location = "notes_subdir",
+        wiki_link_func = function(opts)
+          return require("obsidian.util").wiki_link_id_prefix(opts)
+        end,
+        preferred_link_style = "wiki",
+        ui = {
+          enable = true,  -- Set this to false if you want to disable Obsidian's UI features
+        },
+      })
+    end
+  },
 })
 
 -- Key mappings
@@ -147,6 +231,13 @@ keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, sil
 keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
 keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true, silent = true })
 keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true, silent = true })
+
+-- Obsidian keymaps
+keymap("n", "<leader>on", ":ObsidianNew<CR>", { desc = "New Obsidian note" })
+keymap("n", "<leader>oo", ":ObsidianOpen<CR>", { desc = "Open Obsidian" })
+keymap("n", "<leader>os", ":ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
+keymap("n", "<leader>of", ":ObsidianFollowLink<CR>", { desc = "Follow Link" })
+keymap("n", "<leader>ob", ":ObsidianBacklinks<CR>", { desc = "Show Backlinks" })
 
 -- Set colorscheme
 vim.cmd('colorscheme gruvbox-material')

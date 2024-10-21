@@ -713,6 +713,7 @@ nnn
 node-gyp
 nodejs
 nodejs-nopt
+noise-suppression-for-voice
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -1102,6 +1103,7 @@ realesrgan-ncnn-vulkan-bin
 rebuild-detector
 refind
 rhash
+ripgrep
 rnnoise
 rsync
 rtkit
@@ -1214,6 +1216,7 @@ vulkan-headers
 vulkan-icd-loader
 vulkan-tools
 vulkan-validation-layers
+wallust
 waybar
 waydroid
 wayland
