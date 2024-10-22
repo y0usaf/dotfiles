@@ -84,7 +84,6 @@ cuda
 cudnn
 curl
 cursor-bin
-cython
 czkawka-gui-bin
 dav1d
 db5.3
@@ -246,10 +245,9 @@ hwloc
 hyphen
 hyprcursor
 hyprland
-hyprlang
-hyprshade
-hyprutils
-hyprwayland-scanner
+hyprlang-git
+hyprutils-git
+hyprwayland-scanner-git
 iana-etc
 icu
 ijs
@@ -367,7 +365,6 @@ lib32-libx11
 lib32-libxau
 lib32-libxcb
 lib32-libxcrypt
-lib32-libxcrypt-compat
 lib32-libxcursor
 lib32-libxdamage
 lib32-libxdmcp
@@ -390,7 +387,6 @@ lib32-ncurses
 lib32-nettle
 lib32-nspr
 lib32-nss
-lib32-nvidia-utils-beta
 lib32-obs-vkcapture
 lib32-openal
 lib32-opencl-nvidia
@@ -605,7 +601,6 @@ libxaw
 libxcb
 libxcomposite
 libxcrypt
-libxcrypt-compat
 libxcursor
 libxcvt
 libxdamage
@@ -656,6 +651,7 @@ losslesscut-bin
 love
 lsb-release
 lsd
+lshw
 lsof
 lua
 lua51-lpeg
@@ -700,6 +696,7 @@ mypaint-brushes1
 nano
 nccl
 ncurses
+neovide
 neovim
 netflix
 netpbm
@@ -843,7 +840,6 @@ python-comm
 python-contourpy
 python-crashtest
 python-cryptography
-python-cuda
 python-cycler
 python-dask
 python-datasets
@@ -975,7 +971,6 @@ python-pyaml
 python-pyarrow
 python-pyasn1
 python-pyasn1-modules
-python-pyclibrary
 python-pyclip
 python-pycparser
 python-pycryptodomex
@@ -1115,6 +1110,7 @@ runc
 rustup
 s-tui
 sbc
+scrcpy
 sdbus-cpp
 sdl2
 seatd
@@ -1141,7 +1137,6 @@ sqlite
 sratom
 srt
 sshfs
-steam
 strace
 stremio
 stress
@@ -1201,7 +1196,6 @@ util-linux
 util-linux-libs
 uv
 v4l-utils
-v4l2loopback-dkms
 vapoursynth
 verdict
 vesktop-git
@@ -1214,7 +1208,6 @@ vmaf
 vtk
 vulkan-headers
 vulkan-icd-loader
-vulkan-tools
 vulkan-validation-layers
 wallust
 waybar
@@ -1281,8 +1274,6 @@ xwaylandvideobridge-git
 xxhash
 xz
 yad
-zed
-zenity
 zeromq
 zimg
 zip
