@@ -97,6 +97,7 @@ export_var_from_file ROOTLY_ACME_API_KEY $HOME/Tokens/ROOTLY_ACME_API_KEY.txt
 export_var_from_file ROOTLY_API_KEY $HOME/Tokens/ROOTLY_API_KEY.txt
 export_var_from_file DATADOG_API_KEY $HOME/Tokens/DATADOG_API_KEY.txt
 export_var_from_file DATADOG_SECRET $HOME/Tokens/DATADOG_SECRET.txt
+export_var_from_file SLACK_TOKEN $HOME/Tokens/SLACK_TOKEN.txt
 
 # Cohere-specific configurations
 export GCP_VM_NAME="sami-1"
