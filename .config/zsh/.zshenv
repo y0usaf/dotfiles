@@ -70,39 +70,18 @@ elif [ "$(hostname)" = "7ktx-laptop" ]; then
 fi
 export WALLPAPER_VIDEO_DIR="$HOME/DCIM/Wallpapers_Video"
 
-# Function to export variables from files
-export_var_from_file() {
-    local var_name=$1
-    local file_path=$2
-    if [[ -f $file_path ]]; then
-        export $var_name=$(cat $file_path)
-    fi
+export_vars_from_files() {
+    local dir_path=$1
+    for file_path in "$dir_path"/*.txt; do
+        if [[ -f $file_path ]]; then
+            var_name=$(basename "$file_path" .txt)  # Extract the file name without extension
+            export $var_name=$(cat "$file_path")    # Export the variable
+        fi
+    done
 }
 
-# Export API keys and tokens from files
-export_var_from_file ANTHROPIC_API_KEY $HOME/Tokens/ANTHROPIC_API_KEY.txt
-export_var_from_file COHERE_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
-export_var_from_file COHERE_TOKEN $HOME/Tokens/COHERE_API_KEY.txt
-export_var_from_file CO_API_KEY $HOME/Tokens/COHERE_API_KEY.txt
-export_var_from_file GROQ_API_KEY $HOME/Tokens/GROQ_API_KEY.txt
-export_var_from_file COHERE_STAGING_API_KEY $HOME/Tokens/COHERE_STAGING_API_KEY.txt
-export_var_from_file COHERE_STG_TOKEN $HOME/Tokens/COHERE_STAGING_API_KEY.txt
-export_var_from_file CO_API_KEY_STAGING $HOME/Tokens/COHERE_STAGING_API_KEY.txt
-export_var_from_file OPENAI_API_KEY $HOME/Tokens/OPENAI_API_KEY.txt
-export_var_from_file SCALE_API_KEY $HOME/Tokens/SCALE_API_KEY.txt
-export_var_from_file HF_TOKEN $HOME/Tokens/HF_TOKEN.txt
-export_var_from_file GIT_TOKEN $HOME/Tokens/GITHUB_ACCESS_TOKEN.txt
-export_var_from_file WANDB_API_KEY $HOME/Tokens/WANDB_API_KEY.txt
-export_var_from_file ROOTLY_ACME_API_KEY $HOME/Tokens/ROOTLY_ACME_API_KEY.txt
-export_var_from_file ROOTLY_API_KEY $HOME/Tokens/ROOTLY_API_KEY.txt
-export_var_from_file DATADOG_API_KEY $HOME/Tokens/DATADOG_API_KEY.txt
-export_var_from_file DATADOG_SECRET $HOME/Tokens/DATADOG_SECRET.txt
-export_var_from_file SLACK_TOKEN $HOME/Tokens/SLACK_TOKEN.txt
-
-# Cohere-specific configurations
-export GCP_VM_NAME="sami-1"
-export GCP_ZONE=us-central1-b
-export GCP_PROJECT="valued-sight-253419"
+# Export all variables from the $HOME/Tokens directory
+export_vars_from_files "$HOME/Tokens"
 
 # Aliases for XDG compliance
 alias wget="wget --hsts-file="$XDG_DATA_HOME"/wget-hsts"

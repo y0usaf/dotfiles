@@ -4,9 +4,7 @@ eval "$(ssh-agent -s)"
 if [ -f /home/7ktx/Tokens/id_rsa_7ktx ]; then
     ssh-add ~/Tokens/id_rsa_7ktx
 fi
-if [ -f /home/7ktx/Tokens/id_rsa_cohere_sami ]; then
-    ssh-add ~/Tokens/id_rsa_cohere_sami
-fi
+
 # Check if the hostname is 7ktx-desktop
 if [ "$(hostname)" = "7ktx-desktop" ]; then
     # Set the power limit for NVIDIA GPU

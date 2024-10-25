@@ -84,41 +84,5 @@ alias fgrep='grep -F --color=auto' # Run fgrep with color
 alias tailup='sudo tailscale up' # Start Tailscale
 alias taildown='sudo tailscale down' # Stop Tailscale
 
-# Cohere and Bee Aliases
-alias startbee='poetry shell; poetry install; pip install keyrings.google-artifactregistry-auth; pip install bee --extra-index-url https://us-central1-python.pkg.dev/cohere-artifacts/cohere-py/simple/'
-alias beecache='rm -rf /home/7ktx/Cohere/Bee/.cache'
-alias wandbee='wandb login --relogin --host=https://cohere.wandb.io'
-alias dataconvert='python ~/Cohere/Scripts/dataconvert.py' # Run dataconvert script
-alias sshslurmlogin='gcloud compute ssh slurm-login --zone=us-central2-b --tunnel-through-iap'
-alias sshsami1='gcloud compute ssh sami-1 --project=valued-sight-253418 --zone=us-central2-b --tunnel-through-iap'
-alias startsami1='gcloud compute instances start sami-1 --project=valued-sight-253418 --zone=us-central2-b'
-
-mountbucket() {
-    local mount_point="$HOME/Cohere/buckets/cohere-dev-sami"
-    if mountpoint -q "$mount_point"; then
-        echo "The bucket is already mounted."
-    else
-        if gcsfuse --implicit-dirs --only-dir sami cohere-dev "$mount_point"; then
-            echo "Successfully mounted the GCS bucket."
-        else
-            echo "Failed to mount the GCS bucket."
-        fi
-    fi
-}
-
-unmountbucket() {
-    local mount_point="$HOME/Cohere/buckets/cohere-dev-sami"
-    if mountpoint -q "$mount_point"; then
-        if fusermount -u "$mount_point"; then
-            echo "Successfully unmounted the GCS bucket."
-        else
-            echo "Failed to unmount the GCS bucket."
-        fi
-    else
-        echo "The bucket is not mounted."
-    fi
-}
-
-
 # Miscellaneous Aliases
 alias compressvid='~/dotfiles/scripts/compressvid.sh'
