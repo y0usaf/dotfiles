@@ -3,7 +3,7 @@
 
 # Define the directory and remote repository
 DOTFILES_DIR="$HOME/dotfiles"
-REMOTE_REPO="git@github.com-7ktx:7ktx/dotfiles.git"
+REMOTE_REPO="git@github.com:7ktx/dotfiles.git"
 
 # Default branch name (change if your default branch is different)
 DEFAULT_BRANCH="main"
