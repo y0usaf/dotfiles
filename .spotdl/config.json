@@ -1,0 +1,6 @@
+{
+     "format": "m4a",
+     "threads": 32,
+     "max_retries": 3,
+     "sponsor_block": false,
+}

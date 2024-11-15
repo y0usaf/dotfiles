@@ -28,7 +28,7 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb' # Run ADB with custom home
 
 # Music Downloading Aliases
 alias ytm4a='$HOME/scripts/ytm4a.sh' # Run ytm4a script
-alias spotm4a='$HOME/scripts/spotm4a.sh' # Run spotm4a script
+alias spotm4a='$HOME/scripts/spotm4a.py' # Run spotm4a script
 
 # Package Management Aliases
 alias pkgs='paru -Qq | grep ' # Search for packages

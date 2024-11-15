@@ -1,47 +1,51 @@
 #!/bin/bash
-# path/filename: spotm4a.sh
-# Description: Script to download music using spotdl, organize tracks by album, and move tracks to their respective album directories if more than one track exists for an album.
+# Description: Optimized script to download music using spotdl
 
-# Ensure the correct number of arguments are passed
-if [[ $# -ne 2 ]]; then
-    echo "Usage: $0 output_folder link"
+# Enable parallel job control
+set -m
+
+# Check if spotdl is installed
+command -v spotdl &> /dev/null || {
+    echo "Error: spotdl is not installed. Install with: pip install spotdl" >&2
     exit 1
-fi
+}
+
+# Validate arguments
+[[ $# -ne 2 ]] && {
+    echo "Usage: $0 output_folder spotify_link" >&2
+    echo "Example: $0 ~/Music \"https://open.spotify.com/track/...\"" >&2
+    exit 1
+}
 
 output_folder="$1"
-link="$2"
+# Clean URL and properly quote it
+link="${2%%\?*}"
 
-# Download using spotdl
-spotdl --format m4a --output "$output_folder" "$link"
+# Validate the Spotify link format (basic check)
+[[ "$link" =~ ^https://open\.spotify\.com/ ]] || {
+    echo "Error: Invalid Spotify link format" >&2
+    echo "Link should start with 'https://open.spotify.com/'" >&2
+    exit 1
+}
 
-# Temporarily store album names and corresponding file counts
-declare -A album_count
+# Create output directory if needed (with better error handling)
+mkdir -p "$output_folder" 2>/dev/null || {
+    echo "Error: Failed to create output directory" >&2
+    exit 1
+}
 
-# Populate album_count with album names and file counts
-while IFS= read -r file; do
-    album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
-    track=$(ffprobe -v error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
-    # Skip processing if album name is empty
-    if [ -z "$album" ]; then
-        echo "Warning: Skipping a track without an album tag ($file)"
-        continue
-    fi
-    # Properly increment album count
-    ((album_count["$album"]++))
-done < <(find "$output_folder" -type f -name "*.m4a")
+echo "Starting download..."
 
-# Move files to album folders only if there's more than one file for that album
-while IFS= read -r file; do
-    if [[ -f "$file" ]]; then
-        album=$(ffprobe -v error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
-        track=$(ffprobe -v error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$file" | python -c 'import sys, unidecode; print(unidecode.unidecode(sys.stdin.read()))')
-        # Check again for empty album to avoid errors in subshell
-        if [ -z "$album" ]; then
-            continue
-        fi
-        if [[ ${album_count["$album"]} -gt 1 ]]; then
-            mkdir -p "$output_folder/$album"
-            mv "$file" "$output_folder/$album/$track.m4a"
-        fi
-    fi
-done < <(find "$output_folder" -type f -name "*.m4a")
+# Run spotdl with correct argument order
+cd "$output_folder" && spotdl \
+    --format m4a \
+    --output "{artist}_{title}" \
+    --threads 8 \
+    --restrict \
+    --sponsor-block \
+    download "$link" || {
+    echo "Error: Download failed" >&2
+    exit 1
+}
+
+echo "Download completed successfully!"
