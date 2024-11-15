@@ -91,7 +91,6 @@ dbus-glib
 dconf
 debugedit
 default-cursors
-depotdownloader-git
 desktop-file-utils
 device-mapper
 dialog
@@ -191,6 +190,7 @@ gnome-system-monitor
 gnupg
 gnutls
 go
+gobject-introspection
 gobject-introspection-runtime
 google-meet-nativefier
 gperftools
@@ -817,6 +817,7 @@ python-build
 python-cachecontrol
 python-cachetools
 python-cachy
+python-cairo
 python-certifi
 python-cffi
 python-charset-normalizer
@@ -840,6 +841,7 @@ python-docutils
 python-dotenv
 python-dulwich
 python-emoji
+python-fabric-git
 python-fastapi
 python-fasteners
 python-fastjsonschema
@@ -871,10 +873,13 @@ python-keyboard
 python-keyring
 python-lark-parser
 python-lockfile
+python-loguru
 python-lxml
 python-magic
+python-mako
 python-markdown
 python-markdown-it-py
+python-markupsafe
 python-mdurl
 python-more-itertools
 python-msgpack
@@ -1029,7 +1034,6 @@ shaderc
 shadow
 shared-mime-info
 shiboken6
-slack-desktop
 slang
 slurp
 snappy

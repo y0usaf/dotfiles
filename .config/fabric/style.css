@@ -1,0 +1,42 @@
+* {
+    all: unset;
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px  1px 0 #000,
+                  1px  1px 0 #000,
+                 -1px  0px 0 #000,
+                  1px  0px 0 #000,
+                  0px -1px 0 #000,
+                  0px  1px 0 #000;
+}
+
+#workspaces {
+    margin: 1px;
+}
+
+#workspaces > button {
+    min-width: 14px;
+    padding: 0 1px;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+#workspaces > button > label {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#workspaces > button.active > label {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#workspaces > button.empty > label {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces > button.urgent > label {
+    color: #ff5555;
+} 
