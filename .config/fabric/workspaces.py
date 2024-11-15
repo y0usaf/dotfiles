@@ -30,6 +30,6 @@ if __name__ == "__main__":
         all_visible=True,
     )
 
-    app = Application("workspace-indicator", [top_window, bottom_window])
+    app = Application("workspaces", [top_window, bottom_window])
     app.set_stylesheet_from_file(get_relative_path("style.css"))
     app.run()
