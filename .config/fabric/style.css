@@ -14,28 +14,24 @@
 
 #workspaces {
     margin: 1px;
+    background: none;
 }
 
-#workspaces > button {
+#workspace-label {
     min-width: 14px;
     padding: 0 1px;
     background: none;
-    box-shadow: none;
-    border: none;
-}
-
-#workspaces > button > label {
     color: rgba(255, 255, 255, 0.4);
 }
 
-#workspaces > button.active > label {
+#workspace-label.active {
     color: rgba(255, 255, 255, 1.0);
 }
 
-#workspaces > button.empty > label {
-    color: rgba(255, 255, 255, 0.2);
+#workspace-label.inactive {
+    color: rgba(255, 255, 255, 0.5);
 }
 
-#workspaces > button.urgent > label {
+#workspace-label.urgent {
     color: #ff5555;
 } 
