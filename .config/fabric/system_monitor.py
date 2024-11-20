@@ -29,8 +29,8 @@ class SystemMonitor(Window):
         self.cpu_temp_label = Label(name="cpu-temp")
         self.gpu_temp_label = Label(name="gpu-temp")
 
-        # Create main container
-        self.container = Box(
+        # Create main container and add it to the window
+        container = Box(
             name="monitor-box",
             orientation="h",
             spacing=20,
@@ -42,7 +42,7 @@ class SystemMonitor(Window):
             ],
         )
 
-        self.add(self.container)
+        self.add(container)
 
         # Start update loop
         invoke_repeater(1000, self.update_stats)
