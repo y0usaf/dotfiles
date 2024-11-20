@@ -27,7 +27,6 @@ archlinux-keyring
 argon2
 aribb24
 at-spi2-core
-atkmm
 attr
 audit
 autoconf
@@ -56,9 +55,7 @@ ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
 cabextract
-cadmus-appimage
 cairo
-cairomm
 cairomm-1.16
 cantarell-fonts
 capitaine-cursors
@@ -78,7 +75,9 @@ cppdap
 cryptsetup
 csvlens
 cuda
+cups
 cups-filters
+cups-pdf
 curl
 cursor-bin
 czkawka-gui-bin
@@ -181,7 +180,6 @@ glib
 glib-networking
 glib2
 glibc
-glibmm
 glibmm-2.68
 glslang
 glu
@@ -218,7 +216,6 @@ gtk2
 gtk3
 gtk4
 gtkmm-4.0
-gtkmm3
 gtksourceview3
 gts
 guile
@@ -228,7 +225,7 @@ gzip
 handbrake
 harfbuzz
 harfbuzz-icu
-heroic-games-launcher-electron
+heroic-games-launcher
 hicolor-icon-theme
 hidapi
 highway
@@ -241,6 +238,7 @@ hyphen
 hyprcursor-git
 hyprland-git
 hyprlang-git
+hyprshade-git
 hyprutils-git
 hyprwayland-scanner-git
 iana-etc
@@ -281,7 +279,6 @@ kexec-tools
 keyutils
 ki18n
 kmod
-komikku
 kpipewire
 krb5
 kstatusnotifieritem
@@ -467,7 +464,6 @@ libidn
 libidn2
 libiec61883
 libieee1284
-libimagequant
 libimobiledevice
 libimobiledevice-glue
 libinih
@@ -538,7 +534,6 @@ libsamplerate
 libsasl
 libseccomp
 libsecret
-libsigc++
 libsigc++-3.0
 libsixel
 libsm
@@ -655,7 +650,6 @@ lzo
 m4
 mailcap
 make
-mako
 mari0
 mbedtls
 md4c
@@ -680,7 +674,6 @@ mujs
 mypaint-brushes1
 nano
 ncurses
-neovide
 neovim
 net-snmp
 netpbm
@@ -741,7 +734,6 @@ pahole
 pam
 pambase
 pango
-pangomm
 pangomm-2.48
 parallel
 parsec-bin
@@ -812,7 +804,6 @@ python-autocommand
 python-bandcamp-api
 python-beautifulsoup4
 python-botocore
-python-brotli
 python-build
 python-cachecontrol
 python-cachetools
@@ -821,14 +812,13 @@ python-cairo
 python-certifi
 python-cffi
 python-charset-normalizer
+python-chevron
 python-cleo
 python-click
 python-colorama
-python-colorthief
 python-crashtest
 python-cryptography
 python-dacite
-python-dateparser
 python-dateutil
 python-dbus
 python-demjson3
@@ -840,7 +830,6 @@ python-distro
 python-docutils
 python-dotenv
 python-dulwich
-python-emoji
 python-fabric-git
 python-fastapi
 python-fasteners
@@ -866,6 +855,7 @@ python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
 python-jeepney
+python-jinja
 python-jmespath
 python-jsonschema
 python-jsonschema-specifications
@@ -875,7 +865,6 @@ python-lark-parser
 python-lockfile
 python-loguru
 python-lxml
-python-magic
 python-mako
 python-markdown
 python-markdown-it-py
@@ -885,12 +874,8 @@ python-more-itertools
 python-msgpack
 python-multidict
 python-mutagen
-python-natsort
 python-packaging
 python-pexpect
-python-piexif
-python-pillow
-python-pillow-heif
 python-pip
 python-pkginfo
 python-platformdirs
@@ -916,15 +901,16 @@ python-pykakasi
 python-pyproject-hooks
 python-pyqt5
 python-pyqt5-sip
+python-pyqt6
+python-pyqt6-sip
+python-pyqt6-webengine
 python-pytest
 python-pytube
 python-pytz
 python-pyxdg
 python-rapidfuzz
-python-rarfile
 python-redis
 python-referencing
-python-regex
 python-requests
 python-requests-toolbelt
 python-rich
@@ -943,7 +929,6 @@ python-spotipy
 python-starlette
 python-steam
 python-syncedlyrics
-python-tabulate
 python-tenacity
 python-termcolor
 python-tests
@@ -952,7 +937,6 @@ python-tomlkit
 python-tqdm
 python-trove-classifiers
 python-typing_extensions
-python-tzlocal
 python-uc-micro-py
 python-unidecode
 python-urllib3
@@ -1000,6 +984,7 @@ qt6-wayland
 qt6-webchannel
 qt6-webengine
 quark-player-bin
+qutebrowser
 r2modman-appimage
 ranger
 rav1e
@@ -1041,7 +1026,6 @@ sndio
 sord
 sound-theme-freedesktop
 source-highlight
-spdlog
 speex
 speexdsp
 spirv-tools
@@ -1119,10 +1103,8 @@ vlc
 vmaf
 vulkan-headers
 vulkan-icd-loader
-vulkan-tools
 vulkan-validation-layers
 wallust
-waybar
 wayland
 wayland-protocols
 webkit2gtk
@@ -1184,7 +1166,6 @@ xxhash
 xz
 yad
 yt-dlp
-zed
 zenity
 zeromq
 zimg
