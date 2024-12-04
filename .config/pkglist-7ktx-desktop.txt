@@ -21,7 +21,7 @@ aom
 appstream
 apr
 apr-util
-aquamarine-git
+aquamarine
 arch-install-scripts
 archlinux-keyring
 argon2
@@ -55,11 +55,14 @@ ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
 cabextract
+cachyos-keyring
+cachyos-mirrorlist
+cachyos-v3-mirrorlist
+cachyos-v4-mirrorlist
 cairo
 cairomm-1.16
 cantarell-fonts
 capitaine-cursors
-cava
 cblas
 cdparanoia
 chrono-date
@@ -155,6 +158,7 @@ fx
 fzf
 gale-bin
 gamemode
+gamescope
 gawk
 gc
 gcc
@@ -168,7 +172,6 @@ gdb-common
 gdbm
 gdk-pixbuf2
 gegl
-geoclue
 gettext
 ghostscript
 giflib
@@ -184,6 +187,8 @@ glibmm-2.68
 glslang
 glu
 gmp
+gnome-desktop
+gnome-desktop-common
 gnome-system-monitor
 gnupg
 gnutls
@@ -235,12 +240,12 @@ http-parser
 hwdata
 hwloc
 hyphen
-hyprcursor-git
-hyprland-git
-hyprlang-git
-hyprshade-git
-hyprutils-git
-hyprwayland-scanner-git
+hyprcursor
+hyprland
+hyprlang
+hyprshade
+hyprutils
+hyprwayland-scanner
 iana-etc
 icu
 ijs
@@ -248,7 +253,6 @@ imagemagick
 imath
 imv
 inetutils
-iniparser
 inxi
 iproute2
 iptables
@@ -383,6 +387,7 @@ lib32-opus
 lib32-p11-kit
 lib32-pam
 lib32-pcre2
+lib32-spirv-tools
 lib32-sqlite
 lib32-systemd
 lib32-util-linux
@@ -390,7 +395,8 @@ lib32-vkd3d
 lib32-vulkan-icd-loader
 lib32-wayland
 lib32-xz
-lib32-zlib
+lib32-zlib-ng
+lib32-zlib-ng-compat
 lib32-zstd
 libadwaita
 libaio
@@ -464,6 +470,7 @@ libidn
 libidn2
 libiec61883
 libieee1284
+libimagequant
 libimobiledevice
 libimobiledevice-glue
 libinih
@@ -510,7 +517,6 @@ libnotify
 libnsgif
 libnsl
 libogg
-libomxil-bellagio
 libopenmpt
 libp11-kit
 libpaper
@@ -608,6 +614,7 @@ libxpm
 libxpresent
 libxrandr
 libxrender
+libxres
 libxshmfence
 libxslt
 libxss
@@ -622,6 +629,8 @@ licenses
 lilv
 linux
 linux-api-headers
+linux-cachyos-autofdo
+linux-cachyos-autofdo-headers
 linux-firmware
 linux-firmware-whence
 linux-headers
@@ -629,6 +638,7 @@ linux-lts
 linux-lts-headers
 linux-zen
 linux-zen-headers
+lld
 llvm
 llvm-libs
 lm_sensors
@@ -642,6 +652,7 @@ lsof
 lua
 lua51-lpeg
 luajit
+lutris
 lv2
 lvm2
 lxmenu-data
@@ -656,6 +667,7 @@ md4c
 mdadm
 menu-cache
 mesa
+mesa-utils
 meson
 miniupnpc
 minizip
@@ -697,7 +709,7 @@ nss
 ntfs-3g
 numactl
 nvflash
-nvidia-beta-dkms
+nvidia-dkms
 nvidia-utils
 nvim-lazy
 nvtop
@@ -812,7 +824,6 @@ python-cairo
 python-certifi
 python-cffi
 python-charset-normalizer
-python-chevron
 python-cleo
 python-click
 python-colorama
@@ -830,6 +841,7 @@ python-distro
 python-docutils
 python-dotenv
 python-dulwich
+python-evdev
 python-fabric-git
 python-fastapi
 python-fasteners
@@ -855,7 +867,6 @@ python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
 python-jeepney
-python-jinja
 python-jmespath
 python-jsonschema
 python-jsonschema-specifications
@@ -870,12 +881,14 @@ python-markdown
 python-markdown-it-py
 python-markupsafe
 python-mdurl
+python-moddb
 python-more-itertools
 python-msgpack
 python-multidict
 python-mutagen
 python-packaging
 python-pexpect
+python-pillow
 python-pip
 python-pkginfo
 python-platformdirs
@@ -901,9 +914,6 @@ python-pykakasi
 python-pyproject-hooks
 python-pyqt5
 python-pyqt5-sip
-python-pyqt6
-python-pyqt6-sip
-python-pyqt6-webengine
 python-pytest
 python-pytube
 python-pytz
@@ -984,7 +994,6 @@ qt6-wayland
 qt6-webchannel
 qt6-webengine
 quark-player-bin
-qutebrowser
 r2modman-appimage
 ranger
 rav1e
@@ -1061,7 +1070,6 @@ telegram-desktop-bin
 testdisk
 texinfo
 thin-provisioning-tools
-thorium-browser-bin
 tinycompress
 tinysparql
 tk
@@ -1080,6 +1088,7 @@ ttf-iosevkatermslab-nerd
 ttf-liberation
 tzdata
 uchardet
+ungoogled-chromium-bin
 unibilium
 universal-android-debloater
 unixodbc
@@ -1095,6 +1104,7 @@ v4l-utils
 vapoursynth
 verdict
 vesktop-bin
+vial-appimage
 vid.stab
 vim
 vim-runtime
@@ -1103,6 +1113,7 @@ vlc
 vmaf
 vulkan-headers
 vulkan-icd-loader
+vulkan-tools
 vulkan-validation-layers
 wallust
 wayland
@@ -1115,6 +1126,7 @@ webrtc-audio-processing-1
 wev
 wget
 which
+windsurf-bin
 wine
 wireless-regdb
 wireplumber
@@ -1141,7 +1153,7 @@ xcur2png
 xdg-dbus-proxy
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdg-ninja-git
 xdg-user-dirs
 xdg-utils
@@ -1160,6 +1172,7 @@ xorg-xset
 xorg-xwayland
 xorg-xwininfo
 xorgproto-git
+xr-driver-git
 xvidcore
 xwaylandvideobridge-git
 xxhash
@@ -1171,7 +1184,8 @@ zeromq
 zimg
 zip
 zix
-zlib
+zlib-ng
+zlib-ng-compat
 zoom
 zsh
 zstd
