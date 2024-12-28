@@ -1,5 +1,0 @@
-[templates]
-#[templates.gtk]
-# src = "gtk.css"
-#dst = "/home/y0usaf/dotfiles/.config/gtk-3.0/gtk.css"
-#new_engine = true

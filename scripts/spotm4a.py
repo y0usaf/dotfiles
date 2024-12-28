@@ -10,11 +10,21 @@ from collections import defaultdict
 
 def check_dependencies() -> None:
     """Verify spotdl is installed."""
-    try:
-        subprocess.run(["spotdl", "--version"], capture_output=True, check=True)
-    except (subprocess.CalledProcessError, FileNotFoundError):
+    venv_path = Path.home() / ".venv"
+    spotdl_path = venv_path / "bin" / "spotdl"
+    
+    if not spotdl_path.exists():
         print(
-            "Error: spotdl is not installed. Install with: pip install spotdl",
+            "Error: spotdl is not installed in the virtual environment. Install with: uv pip install spotdl",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    
+    try:
+        subprocess.run([str(spotdl_path), "--version"], capture_output=True, check=True)
+    except subprocess.CalledProcessError:
+        print(
+            "Error: spotdl installation appears to be broken. Try reinstalling with: uv pip install spotdl",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -22,10 +32,11 @@ def check_dependencies() -> None:
 
 def download_music(output_folder: str, spotify_link: str) -> bool:
     """Download music using spotdl."""
+    spotdl_path = Path.home() / ".venv" / "bin" / "spotdl"
     try:
         result = subprocess.run(
             [
-                "spotdl",
+                str(spotdl_path),
                 "--format",
                 "m4a",
                 "--output",
