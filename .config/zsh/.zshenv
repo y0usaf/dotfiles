@@ -75,10 +75,10 @@ export SSB_HOME="$XDG_DATA_HOME/zoom"
 #  MACHINE-SPECIFIC SETTINGS
 # =============================================================================
 # Hostname-specific directories
-if [ "$(hostname)" = "7ktx-desktop" ]; then
+if [ "$(hostname)" = "y0usaf-desktop" ]; then
     export XDG_MUSIC_DIR="/data/Music"
     export WALLPAPER_DIR="$HOME/DCIM/Wallpapers/32_9"
-elif [ "$(hostname)" = "7ktx-laptop" ]; then
+elif [ "$(hostname)" = "y0usaf-laptop" ]; then
     export XDG_MUSIC_DIR="$HOME/Music"
     export WALLPAPER_DIR="$HOME/DCIM/Wallpapers/16_9"
 fi

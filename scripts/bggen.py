@@ -3,8 +3,8 @@
 from PIL import Image
 
 # Define input image path
-image_path = "/home/7ktx/DCIM/Twitch/BG_5400x5400.png"
-output_path = "/home/7ktx/DCIM/Twitch/output.gif"
+image_path = "/home/y0usaf/DCIM/Twitch/BG_5400x5400.png"
+output_path = "/home/y0usaf/DCIM/Twitch/output.gif"
 # Define movement parameters
 movement = (5, 5)  # Pixels to move diagonally per frame
 

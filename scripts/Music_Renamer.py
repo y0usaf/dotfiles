@@ -28,5 +28,5 @@ def rename_folders_recursively(start_path):
 
 # Example usage
 if __name__ == "__main__":
-    start_directory = "/home/7ktx/Music"  # Change to your start directory
+    start_directory = "/home/y0usaf/Music"  # Change to your start directory
     rename_folders_recursively(start_directory)

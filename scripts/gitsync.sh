@@ -2,7 +2,7 @@
 
 # Define the directory and remote repository
 DOTFILES_DIR="$HOME/dotfiles"
-REMOTE_REPO="git@github.com-7ktx:7ktx/dotfiles.git"
+REMOTE_REPO="git@github.com-y0usaf:y0usaf/dotfiles.git"
 
 # Change to the dotfiles directory
 cd "$DOTFILES_DIR" || exit 1

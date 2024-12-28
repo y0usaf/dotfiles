@@ -38,7 +38,7 @@ def process_json_file(file_path, output_file_path=None):
 
 # Example usage
 if __name__ == "__main__":
-    file_path = Path('/home/7ktx/extractiondolphin.json')  # Path to the input JSON file
+    file_path = Path('/home/y0usaf/extractiondolphin.json')  # Path to the input JSON file
     output_file_path = Path('converted_input.json')  # Path to the output JSON file, optional
     
     process_json_file(file_path, output_file_path)

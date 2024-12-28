@@ -3,7 +3,7 @@ Description=Run dotlink script
 
 [Service]
 Type=oneshot
-ExecStart=/home/7ktx/dotfiles/scripts/dotlink.sh
+ExecStart=/home/y0usaf/dotfiles/scripts/dotlink.sh
 
 [Install]
 WantedBy=default.target

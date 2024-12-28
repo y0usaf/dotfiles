@@ -37,9 +37,9 @@ alias pacfix='sudo rm /var/lib/pacman/db.lck' # Fix pacman database
 alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"' # Check for altered files
 
 # Host-specific Aliases
-if [ "$(hostname)" = "7ktx-desktop" ]; then
+if [ "$(hostname)" = "y0usaf-desktop" ]; then
     alias gpupower='sudo nvidia-smi -pl' # Get GPU power on desktop
-elif [ "$(hostname)" = "7ktx-laptop" ]; then
+elif [ "$(hostname)" = "y0usaf-laptop" ]; then
     fanspeed() { # Set fan speed on laptop
         if [ -z "$1" ]; then
             echo "Usage: fanspeed <percentage>"
@@ -63,7 +63,7 @@ alias depcount='{
 
 # Utility Aliases
 alias userctl='systemctl --user' # Run systemctl with user flag
-alias ooba='/home/7ktx/text-generation-webui/start_linux.sh' # Run ooba script
+alias ooba='/home/y0usaf/text-generation-webui/start_linux.sh' # Run ooba script
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings' # Run NVIDIA settings
 alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output' # Run ESRGAN
 
