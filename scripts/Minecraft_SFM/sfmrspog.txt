@@ -1,0 +1,53 @@
+name "RSPog"
+
+every 1 ticks do
+    input fe:: from cell
+    output fe:: to energy
+    output fe:: to energy top side
+    output fe:: to energy bottom side
+    output fe:: to energy north side
+    output fe:: to energy south side
+    output fe:: to energy west side
+    output fe:: to energy east side
+    forget
+end
+
+every 20 ticks do
+    input from furnace_interface
+    output to furnace top side
+    forget
+end
+
+every 20 ticks do
+    input from furnace bottom side
+    output to furnace_interface
+end
+
+every 20 ticks do
+    input *red* from mek_interface
+    output *red* to mek_red_infuser east side
+end
+
+every 20 ticks do
+    input mekanism:enriched_diamond from mek_interface
+    output mekanism:enriched_diamond to mek_dia_infuser east side
+end
+
+every 20 ticks do 
+    input mekanism:dust_refined_obsidian from mek_interface
+    output mekanism:dust_refined_obsidian to mek_refobs_infuser east side
+end
+
+every 20 ticks do
+    input alltheores:osmium_ingot from mek_interface
+    output alltheores:osmium_ingot to mek_compressor east side
+end
+
+every 20 ticks do
+    input from mek_refobs_infuser bottom side
+    input from mek_red_infuser bottom side
+    input from mek_dia_infuser bottom side
+    input from mek_compressor bottom side
+    input from mek_enricher bottom side
+    output to mek_interface
+end

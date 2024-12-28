@@ -1,0 +1,51 @@
+name "SFM Beepog"
+
+every 1 ticks do
+  input fe:: from ender_cell
+  output fe:: to energy
+end
+
+every 20 ticks do
+  input  from breeding_chamber slots 5
+  output to incubator slots 0
+end
+
+every 20 ticks do
+  input productivebees:honey_treat from interface
+  output productivebees:honey_treat to incubator
+end
+
+every 20 ticks do
+  input from catcher slots 2-10
+  output to incubator slots  0
+end
+
+every 20 ticks do
+  input except productivebees:gene from centrifuge slots 2-10
+  output to interface
+end
+
+every 20 ticks do
+  input productivebees:gene from centrifuge slots 2-10
+  output gene to indexer
+end
+
+every 20 ticks do
+  input productivebees:sturdy_bee_cage from interface
+  output to breeding_chamber slots 0
+end
+
+every 20 ticks do
+  input minecraft:poppy from interface
+  output to breeding_chamber slots 3-4
+end
+
+every 20 ticks do
+  input minecraft:glass_bottle from interface
+  output minecraft:glass_bottle to bottler slots 0
+end
+
+every 20 ticks do
+  input productivebees:sturdy_bee_cage from clicker slots 0
+  output to interface
+end

@@ -1,0 +1,37 @@
+* {
+    all: unset;
+    font-size: 14px;
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px  1px 0 #000,
+                  1px  1px 0 #000,
+                 -1px  0px 0 #000,
+                  1px  0px 0 #000,
+                  0px -1px 0 #000,
+                  0px  1px 0 #000;
+}
+
+#workspaces {
+    margin: 1px;
+    background: none;
+}
+
+#workspace-label {
+    min-width: 14px;
+    padding: 0 1px;
+    background: none;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#workspace-label.active {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#workspace-label.inactive {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#workspace-label.urgent {
+    color: #ff5555;
+} 

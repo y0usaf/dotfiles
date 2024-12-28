@@ -1,0 +1,88 @@
+# Text Editor Aliases
+alias aliases='nvim $HOME/dotfiles/.config/zsh/aliases' # Edit aliases file
+alias agscfg='nvim $HOME/dotfiles/.config/ags/config.js' # Edit AGS config
+alias swaycfg='nvim $HOME/dotfiles/.config/sway/*' # Edit Sway config
+alias footcfg='nvim $HOME/dotfiles/.config/foot/foot.ini' # Edit Foot config
+alias hyprcfg='nvim $HOME/dotfiles/.config/hypr/hyprland.conf' # Edit Hyprland config
+alias cavacfg='nvim $HOME/dotfiles/.config/cava/config' # Edit Cava config
+alias zshrc='nvim $HOME/dotfiles/.config/zsh/.zshrc' # Edit ZSH config
+alias zshenv='nvim $HOME/dotfiles/.config/zsh/.zshenv' # Edit ZSH environment
+alias zprofile='nvim $HOME/dotfiles/.config/zsh/.zprofile' # Edit ZSH profile
+alias waybarcfg='nvim $HOME/dotfiles/.config/waybar/config' # Edit Waybar config
+alias waybarcss='nvim $HOME/dotfiles/.config/waybar/style.css' # Edit Waybar CSS
+alias fontconfig='nvim $HOME/dotfiles/.config/fontconfig/fonts.conf' # Edit Fontconfig
+alias scripts='nvim $HOME/dotfiles/scripts/' # Edit scripts directory
+alias zshistory='nvim $XDG_CONFIG_HOME/zsh/.zsh_history' # Edit ZSH history
+alias gitignore='nvim $HOME/.gitignore' # Edit Git ignore file
+
+# System Maintenance Aliases
+alias dotlink='$HOME/dotfiles/scripts/dotlink.sh' # Run dotlink script
+alias dotsync='$HOME/dotfiles/scripts/dotsync.sh' # Run dotsync script
+alias dotpull='$HOME/dotfiles/scripts/dotsync.sh pull' # Run dotsync pull
+alias dotpush='$HOME/dotfiles/scripts/dotsync.sh push' # Run dotsync push
+alias sysup='$HOME/scripts/sysup.sh' # Run sysup script
+
+# Yarn and ADB Aliases
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config" # Run yarn with custom config
+alias adb='HOME="$XDG_DATA_HOME"/android adb' # Run ADB with custom home
+
+# Music Downloading Aliases
+alias ytm4a='$HOME/scripts/ytm4a.sh' # Run ytm4a script
+alias spotm4a='$HOME/scripts/spotm4a.py' # Run spotm4a script
+
+# Package Management Aliases
+alias pkgs='paru -Qq | grep ' # Search for packages
+alias orphans='pacman -Qttdq' # List orphan packages
+alias pacfix='sudo rm /var/lib/pacman/db.lck' # Fix pacman database
+alias filecheck='paru -Qkk 2>&1 | grep -v "0 altered files"' # Check for altered files
+
+# Host-specific Aliases
+if [ "$(hostname)" = "y0usaf-desktop" ]; then
+    alias gpupower='sudo nvidia-smi -pl' # Get GPU power on desktop
+elif [ "$(hostname)" = "y0usaf-laptop" ]; then
+    fanspeed() { # Set fan speed on laptop
+        if [ -z "$1" ]; then
+            echo "Usage: fanspeed <percentage>"
+            return 1
+        fi
+
+        local speed="$1"
+
+        asusctl fan-curve -m quiet -D "30c:$speed,40c:$speed,50c:$speed,60c:$speed,70c:$speed,80c:$speed,90c:$speed,100c:$speed" -e true -f gpu
+        asusctl fan-curve -m quiet -D "30c:$speed,40c:$speed,50c:$speed,60c:$speed,70c:$speed,80c:$speed,90c:$speed,100c:$speed" -e true -f cpu
+    }
+fi
+
+# Complex Aliases
+alias depcount='{
+    for pkg in $(pacman -Qq); do
+        dep_count=$(pactree -u "$pkg" | wc -l);
+        echo "$pkg $dep_count";
+    done | sort -nk2 -r
+} && echo "Dependency count completed successfully" || echo "An error occurred."'
+
+# Utility Aliases
+alias userctl='systemctl --user' # Run systemctl with user flag
+alias ooba='/home/y0usaf/text-generation-webui/start_linux.sh' # Run ooba script
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings' # Run NVIDIA settings
+alias esrgan='realesrgan-ncnn-vulkan -i ~/Pictures/Upscale/Input -o ~/Pictures/Upscale/Output' # Run ESRGAN
+
+# Directory Listing Aliases
+alias l.='lsd -A | grep -E "^\."' # List hidden files
+alias la='lsd -A --color=always --group-dirs=first --icon=always' # List all files with icons
+alias ll='lsd -l --color=always --group-dirs=first --icon=always' # List files with details
+alias ls='lsd -lA --color=always --group-dirs=first --icon=always' # List all files with details
+alias lt='lsd -A --tree --color=always --group-dirs=first --icon=always' # List files in tree view
+
+# Grep and Dir Aliases
+alias grep='grep --color=auto' # Run grep with color
+alias dir='dir --color=auto' # Run dir with color
+alias egrep='grep -E --color=auto' # Run egrep with color
+alias fgrep='grep -F --color=auto' # Run fgrep with color
+
+# Network Aliases
+alias tailup='sudo tailscale up' # Start Tailscale
+alias taildown='sudo tailscale down' # Stop Tailscale
+
+# Miscellaneous Aliases
+alias compressvid='~/dotfiles/scripts/compressvid.sh'

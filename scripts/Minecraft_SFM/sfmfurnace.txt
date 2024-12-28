@@ -1,0 +1,17 @@
+NAME "FurnacePog"
+
+EVERY 20 TICKS DO
+    INPUT *coal* from interface
+    OUTPUT *coal* to furnace slots 1
+END
+
+EVERY 20 TICKS DO
+    input *:* from furnace_chest
+    input *:* from interface
+    output *:* to furnace slots 0
+END
+
+EVERY 20 TICKS DO
+    input *:* from furnace slots 2
+    output *:* to interface
+END

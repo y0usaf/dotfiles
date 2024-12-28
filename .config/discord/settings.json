@@ -1,0 +1,17 @@
+{
+  "IS_MAXIMIZED": false,
+  "IS_MINIMIZED": false,
+  "WINDOW_BOUNDS": {
+    "x": 7686,
+    "y": 37,
+    "width": 2543,
+    "height": 1366
+  },
+  "trayBalloonShown": true,
+  "openasar": {
+    "setup": true
+  },
+  "OPEN_ON_STARTUP": false,
+  "MINIMIZE_TO_TRAY": false,
+  "enableHardwareAcceleration": false
+}

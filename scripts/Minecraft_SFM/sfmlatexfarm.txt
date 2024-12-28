@@ -1,0 +1,52 @@
+name "IndustrialForegoingLatexSetup"
+
+every 1 ticks do
+  input fe:: from cell
+  output fe:: to extractor
+  output fe:: to phyto
+  output fe:: to dissolution_chamber
+  forget
+end
+
+every 20 ticks do
+  input fluid:: from sink
+  output fluid:: to phyto
+  forget
+end
+
+every 20 ticks do
+  input *sapling* from phyto slots 2-5
+  output *sapling* to phyto slots 0
+  forget
+end
+
+every 20 ticks do
+  input *apple* from phyto slots 2-5
+  output *apple* to trash
+  forget
+end
+
+every 20 ticks do
+  if phyto has >= 1 *sapling* then
+    output retain 1 *sapling* to trash
+  end
+  forget
+end
+
+every 20 ticks do
+  input *log* from phyto slots 2-5
+  output *log* to router
+  forget
+end
+
+every 20 ticks do
+  input fluid:industrialforegoing:latex from extractor top side
+  output fluid:industrialforegoing:latex to tank bottom side
+  forget
+end
+
+every 20 ticks do
+  input fluid:industrialforegoing:latex from tank top side
+  output fluid:industrialforegoing:latex to dissolution_chamber
+  forget
+end

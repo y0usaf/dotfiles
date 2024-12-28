@@ -1,0 +1,9 @@
+[Unit]
+Description=Run dotlink script every hour
+
+[Timer]
+OnUnitActiveSec=1h
+Unit=dotlink.service
+
+[Install]
+WantedBy=timers.target

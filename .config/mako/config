@@ -1,0 +1,8 @@
+background-color=#00000000
+text-color=#FFFFFF
+border-color=#00000000
+default-timeout=10000
+layer=overlay
+
+[urgency=high]
+text-color=#FF0000

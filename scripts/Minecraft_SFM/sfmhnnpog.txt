@@ -1,0 +1,21 @@
+name "HNN POG"
+
+every 20 ticks do
+   input *matrix* from chest
+   output *matrix* to simulation_chamber slots 1
+end
+
+every 20 ticks do
+    input *prediction* from simulation_chamber slots 2
+    output *prediction* to buffer_chest
+end
+
+every 20 ticks do
+    input *prediction* from simulation_chamber slots 3
+    output *prediction* to fabricator
+end
+
+every 20 ticks do
+    input *:* from fabricator slots 1-16
+    output *:* to buffer_chest
+end
