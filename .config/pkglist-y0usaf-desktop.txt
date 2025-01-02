@@ -72,7 +72,6 @@ cjson
 clang
 cmake
 cmus
-coin
 compiler-rt
 containerd
 coreutils
@@ -150,7 +149,6 @@ font-manager
 fontconfig
 foomatic-db-engine
 foot
-freecad
 freeglut
 freetype2
 fribidi
@@ -181,7 +179,6 @@ ghostscript
 giflib
 gimp
 git
-gl2ps
 glew-wayland-git
 glfw-wayland-minecraft-cursorfix
 glib
@@ -236,7 +233,6 @@ gzip
 handbrake
 harfbuzz
 harfbuzz-icu
-hdf5-openmpi
 heroic-games-launcher
 hicolor-icon-theme
 hidapi
@@ -252,8 +248,8 @@ hyprland
 hyprland-qtutils
 hyprlang
 hyprpicker-git
-hyprutils
-hyprwayland-scanner
+hyprutils-git
+hyprwayland-scanner-git
 iana-etc
 icu
 ijs
@@ -415,7 +411,6 @@ lib32-zlib-ng
 lib32-zlib-ng-compat
 lib32-zstd
 libadwaita
-libaec
 libaio
 libarchive
 libass
@@ -566,7 +561,6 @@ libsoup
 libsoup3
 libsoxr
 libspiro
-libspnav
 libssh
 libssh2
 libstemmer
@@ -646,8 +640,6 @@ licenses
 lilv
 linux
 linux-api-headers
-linux-cachyos
-linux-cachyos-headers
 linux-firmware
 linux-firmware-whence
 linux-headers
@@ -655,7 +647,6 @@ linux-lts
 linux-lts-headers
 linux-zen
 linux-zen-headers
-lld
 llvm
 llvm-libs
 lm_sensors
@@ -683,7 +674,6 @@ mari0
 mbedtls
 md4c
 mdadm
-med-openmpi
 menu-cache
 mesa
 mesa-utils
@@ -717,7 +707,6 @@ nnn
 node-gyp
 nodejs
 nodejs-nopt
-noise-suppression-for-voice
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -733,14 +722,12 @@ nvidia-utils
 nvim-lazy
 nvtop
 obs-backgroundremoval
-obs-multi-rtmp
 obs-studio-liberty
 obsidian
 ocl-icd
 onetbb
 oniguruma
 openal
-opencascade
 opencl-nvidia
 opencore-amr
 opencv
@@ -814,7 +801,6 @@ popt
 portaudio
 postgresql-libs
 prettier
-prismlauncher-qt5-bin
 procps-ng
 protobuf
 protonup-qt-bin
@@ -822,7 +808,6 @@ prrte
 psmisc
 pugixml
 pyenv
-pyside6
 python
 python-aiofiles
 python-aiohappyeyeballs
@@ -844,10 +829,8 @@ python-charset-normalizer
 python-cleo
 python-click
 python-colorama
-python-contourpy
 python-crashtest
 python-cryptography
-python-cycler
 python-dateutil
 python-dbus
 python-discid
@@ -861,7 +844,6 @@ python-fasteners
 python-fastjsonschema
 python-filelock
 python-fire
-python-fonttools
 python-frozenlist
 python-gobject
 python-h11
@@ -882,7 +864,6 @@ python-jmespath
 python-jsonschema
 python-jsonschema-specifications
 python-keyring
-python-kiwisolver
 python-lark-parser
 python-lockfile
 python-loguru
@@ -890,22 +871,18 @@ python-lxml
 python-mako
 python-markdown
 python-markupsafe
-python-matplotlib
 python-moddb
 python-more-itertools
 python-msgpack
 python-multidict
 python-mutagen
-python-numpy
 python-packaging
 python-pexpect
 python-pillow
 python-pip
-python-pivy
 python-pkginfo
 python-platformdirs
 python-pluggy
-python-ply
 python-poetry
 python-poetry-core
 python-poetry-plugin-export
@@ -917,7 +894,6 @@ python-pyasn1
 python-pycparser
 python-pycryptodomex
 python-pyjwt
-python-pyparsing
 python-pyproject-hooks
 python-pyqt5
 python-pyqt5-sip
@@ -956,14 +932,12 @@ python-wheel
 python-yaml
 python-yarl
 qbittorrent
-qhull
 qpdf
 qqc2-desktop-style
 qrcodegencpp-cmake
 qt5-base
 qt5-declarative
 qt5-gamepad
-qt5-imageformats
 qt5-location
 qt5-quickcontrols
 qt5-quickcontrols2
@@ -981,7 +955,6 @@ qt6-multimedia
 qt6-multimedia-ffmpeg
 qt6-positioning
 qt6-svg
-qt6-tools
 qt6-translations
 qt6-wayland
 qt6-webchannel
@@ -1020,13 +993,11 @@ serf
 shaderc
 shadow
 shared-mime-info
-shiboken6
 slang
 slurp
 snappy
 sndio
 sonnet
-soqt
 sord
 sound-theme-freedesktop
 source-highlight
@@ -1055,7 +1026,6 @@ systemd
 systemd-libs
 systemd-sysvcompat
 taglib
-tailscale
 tailwindcss-language-server
 tar
 tcl
@@ -1103,7 +1073,6 @@ visual-studio-code-bin
 vkd3d
 vlc
 vmaf
-vtk
 vulkan-headers
 vulkan-icd-loader
 vulkan-tools
@@ -1119,7 +1088,6 @@ webrtc-audio-processing-1
 wev
 wget
 which
-windsurf-bin
 wine
 wireless-regdb
 wireplumber
@@ -1151,7 +1119,6 @@ xdg-ninja-git
 xdg-user-dirs
 xdg-utils
 xdotool
-xerces-c
 xfsprogs
 xkeyboard-config
 xorg-fonts-encodings
@@ -1172,7 +1139,7 @@ xwaylandvideobridge-git
 xxhash
 xz
 yad
-yaml-cpp
+yt-dlp
 zenity
 zeromq
 zimg
